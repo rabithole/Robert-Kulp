@@ -1,5 +1,9 @@
 
-html, body {
+html {
+  background-color: none;
+} 
+
+body {
   background-color: black;
   background-image: url("../img/wheet_field.jpg");
   background-size: cover;
