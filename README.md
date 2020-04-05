@@ -10,6 +10,14 @@
 # React version: 
 	react: 16.13.1
 
+# Guidr
+	- Guidr is a school project. 
+	- Full CRUD is used. 
+	- The API is student built and has the following limitations. 
+	- The API is hosted on Heroku
+		- Data is reset periodically. I am unsure of the duration.
+		- It cannot upload a blob. 
+
 ## Guidr Trip Bugs
 	- This is a school project. 
 		- The API is student built. 

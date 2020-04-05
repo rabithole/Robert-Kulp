@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './css/App.css';
+import './css/guidr.css';
 
 import { getToken } from './utils/axiosWithAuth';
 import axiosWithAuth from './utils/axiosWithAuth';
@@ -72,6 +73,7 @@ function App(props) {
      	</header>
 
 
+    <div id='guidr'>
       <nav>
         {!signedIn && 
           <Link 
@@ -158,11 +160,7 @@ function App(props) {
         component={Logout}
       />
 
-      {/*
-      <ProtectedRoute 
-              exact path='/CreateProfile'
-              component={CreateProfile}
-            />*/}
+    </div>
 
     </div>
   );
