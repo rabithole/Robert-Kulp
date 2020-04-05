@@ -2,7 +2,7 @@ import React from 'react';
 import * as Yup from 'yup';
 import axios from 'axios';
 
-import './LoginForm.css';
+import '../css/LoginForm.css';
 
 import { withFormik, Form, Field } from 'formik';
 function SignUp({ values, errors, touched }) {

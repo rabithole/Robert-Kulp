@@ -3,7 +3,7 @@ import * as Yup from 'yup';
 // import axios from 'axios';
 import axiosWithAuth from '../utils/axiosWithAuth';
 
-import './LoginForm.css';
+import '../css/LoginForm.css';
 
 import { withFormik, Form, Field } from 'formik';
 
