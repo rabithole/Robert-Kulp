@@ -1,14 +1,11 @@
 
 html {
-  background-color: none;
+  background-color: black !important;
 } 
 
 body {
   background-color: black;
-  background-image: url("../img/wheet_field.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-
+  margin: 0;
   /*margin: 0;*/
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -18,8 +15,12 @@ body {
 }
 
 .App {
+  background-image: url("../img/wheet_field.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 600px;
   text-align: center;
-  margin-top: 5%;
+  /*margin-top: 0;*/
 }
 
 h1 {
