@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './App.css';
+import './css/App.css';
 
 import { getToken } from './utils/axiosWithAuth';
 import axiosWithAuth from './utils/axiosWithAuth';
@@ -66,6 +66,12 @@ function App(props) {
 
   return (
     <div className='App'>
+     	<header>
+      		<h1>A WORK IN PROGRESS</h1>
+      		<h1>SOMETHING MORE IS COMING SOON!</h1>
+     	</header>
+
+
       <nav>
         {!signedIn && 
           <Link 
@@ -105,6 +111,8 @@ function App(props) {
           </Link>
         */}
       </nav>
+
+{/*//////////////////////////////////////////////////*/}
 
       <Route 
         exact path='/login'
