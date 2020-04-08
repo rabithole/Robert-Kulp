@@ -25,4 +25,4 @@
 - Database resets periodically. Unsure of the time frame. 
 - Unmounted component error, Can't update state. 
 - Make check boxes work or remove the check boxes.
--  
+- rabithole.com/#/ Look into #/...
