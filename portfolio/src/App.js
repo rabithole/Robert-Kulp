@@ -90,7 +90,7 @@ function App(props) {
         {signedIn && 
           <Link 
             to='/CreateTrip'>
-              Create A Trip
+              Add Trip
           </Link>}
 
         {signedIn && 

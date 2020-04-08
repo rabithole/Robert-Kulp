@@ -57,9 +57,9 @@ function UpdateTrip(props) {
 
   	return (
   		<div className='CreateTrip'>
-  			<h1>Update Trip</h1>
 
   			<form onSubmit={handleSubmit} id='reset'>
+          <h1>Update Trip</h1>
   				<input 
   					type='text'
   					name='title'

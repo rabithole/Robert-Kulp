@@ -59,22 +59,28 @@ nav {
   padding: 50px;
 }
 
-a {
+nav a {
+  padding: 5px 25px;
   text-decoration: none;
+  font-size: 1.7em;
+  font-weight: 500;
+  background-color: #29a329;
+  margin: 2%;
+  border-radius: 8px;
   color: black;
+  box-shadow: 2px 2px 5px black;
 }
 
-nav a {
-  padding: 25px 45px;
-  text-decoration: none;
-  font-size: 2.5em;
+nav a:hover {
+  background-color: green;
+  color: #cccccc;
 }
 
 input {
   display: flex;
   margin: auto;
   margin-bottom: 10px;
-  width: 200px;
+  width: 80%;
   padding: 5px 10px;
   border-radius: 5px;
   /*box-shadow: 2px 2px 2px grey;*/
@@ -93,6 +99,7 @@ input {
   background-color: lightblue;
   border-radius: 10px;
   color: black;
+  box-shadow: 2px 2px 5px black;
 }
 
 .trip h1 {
@@ -105,6 +112,10 @@ input {
   border-top-right-radius: 10px;
 }
 
+.trip h2 {
+  text-decoration: none;
+}
+
 .CreateTrip {
   width: 50%;
   margin: auto;
@@ -113,12 +124,12 @@ input {
 
 form {
   margin: auto;
-  width: 60%;
+  width: 80%;
   padding: 3%;
   margin-bottom: 50px;
   border-radius: 20px;
   border: 2px solid black;
-  background-color: lightgrey;
+  background-color: lightblue;
 }
 
 input .checkbox {
@@ -126,10 +137,10 @@ input .checkbox {
 }
 
 .CreateTrip h1 {
-  width: 50%;
+  width: 80%;
   padding: 20px 10px 20px 10px;
   background-color: #e7e7e7;
-  margin: 0 auto;
+  margin: 4% auto;
   font-size: 1rem;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
