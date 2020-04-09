@@ -6,6 +6,7 @@
 #### NOAA: https://www.ncdc.noaa.gov/cdo-web/webservices/v2
 #### REQ|RES: https://reqres.in/
 #### VIN decoder: https://vpic.nhtsa.dot.gov/api/
+#### API build by student peer. 
 
 # React version: 
 	react: 16.13.1
@@ -26,3 +27,5 @@
 - Unmounted component error, Can't update state. 
 - Make check boxes work or remove the check boxes.
 - rabithole.com/#/ Look into #/...
+- Title the guidr project and fix the title placement in the modueles. 
+- Make the time stamp human readable. 
