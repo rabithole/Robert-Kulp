@@ -15,7 +15,7 @@
 - Guidr is a school project. 
 - Full CRUD is used. 
 - The API is student built and has the following limitations. 
-- The API is hosted on Heroku
+	- The API is hosted on Heroku
 	- Data is reset periodically. I am unsure of the duration.
 	- It cannot upload a blob. 
 
