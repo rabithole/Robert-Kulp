@@ -7,7 +7,7 @@ function Trips() {
 	const { trips } = useContext(TripsContext);
  	// console.log(trips)
 	return (
-	  	<div>
+	  	<div className='trips'>
 	  		
   			{trips.map(trip => (
   				<Link to={`/SingleTrip/${trip.id}`}>

@@ -22,8 +22,8 @@ function Trip(props) {
 
   	return (
   		<div className='trip'>
-  			<h1>TITLE</h1>
-  			<h2>{props.title}</h2>
+  			<h1>{props.title}</h1>
+  			
   			<h3>Click card for more details</h3>
 
   			<button onClick={event => deleteTrip(event, props.id)}>Delete Trip</button>

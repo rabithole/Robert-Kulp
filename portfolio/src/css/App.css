@@ -99,7 +99,7 @@ input {
   background-color: lightblue;
   border-radius: 10px;
   color: black;
-  box-shadow: 2px 2px 5px black;
+  box-shadow: 3px 3px 8px black;
 }
 
 .trip h1 {
@@ -107,12 +107,16 @@ input {
   padding: 20px 10px 20px 10px;
   background-color: #e7e7e7;
   margin: 0 auto;
-  font-size: 1rem;
+  font-size: 1.6rem;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
 
 .trip h2 {
+  text-decoration: none;
+}
+
+.trips a {
   text-decoration: none;
 }
 
