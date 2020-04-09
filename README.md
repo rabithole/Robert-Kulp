@@ -20,12 +20,8 @@
 	- It cannot upload a blob. 
 
 ## Guidr Trip Bugs
-- New trip page needs to be refreshed to show updated trip
-- Single trip description needs to be refreshed after being updated
-- Trips list needs refresh to update. 
 - Database resets periodically. Unsure of the time frame. 
 - Unmounted component error, Can't update state. 
 - Make check boxes work or remove the check boxes.
 - rabithole.com/#/ Look into #/...
-- Title the guidr project and fix the title placement in the modueles. 
 - Make the time stamp human readable. 
