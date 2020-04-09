@@ -46,6 +46,8 @@ function App(props) {
     })
   }
 
+  const dependArray = [trips.user_id, !signedIn, props.history, signedIn];
+
   useEffect(() => {
       // const decoded = jwtDecode(localStorage.getItem('token'));
       // // // console.log(decoded);
@@ -63,7 +65,7 @@ function App(props) {
         props.history.push('/Login');
         console.log(error)
       })
-    }, [trips.user_id, !signedIn, props.history, signedIn]); 
+    }, dependArray); 
 
   return (
     <div className='App'>
@@ -74,6 +76,11 @@ function App(props) {
 
 
     <div id='guidr'>
+    <section>
+	    <h1>Guided Trips</h1>
+	    <h5>A Lambda School Project</h5>
+	</section>
+
       <nav>
         {!signedIn && 
           <Link 
@@ -148,12 +155,12 @@ function App(props) {
           exact path='/UpdateTrip/:id'
           component={UpdateTrip}
         />
-      </TripsContext.Provider>
 
-      <ProtectedRoute
-        exact path='/CreateTrip'
-        component={CreateTrip}
-      />
+        <ProtectedRoute
+        	exact path='/CreateTrip'
+        	component={CreateTrip}
+      	/>
+      </TripsContext.Provider>
 
       <ProtectedRoute
         exact path='/Logout'

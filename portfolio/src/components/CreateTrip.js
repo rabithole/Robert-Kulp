@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { TripsContext } from '../contexts/TripsContext';
 import axiosWithAuth from '../utils/axiosWithAuth';
 
 const jwtDecode = require('jwt-decode');
 
 function CreateTrip() {
+  const { updateTrip } = useContext(TripsContext);
+
 	const [newTrip, addAtrip] = useState([]);
   // console.log(newTrip)
 
@@ -26,9 +29,10 @@ function CreateTrip() {
 		axiosWithAuth()
 		.post('trips', newTrip)
 		.then(response => {
-      console.log(newTrip);
+      // console.log(newTrip);
 			addAtrip({newTrip: response.data })
-      console.log(response)
+      updateTrip();
+      // console.log(response)
       document.getElementById('reset').reset();
 		})
     .catch(err => console.log(err.response, newTrip));

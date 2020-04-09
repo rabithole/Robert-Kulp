@@ -5,7 +5,7 @@ import axiosWithAuth from '../utils/axiosWithAuth';
 const jwtDecode = require('jwt-decode');
 
 function UpdateTrip(props) {
-  const { trips, updateTrip } = useContext(TripsContext);
+  const { updateTrip } = useContext(TripsContext);
 	// console.log(trips)
   // console.log(setTrips)
 	const [tripUpdate, setUpdatedTrip] = useState([]);

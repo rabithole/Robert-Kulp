@@ -1,7 +1,7 @@
 # Robert-Kulp 
 ## My online portfolio.
 
-# API's used: 
+# API's to be used: 
 #### OnTheSnow: http://docs.clientservice.onthesnow.com/docs/index.html
 #### NOAA: https://www.ncdc.noaa.gov/cdo-web/webservices/v2
 #### REQ|RES: https://reqres.in/
