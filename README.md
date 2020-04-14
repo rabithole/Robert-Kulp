@@ -6,7 +6,7 @@
 #### NOAA: https://www.ncdc.noaa.gov/cdo-web/webservices/v2
 #### REQ|RES: https://reqres.in/
 #### VIN decoder: https://vpic.nhtsa.dot.gov/api/
-#### API build by student peer. 
+#### Student build API. 
 
 # React version: 
 	react: 16.13.1
@@ -19,9 +19,12 @@
 	- Data is reset periodically. I am unsure of the duration.
 	- It cannot upload a blob. 
 
-## Guidr Trip Bugs
+## Guidr Trip Bugs and To Do's...
 - Database resets periodically. Unsure of the time frame. 
 - Unmounted component error, Can't update state. 
 - Make check boxes work or remove the check boxes.
 - rabithole.com/#/ Look into #/...
 - Make the time stamp human readable. 
+- CSS for mobile
+- Loader spinner or ? 
+- Add NOAA API modal. 
