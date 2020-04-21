@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './css/App.css';
 import './css/guidr.css';
+import './css/loader.css';
 
 import { getToken } from './utils/axiosWithAuth';
 import axiosWithAuth from './utils/axiosWithAuth';
@@ -32,9 +33,17 @@ function App(props) {
       trips.user_id = decoded.userid;
   }
 
+  function toggleSpinner() {
+    console.log('spinner');
+
+    let spin = document.getElementById('loader');
+    spin.style.display = 'block' ? spin.style.display === 'none' : spin.style.display === 'block';
+  }
+
   function updateTrip() {
     // console.log('updateTrip')
     axiosWithAuth()
+    
     .get('trips')
     .then(response => {
       setTrips(response.data)
@@ -53,6 +62,7 @@ function App(props) {
       // // // console.log(decoded);
       // trips.user_id = decoded.userid;
       !signedIn ? console.log('Signed In') : isSignedIn()
+      toggleSpinner()
 
       axiosWithAuth()
       .get('trips')
@@ -69,11 +79,12 @@ function App(props) {
 
   return (
     <div className='App'>
+      <div id='loader'></div>
+
      	<header>
       		<h1>A WORK IN PROGRESS</h1>
       		<h1>SOMETHING MORE IS COMING SOON!</h1>
      	</header>
-
 
     <div id='guidr'>
     <section>
