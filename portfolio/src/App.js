@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './css/App.css';
 import './css/guidr.css';
-import './css/loader.css';
+// import './css/loader.css';
+
+// import './css/loader.css';
 
 import { getToken } from './utils/axiosWithAuth';
 import axiosWithAuth from './utils/axiosWithAuth';
@@ -18,12 +20,16 @@ import CreateTrip from './components/CreateTrip';
 import Logout from './utils/Logout';
 import UpdateTrip from './components/UpdateTrip';
 import SingleTrip from './components/SingleTrip';
+import Spinner from './components/Spinner.js';
+
+let Loader = require('react-loader');
 // import CreateProfile from './components/CreateProfile';
 
 const jwtDecode = require('jwt-decode');
 
 function App(props) {
   const [trips, setTrips] = useState([]);
+  const [loaded, setLoaded] = useState(true);
   // console.log(trips);
   const signedIn = getToken();
 
@@ -33,15 +39,7 @@ function App(props) {
       trips.user_id = decoded.userid;
   }
 
-  function toggleSpinner() {
-    console.log('spinner');
-
-    let spin = document.getElementById('loader');
-    spin.style.display = 'block' ? spin.style.display === 'none' : spin.style.display === 'block';
-  }
-
   function updateTrip() {
-    // console.log('updateTrip')
     axiosWithAuth()
     
     .get('trips')
@@ -58,28 +56,28 @@ function App(props) {
   const dependArray = [trips.user_id, !signedIn, props.history, signedIn];
 
   useEffect(() => {
-      // const decoded = jwtDecode(localStorage.getItem('token'));
-      // // // console.log(decoded);
-      // trips.user_id = decoded.userid;
       !signedIn ? console.log('Signed In') : isSignedIn()
-      toggleSpinner()
-
+      // setLoaded(false);
+      
+setTimeout(function(){
       axiosWithAuth()
       .get('trips')
       .then(response => {
+        // setLoaded(true);        
         setTrips(response.data)
-        // console.log(response);
       })
+
       .catch(error => {
         localStorage.removeItem('token');
         props.history.push('/Login');
         console.log(error)
       })
+}, 2000);
     }, dependArray); 
+
 
   return (
     <div className='App'>
-      <div id='loader'></div>
 
      	<header>
       		<h1>A WORK IN PROGRESS</h1>
@@ -87,7 +85,7 @@ function App(props) {
      	</header>
 
     <div id='guidr'>
-    <section>
+  <section>
 	    <h1>Guided Trips</h1>
 	    <h5>A Lambda School Project</h5>
 	</section>
@@ -133,6 +131,9 @@ function App(props) {
       </nav>
 
 {/*//////////////////////////////////////////////////*/}
+      <Loader loaded={loaded} scale={15.00} color='black'>
+        <Spinner />
+      </Loader>
 
       <Route 
         exact path='/login'
