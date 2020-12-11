@@ -16,6 +16,7 @@ function Trip(props) {
             key={trip.id}
             id={trip.id}
             description={trip.description}
+            duration={trip.duration}
             distance={trip.distance}
             date={trip.date}
             type={trip.trip_type}
