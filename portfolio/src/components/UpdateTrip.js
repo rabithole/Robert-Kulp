@@ -5,8 +5,8 @@ import axiosWithAuth from '../utils/axiosWithAuth';
 const jwtDecode = require('jwt-decode');
 
 function UpdateTrip(props) {
-  const { trips, updateTrip } = useContext(TripsContext);
-	console.log(trips)
+  const { updateTrip } = useContext(TripsContext);
+	// console.log(trips)
   // console.log(setTrips)
 	const [tripUpdate, setUpdatedTrip] = useState([]);
   // console.log(tripUpdate)
@@ -37,8 +37,6 @@ function UpdateTrip(props) {
 	const handleSubmit = e => {
 		e.preventDefault()
 
-    updateTrip();
-
     const decoded = jwtDecode(localStorage.getItem('token'));
     tripUpdate.user_id = decoded.userid;
     
@@ -49,6 +47,7 @@ function UpdateTrip(props) {
 			setUpdatedTrip({tripUpdate: response.data })
 	      	console.log(response)
 	      	// document.getElementById('reset').reset();
+          updateTrip();
           props.history.push(`/SingleTrip/${tripUpdate.id}`);
 		})
 	    .catch(err => console.log(err.response, tripUpdate));

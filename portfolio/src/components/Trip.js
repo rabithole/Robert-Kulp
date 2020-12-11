@@ -1,8 +1,10 @@
-import React from 'react';
-import axiosWithAuth from '../utils/axiosWithAuth';
+import React, { useContext } from 'react';
 import { useHistory, Link } from 'react-router-dom';
+import axiosWithAuth from '../utils/axiosWithAuth';
+import { TripsContext } from '../contexts/TripsContext';
 
 function Trip(props) {
+	const { updateTrip } = useContext(TripsContext);
 	// console.log(props.id);
 	const history = useHistory();
 
@@ -13,6 +15,7 @@ function Trip(props) {
 		.delete(`/trips/${id}`)
 		.then(response => {
 			console.log('Deleted')
+			updateTrip();
 			history.push('/Trips')
 		})
 		.catch(error => {
@@ -22,8 +25,8 @@ function Trip(props) {
 
   	return (
   		<div className='trip'>
-  			<h1>TITLE</h1>
-  			<h2>{props.title}</h2>
+  			<h1>{props.title}</h1>
+  			
   			<h3>Click card for more details</h3>
 
   			<button onClick={event => deleteTrip(event, props.id)}>Delete Trip</button>

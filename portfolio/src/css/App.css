@@ -16,9 +16,18 @@ body {
   min-height: 100vh;
 }
 
-/*#root {
-  padding: 20px;
-}*/
+section {
+  margin: 10px 0 10px 0;
+}
+
+section h1 {
+  font-size: 2em;
+  margin-bottom: 0;
+}
+
+section h5 {
+  margin-top: 0;
+}
 
 header {
   background-color: blue;
@@ -37,26 +46,13 @@ header h1 {
   text-shadow: 5px 5px 10px #404040;
 }
 
-/*.App-header {
-  background-color: #282c34;
-  min-height: 101vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}*/
-
 .App {
   text-align: center;
   background-color: lightgreen;
-  /*padding: 2%;*/
-
 }
 
 nav {
-  padding: 50px;
+  padding: 20px 50px 50px 50px;
 }
 
 nav a {
@@ -99,7 +95,7 @@ input {
   background-color: lightblue;
   border-radius: 10px;
   color: black;
-  box-shadow: 2px 2px 5px black;
+  box-shadow: 3px 3px 8px black;
 }
 
 .trip h1 {
@@ -107,12 +103,16 @@ input {
   padding: 20px 10px 20px 10px;
   background-color: #e7e7e7;
   margin: 0 auto;
-  font-size: 1rem;
+  font-size: 1.6rem;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
 
 .trip h2 {
+  text-decoration: none;
+}
+
+.trips a {
   text-decoration: none;
 }
 
