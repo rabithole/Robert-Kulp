@@ -17,6 +17,7 @@ import CreateTrip from './components/CreateTrip';
 import Logout from './utils/Logout';
 import UpdateTrip from './components/UpdateTrip';
 import SingleTrip from './components/SingleTrip';
+import NoaaApp from './weather/noaa';
 // import CreateProfile from './components/CreateProfile';
 
 const jwtDecode = require('jwt-decode');
@@ -73,13 +74,13 @@ function App(props) {
       		<h1>A WORK IN PROGRESS</h1>
       		<h1>SOMETHING MORE IS COMING SOON!</h1>
      	</header>
-
+    <NoaaApp/>
 
     <div id='guidr'>
     <section>
 	    <h1>Guided Trips</h1>
 	    <h5>A Lambda School Project</h5>
-	</section>
+    </section>
 
       <nav>
         {!signedIn && 
