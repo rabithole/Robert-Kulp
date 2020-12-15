@@ -1,12 +1,11 @@
 # Robert-Kulp 
 ## My online portfolio.
 
-# API's to be used: 
+# API's used: 
 #### OnTheSnow: http://docs.clientservice.onthesnow.com/docs/index.html
 #### NOAA: https://www.ncdc.noaa.gov/cdo-web/webservices/v2
-#### REQ|RES: https://reqres.in/
-#### VIN decoder: https://vpic.nhtsa.dot.gov/api/
-#### Student build API. 
+	- Dug through NOAA's api to choose the relevant data for my goals.
+#### Student built API. 
 
 # React version: 
 	react: 16.13.1
