@@ -1,42 +1,34 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-// import { TripsContext } from '../contexts/TripsContext';
-// import SingleTripsCard from '../components/SingleTripsCard';
+import NoaaCard from './noaa_card';
 
 function NoaaApp(props) {
+  const [elevation, setElevation] = useState();
+  const [temp, setTemp] = useState();
+  console.log(elevation)
 
   useEffect(() => {
     axios
-      .get('https://api.weather.gov/gridpoints/PQR/146,97')
+      .get('https://api.weather.gov/gridpoints/PQR/142,88')
       .then(response => {
-        console.log('noaa', response.data)
+        const elevation = response.data.properties.elevation.value / 0.3048;
+        console.log('temp', response.data.properties.temperature.values[0].value)
+        const temp = response.data.properties.temperature.values[0].value * 1.8 + 32;
+
+        setElevation(elevation)
+        setTemp(temp)
       })
       .catch(err => {
         console.log(err)
       });
-
-      axios
-        .get('https://api.weather.gov/gridpoints/PQR/146,97/forecast')
-        .then(response => {
-          console.log('noaa forecast', response.data.properties)
-        })
-        .catch(err => {
-          console.log(err)
-        });
-
-      axios
-        .get('https://api.weather.gov/gridpoints/PQR/139,105')
-        .then(response => {
-          console.log('Cascade Locks', response.data.properties)
-        })
-        .catch(err => {
-          console.log(err)
-        });
   }, []);
   
 	return (
 		<div>
-      <h1>NOAA Beginning</h1>
+      <NoaaCard
+        elevation={elevation}
+        temp={temp}
+      />
 		</div>
 	);
 }
