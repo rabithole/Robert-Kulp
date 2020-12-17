@@ -4,30 +4,58 @@ import NoaaCard from './noaa_card';
 
 function NoaaApp(props) {
   const [elevation, setElevation] = useState();
-  const [temp, setTemp] = useState();
-  console.log(elevation)
+  const [maxTemp, setMaxTemp] = useState();
+  const [minTemp, setMinTemp] = useState();
+  const [currTemp, setCurrTemp] = useState();
+
+  if(elevation && maxTemp) {
+    // console.log('elevation', elevation)
+    // console.log('maxTemp', maxTemp)
+  }
+   
 
   useEffect(() => {
     axios
+      // Top of Blue chair and Mt Hood Express
       .get('https://api.weather.gov/gridpoints/PQR/142,88')
       .then(response => {
         const elevation = response.data.properties.elevation.value / 0.3048;
-        console.log('temp', response.data.properties.temperature.values[0].value)
-        const temp = response.data.properties.temperature.values[0].value * 1.8 + 32;
+        // console.log('maxTemp', response.data.properties.temperature.values[0].value * 1.8 +32)
+        const maxTemp = response.data.properties.maxTemperature.values[0].value * 1.8 + 32;
+        const minTemp = response.data.properties.minTemperature.values[0].value * 1.8 + 32;
+
+        console.log('Full data', response.data.properties)
+        // console.log('Max maxTemp', maxTemp)
+        // console.log('Max minTemp', minTemp)
 
         setElevation(elevation)
-        setTemp(temp)
+        setMaxTemp(maxTemp)
+        setMinTemp(minTemp)
       })
       .catch(err => {
         console.log(err)
       });
+
+      axios
+        .get('https://api.weather.gov/gridpoints/PQR/142,88/forecast')
+        .then(response => {
+          console.log('Forecast full', response)
+          console.log('Current Temp', response.data.properties.periods[0].temperature)
+          const currTemp = response.data.properties.periods[0].temperature;
+          setCurrTemp(currTemp)
+        })
+        .catch(err => {
+          console.log(err)
+        })
   }, []);
   
 	return (
 		<div>
       <NoaaCard
         elevation={elevation}
-        temp={temp}
+        maxTemp={maxTemp}
+        minTemp={minTemp}
+        currTemp={currTemp}
       />
 		</div>
 	);

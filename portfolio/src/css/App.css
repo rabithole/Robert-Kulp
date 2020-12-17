@@ -29,23 +29,6 @@ section h5 {
   margin-top: 0;
 }
 
-header {
-  background-color: blue;
-  background-image: url("../img/wheet_field.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  height: 600px;
-  width: 100%;
-  text-align: center;
-  margin: 0;
-  padding-top: 10%;
-}
-
-header h1 {
-  font-size: 6vw;
-  text-shadow: 5px 5px 10px #404040;
-}
-
 .App {
   text-align: center;
   background-color: lightgreen;

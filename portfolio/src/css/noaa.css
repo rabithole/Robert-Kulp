@@ -1,0 +1,47 @@
+header {
+  background-color: blue;
+  background-image: url("../img/mt_st_helens.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  /*height: auto;*/
+  width: 100%;
+  text-align: center;
+  margin: 0;
+  padding-top: 5%;
+  padding-bottom: 2%;
+}
+
+/* header noaa h1 */
+.noaah1 {
+  font-size: 6vw;
+  text-shadow: 5px 5px 10px #404040;
+  margin: 1%;
+}
+
+/* header noaa h4 */
+.noaah4 {
+	background-color: rgba(0,107,179,0.7);
+	font-size: 2.5vw;
+	display: inline-block;
+	padding: 2px 25px;
+	border-radius: 5px;
+	color: white;
+	box-shadow: 2px 2px 5px white;
+}
+
+/* Groups of data from noaa */
+.dataGroups {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	margin: 0;
+	margin: 1%;
+	padding: 2px 25px;
+	font-size: 2.5vw;
+	font-weight: bold;
+	display: inline-block;
+	border-radius: 5px;
+	box-shadow: 2px 2px 5px white;
+}
+

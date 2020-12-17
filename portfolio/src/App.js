@@ -71,10 +71,8 @@ function App(props) {
   return (
     <div className='App'>
      	<header>
-      		<h1>A WORK IN PROGRESS</h1>
-      		<h1>SOMETHING MORE IS COMING SOON!</h1>
+      		<NoaaApp/>
      	</header>
-    <NoaaApp/>
 
     <div id='guidr'>
     <section>
