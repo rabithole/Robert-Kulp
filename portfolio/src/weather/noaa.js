@@ -9,6 +9,7 @@ function NoaaApp(props) {
   const [currTemp, setCurrTemp] = useState();
   const [location, setLocation] = useState();
   const [forecast, setForecast] = useState();
+  const [snowLevel, setSnowLevel] = useState();
 
   if(elevation && maxTemp) {
     // console.log('elevation', elevation)
@@ -22,17 +23,16 @@ function NoaaApp(props) {
       .get('https://api.weather.gov/gridpoints/PQR/142,88')
       .then(response => {
         const elevation = response.data.properties.elevation.value / 0.3048;
-        // console.log('maxTemp', response.data.properties.temperature.values[0].value * 1.8 +32)
         const maxTemp = response.data.properties.maxTemperature.values[0].value * 1.8 + 32;
         const minTemp = response.data.properties.minTemperature.values[0].value * 1.8 + 32;
+        const snowLevel = (response.data.properties.snowLevel.values[0].value / 0.3048).toFixed(0);
 
-        // console.log('Full data', response)
-        // console.log('Max maxTemp', maxTemp)
-        // console.log('Max minTemp', minTemp)
+        // console.log('Snow Level', (response.data.properties.snowLevel.values[0].value / 0.3048).toFixed(0))
 
         setElevation(elevation)
         setMaxTemp(maxTemp)
         setMinTemp(minTemp)
+        setSnowLevel(snowLevel)
       })
       .catch(err => {
         console.log(err)
@@ -41,8 +41,8 @@ function NoaaApp(props) {
       axios
         .get('https://api.weather.gov/gridpoints/PQR/142,88/forecast')
         .then(response => {
-          console.log('Forecast full ------------', response)
-          console.log('Detailed Forecast ------------', response.data.properties.periods[0].detailedForecast)
+          // console.log('Forecast full ------------', response)
+          // console.log('Detailed Forecast ------------', response.data.properties.periods[0].detailedForecast)
           const forecast = response.data.properties.periods[0].detailedForecast
           setForecast(forecast)
         })
@@ -53,7 +53,7 @@ function NoaaApp(props) {
       axios
         .get('https://api.weather.gov/stations/mhm66/observations/latest')
         .then(response => {
-          console.log('Latest -----------', response.data.properties)
+          // console.log('Latest -----------', response.data.properties)
           const currTemp = (response.data.properties.temperature.value * 1.8 + 32).toFixed(0);
           setCurrTemp(currTemp)
         })
@@ -64,7 +64,7 @@ function NoaaApp(props) {
       axios
         .get('https://api.weather.gov/stations/mhm66')
         .then(response => {
-          console.log('Station Name --------------', response.data.properties.name)
+          // console.log('Station Name --------------', response.data.properties.name)
           const locationName = response.data.properties.name;
           setLocation(locationName)
         })
@@ -82,6 +82,7 @@ function NoaaApp(props) {
         currTemp={currTemp}
         location={location}
         forecast={forecast}
+        snowLevel={snowLevel}
       />
 		</div>
 	);

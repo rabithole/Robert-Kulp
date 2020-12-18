@@ -37,8 +37,11 @@ function NoaaCard(props) {
         <p className='noaaP'>{props.forecast}{'\u00B0'} F</p>
       </section>
 
-      <h1 className='noaah1'>FREEZING LEVEL</h1>
-      <p className='noaaP'>Freezing Level to come</p>
+      <h1 className='noaah1'>SNOW LEVEL</h1>
+      <section className='dataGroups'>
+        <p className='noaaP'>{props.snowLevel} FT</p>
+      </section>
+
 		</div>
 	);
 }
