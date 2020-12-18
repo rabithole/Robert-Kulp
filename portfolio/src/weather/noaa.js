@@ -7,6 +7,8 @@ function NoaaApp(props) {
   const [maxTemp, setMaxTemp] = useState();
   const [minTemp, setMinTemp] = useState();
   const [currTemp, setCurrTemp] = useState();
+  const [location, setLocation] = useState();
+  const [forecast, setForecast] = useState();
 
   if(elevation && maxTemp) {
     // console.log('elevation', elevation)
@@ -24,7 +26,7 @@ function NoaaApp(props) {
         const maxTemp = response.data.properties.maxTemperature.values[0].value * 1.8 + 32;
         const minTemp = response.data.properties.minTemperature.values[0].value * 1.8 + 32;
 
-        console.log('Full data', response.data.properties)
+        // console.log('Full data', response)
         // console.log('Max maxTemp', maxTemp)
         // console.log('Max minTemp', minTemp)
 
@@ -39,10 +41,32 @@ function NoaaApp(props) {
       axios
         .get('https://api.weather.gov/gridpoints/PQR/142,88/forecast')
         .then(response => {
-          console.log('Forecast full', response)
-          console.log('Current Temp', response.data.properties.periods[0].temperature)
-          const currTemp = response.data.properties.periods[0].temperature;
+          console.log('Forecast full ------------', response)
+          console.log('Detailed Forecast ------------', response.data.properties.periods[0].detailedForecast)
+          const forecast = response.data.properties.periods[0].detailedForecast
+          setForecast(forecast)
+        })
+        .catch(err => {
+          console.log(err)
+        })
+
+      axios
+        .get('https://api.weather.gov/stations/mhm66/observations/latest')
+        .then(response => {
+          console.log('Latest -----------', response.data.properties)
+          const currTemp = (response.data.properties.temperature.value * 1.8 + 32).toFixed(0);
           setCurrTemp(currTemp)
+        })
+        .catch(err => {
+          console.log(err)
+        })
+
+      axios
+        .get('https://api.weather.gov/stations/mhm66')
+        .then(response => {
+          console.log('Station Name --------------', response.data.properties.name)
+          const locationName = response.data.properties.name;
+          setLocation(locationName)
         })
         .catch(err => {
           console.log(err)
@@ -56,6 +80,8 @@ function NoaaApp(props) {
         maxTemp={maxTemp}
         minTemp={minTemp}
         currTemp={currTemp}
+        location={location}
+        forecast={forecast}
       />
 		</div>
 	);

@@ -6,7 +6,7 @@ header {
   /*height: auto;*/
   width: 100%;
   text-align: center;
-  margin: 0;
+  /*margin: 0;*/
   padding-top: 5%;
   padding-bottom: 2%;
 }
@@ -14,30 +14,31 @@ header {
 /* header noaa h1 */
 .noaah1 {
   font-size: 6vw;
-  text-shadow: 5px 5px 10px #404040;
+  text-shadow: 5px 5px 10px rgba(192,192,192,0.8);
   margin: 1%;
 }
 
 /* header noaa h4 */
-.noaah4 {
+.noaaP {
 	background-color: rgba(0,107,179,0.7);
 	font-size: 2.5vw;
 	display: inline-block;
-	padding: 2px 25px;
+	padding: 0px 25px;
 	border-radius: 5px;
 	color: white;
 	box-shadow: 2px 2px 5px white;
+	text-shadow: 1px 1px 1px black;
 }
 
-/* Groups of data from noaa */
+/* Groups of data from noaa. Sections */
 .dataGroups {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
-	margin: 0;
-	margin: 1%;
-	padding: 2px 25px;
+	/*margin: 0;*/
+	margin: 1% 1%;
+	padding: 10px 25px;
 	font-size: 2.5vw;
 	font-weight: bold;
 	display: inline-block;
@@ -45,3 +46,12 @@ header {
 	box-shadow: 2px 2px 5px white;
 }
 
+p {
+	margin: 10px 5px;
+	text-shadow: 1px 1px 1px white;
+}
+
+#currTemp {
+	color: rgba(153,0,0);
+	text-shadow: 1px 1px 1px white;
+}

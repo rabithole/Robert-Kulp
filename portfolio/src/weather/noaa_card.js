@@ -7,27 +7,38 @@ function NoaaCard(props) {
   
 	return (
 		<div>
+      {/* Daily temp details */}
       <h1 className='noaah1'>TEMPERATURE</h1>
+       <section className='dataGroups'>
+        <p id='currTemp'>Curr Temp</p>
+        <p className='noaaP'>{props.currTemp}{'\u00B0'} F</p>
+      </section>
+
       <section className='dataGroups'>
         <p>Max Temp</p>
-        <p className='noaah4'>{props.maxTemp}{'\u00B0'} F</p>
+        <p className='noaaP'>{props.maxTemp}{'\u00B0'} F</p>
       </section>
 
       <section className='dataGroups'>
         <p>Min Temp</p>
-        <p className='noaah4'>{props.minTemp}{'\u00B0'} F</p>
+        <p className='noaaP'>{props.minTemp}{'\u00B0'} F</p>
+      </section>
+
+
+      {/* Location details */}
+      <h1 className='noaah1'>{props.location}</h1>
+      <section className='dataGroups'>
+        <p>Elevation</p>
+        <p className='noaaP'>{props.elevation} FT</p>  
       </section>
 
       <section className='dataGroups'>
-        <p>Current Temp</p>
-        <p className='noaah4'>{props.currTemp}{'\u00B0'} F</p>
+        <p>Forecast</p>
+        <p className='noaaP'>{props.forecast}{'\u00B0'} F</p>
       </section>
 
-      <h1 className='noaah1'>ELEVATION</h1>
-      <p className='noaah4'>{props.elevation} FT</p>
-
       <h1 className='noaah1'>FREEZING LEVEL</h1>
-      <p className='noaah4'>Freezing Level to come</p>
+      <p className='noaaP'>Freezing Level to come</p>
 		</div>
 	);
 }
