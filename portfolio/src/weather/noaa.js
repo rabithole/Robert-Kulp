@@ -20,6 +20,7 @@ function NoaaApp(props) {
   useEffect(() => {
     axios
       // Top of Blue chair and Mt Hood Express
+      // Has the most data, but not necessarily the most usefull for my goal.
       .get('https://api.weather.gov/gridpoints/PQR/142,88')
       .then(response => {
         const elevation = response.data.properties.elevation.value / 0.3048;
@@ -27,7 +28,7 @@ function NoaaApp(props) {
         const minTemp = response.data.properties.minTemperature.values[0].value * 1.8 + 32;
         const snowLevel = (response.data.properties.snowLevel.values[0].value / 0.3048).toFixed(0);
 
-        // console.log('Snow Level', (response.data.properties.snowLevel.values[0].value / 0.3048).toFixed(0))
+        console.log('Snow Level', response.data.properties.snowLevel.values)
 
         setElevation(elevation)
         setMaxTemp(maxTemp)
@@ -45,6 +46,14 @@ function NoaaApp(props) {
           // console.log('Detailed Forecast ------------', response.data.properties.periods[0].detailedForecast)
           const forecast = response.data.properties.periods[0].detailedForecast
           setForecast(forecast)
+          // name = text description of when. 
+          // temperature in F
+          // wind speed ex: '46-52 mph'
+          // wind direction
+          // short forecast
+          // detailed forecast
+          // elevation
+          // multi day forecast
         })
         .catch(err => {
           console.log(err)
@@ -56,6 +65,15 @@ function NoaaApp(props) {
           // console.log('Latest -----------', response.data.properties)
           const currTemp = (response.data.properties.temperature.value * 1.8 + 32).toFixed(0);
           setCurrTemp(currTemp)
+          // Wind speed
+          // wind gust
+          // temperature
+          // elevation
+          // text description ex: 'windy'
+          // timestamp = current time ex: '2020-12-21T22:00:00+00:00'
+          // barometric pressure (seems to be null more often than not)
+          // sea level pressure (null as well)
+
         })
         .catch(err => {
           console.log(err)

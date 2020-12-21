@@ -34,7 +34,7 @@ function NoaaCard(props) {
 
       <section className='dataGroups'>
         <p>Forecast</p>
-        <p className='noaaP'>{props.forecast}{'\u00B0'} F</p>
+        <p className='noaaP'>{props.forecast}</p>
       </section>
 
       <h1 className='noaah1'>SNOW LEVEL</h1>
