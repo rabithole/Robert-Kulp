@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import NoaaCard from './noaa_card';
+import Temperature from './temperature';
 
 function NoaaApp(props) {
   const [elevation, setElevation] = useState();
@@ -11,10 +12,19 @@ function NoaaApp(props) {
   const [forecast, setForecast] = useState();
   const [snowLevel, setSnowLevel] = useState();
 
+  // const []
+  const [data, setData] = useState([]);
+  console.log('Data', data)
+
   if(elevation && maxTemp) {
     // console.log('elevation', elevation)
     // console.log('maxTemp', maxTemp)
   }
+
+  useEffect(() => {
+    let gridPoints = 'https://api.weather.gov/gridpoints/PQR/142,88';
+    let foreast = 'https://api.weather.gov/gridpoints/PQR/142,88/forecast';
+  })
    
 
   useEffect(() => {
@@ -24,11 +34,16 @@ function NoaaApp(props) {
       .get('https://api.weather.gov/gridpoints/PQR/142,88')
       .then(response => {
         const elevation = response.data.properties.elevation.value / 0.3048;
-        const maxTemp = response.data.properties.maxTemperature.values[0].value * 1.8 + 32;
-        const minTemp = response.data.properties.minTemperature.values[0].value * 1.8 + 32;
-        const snowLevel = (response.data.properties.snowLevel.values[0].value / 0.3048).toFixed(0);
+        const maxTemp = response.data.properties.maxTemperature.values[1].value * 1.8 + 32;
+        const minTemp = response.data.properties.minTemperature.values[1].value * 1.8 + 32;
+        const snowLevel = (response.data.properties.snowLevel.values[15].value / 0.3048).toFixed(0);
 
-        console.log('Snow Level', response.data.properties.snowLevel.values)
+        console.log('All data', response.data.properties.snowLevel)
+
+        setData({
+          ...data,
+          elevation, maxTemp, minTemp, snowLevel
+        })
 
         setElevation(elevation)
         setMaxTemp(maxTemp)
@@ -54,6 +69,9 @@ function NoaaApp(props) {
           // detailed forecast
           // elevation
           // multi day forecast
+          setData({
+            ...data, forecast
+          })
         })
         .catch(err => {
           console.log(err)
@@ -85,6 +103,9 @@ function NoaaApp(props) {
           // console.log('Station Name --------------', response.data.properties.name)
           const locationName = response.data.properties.name;
           setLocation(locationName)
+          setData({
+            ...data, locationName
+          })
         })
         .catch(err => {
           console.log(err)
@@ -93,14 +114,21 @@ function NoaaApp(props) {
   
 	return (
 		<div>
-      <NoaaCard
-        elevation={elevation}
+      <Temperature 
         maxTemp={maxTemp}
         minTemp={minTemp}
         currTemp={currTemp}
+      />
+
+      <NoaaCard
+        elevation={elevation}
         location={location}
         forecast={forecast}
         snowLevel={snowLevel}
+
+        maxTemp={maxTemp}
+        minTemp={minTemp}
+        currTemp={currTemp}
       />
 		</div>
 	);
