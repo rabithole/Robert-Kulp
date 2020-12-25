@@ -22,6 +22,11 @@ function Temperature(props) {
         <p>Min Temp</p>
         <p className='noaaP'>{props.minTemp}{'\u00B0'} F</p>
       </section>
+
+      <section className='dataGroups'>
+        <p>Freezing Level</p>
+        <p className='noaaP'>{props.snowLevel} FT</p>
+      </section>
 		</div>
 	);
 }

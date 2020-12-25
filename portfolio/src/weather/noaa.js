@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import NoaaCard from './noaa_card';
+import Location from './location';
 import Temperature from './temperature';
+import Forecast from './forecast';
 
 function NoaaApp(props) {
   const [elevation, setElevation] = useState();
@@ -16,120 +17,76 @@ function NoaaApp(props) {
   const [data, setData] = useState([]);
   console.log('Data', data)
 
-  if(elevation && maxTemp) {
-    // console.log('elevation', elevation)
-    // console.log('maxTemp', maxTemp)
-  }
 
   useEffect(() => {
-    let gridPoints = 'https://api.weather.gov/gridpoints/PQR/142,88';
-    let foreast = 'https://api.weather.gov/gridpoints/PQR/142,88/forecast';
-  })
-   
+    let gridPoints = 'https://api.weather.gov/gridpoints/PQR/142,88'; // 0
+    let forecast = 'https://api.weather.gov/gridpoints/PQR/142,88/forecast'; // 1
+    let latest = 'https://api.weather.gov/stations/mhm66/observations/latest'; // 2
+    let station = 'https://api.weather.gov/stations/mhm66'; // 3
 
-  useEffect(() => {
-    axios
-      // Top of Blue chair and Mt Hood Express
-      // Has the most data, but not necessarily the most usefull for my goal.
-      .get('https://api.weather.gov/gridpoints/PQR/142,88')
-      .then(response => {
-        const elevation = response.data.properties.elevation.value / 0.3048;
-        const maxTemp = response.data.properties.maxTemperature.values[1].value * 1.8 + 32;
-        const minTemp = response.data.properties.minTemperature.values[1].value * 1.8 + 32;
-        const snowLevel = (response.data.properties.snowLevel.values[15].value / 0.3048).toFixed(0);
+    const gridPointsRequest = axios.get(gridPoints); // 0
+    const forecastRequest = axios.get(forecast); // 1
+    const latestRequest = axios.get(latest); // 2
+    const stationRequest = axios.get(station); // 3
 
-        console.log('All data', response.data.properties.snowLevel)
+    // each endpoint is stored in an array and parsed with responses below. 
+    // 0 is the grid points index
+    // 1 is the forecast
+    // 2 is the latest aka current info
+    // 3 is the location name
+    axios.all([gridPointsRequest, forecastRequest, latestRequest, stationRequest])
+      .then(axios.spread((...responses) => {
+        const elevation = responses[0].data.properties.elevation.value / 0.3048;
+        const maxTemp = responses[0].data.properties.maxTemperature.values[0].value * 1.8 + 32;
+        const minTemp = responses[0].data.properties.minTemperature.values[0].value * 1.8 + 32;
+        const snowLevel = (responses[0].data.properties.snowLevel.values[0].value / 0.3048).toFixed(0);
+
+        const forecast = responses[1].data.properties.periods[0].detailedForecast
+
+        const currTemp = (responses[2].data.properties.temperature.value * 1.8 + 32).toFixed(0);
+        const windSpeed = (responses[2].data.properties.windSpeed.value / 1.609).toFixed(0);
+        const windGust = (responses[2].data.properties.windGust.value / 1.609).toFixed(0);
+        const windChill = (responses[2].data.properties.windChill.value * 1.8 + 32).toFixed(0);
+        console.log('Wind chill', windChill)
+
+        const locationName = responses[3].data.properties.name;
 
         setData({
           ...data,
-          elevation, maxTemp, minTemp, snowLevel
+          elevation, maxTemp, minTemp, snowLevel, currTemp, locationName, forecast, windSpeed, windGust, windChill
         })
 
-        setElevation(elevation)
-        setMaxTemp(maxTemp)
-        setMinTemp(minTemp)
-        setSnowLevel(snowLevel)
-      })
+      }))
       .catch(err => {
-        console.log(err)
-      });
+        console.log(err);
+    })
+  }, [])
+   
 
-      axios
-        .get('https://api.weather.gov/gridpoints/PQR/142,88/forecast')
-        .then(response => {
-          // console.log('Forecast full ------------', response)
-          // console.log('Detailed Forecast ------------', response.data.properties.periods[0].detailedForecast)
-          const forecast = response.data.properties.periods[0].detailedForecast
-          setForecast(forecast)
-          // name = text description of when. 
-          // temperature in F
-          // wind speed ex: '46-52 mph'
-          // wind direction
-          // short forecast
-          // detailed forecast
-          // elevation
-          // multi day forecast
-          setData({
-            ...data, forecast
-          })
-        })
-        .catch(err => {
-          console.log(err)
-        })
-
-      axios
-        .get('https://api.weather.gov/stations/mhm66/observations/latest')
-        .then(response => {
-          // console.log('Latest -----------', response.data.properties)
-          const currTemp = (response.data.properties.temperature.value * 1.8 + 32).toFixed(0);
-          setCurrTemp(currTemp)
-          // Wind speed
-          // wind gust
-          // temperature
-          // elevation
-          // text description ex: 'windy'
-          // timestamp = current time ex: '2020-12-21T22:00:00+00:00'
-          // barometric pressure (seems to be null more often than not)
-          // sea level pressure (null as well)
-
-        })
-        .catch(err => {
-          console.log(err)
-        })
-
-      axios
-        .get('https://api.weather.gov/stations/mhm66')
-        .then(response => {
-          // console.log('Station Name --------------', response.data.properties.name)
-          const locationName = response.data.properties.name;
-          setLocation(locationName)
-          setData({
-            ...data, locationName
-          })
-        })
-        .catch(err => {
-          console.log(err)
-        })
-  }, []);
+  
   
 	return (
 		<div>
       <Temperature 
-        maxTemp={maxTemp}
-        minTemp={minTemp}
-        currTemp={currTemp}
+        maxTemp={data.maxTemp}
+        minTemp={data.minTemp}
+        currTemp={data.currTemp}
+        snowLevel={data.snowLevel}
       />
 
-      <NoaaCard
-        elevation={elevation}
-        location={location}
-        forecast={forecast}
-        snowLevel={snowLevel}
+      <div className='sideBySide'>
+        <Forecast
+          forecast={data.forecast}
+        />
 
-        maxTemp={maxTemp}
-        minTemp={minTemp}
-        currTemp={currTemp}
-      />
+        <Location
+          location={data.locationName}
+          elevation={data.elevation}
+          windSpeed={data.windSpeed}
+          windGust={data.windGust}
+          windChill={data.windChill}
+        />
+      </div>
 		</div>
 	);
 }

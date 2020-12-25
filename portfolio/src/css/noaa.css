@@ -55,3 +55,42 @@ p {
 	color: rgba(153,0,0);
 	text-shadow: 1px 1px 1px white;
 }
+
+.sideBySide {
+	display: flex;
+	justify-content: space-between;
+	margin: 3%;
+}
+
+#location {
+	width: 50%;
+	text-align: left;
+	border: 1px solid white;
+}
+
+#location b {
+	color: black;
+	/*text-shadow: 1px 1px 1px white;*/
+	text-shadow: none;
+}
+
+#location p {
+	font-weight: 400;
+}
+
+#location h1 {
+	text-align: center;
+}
+
+#location section {
+	box-shadow: none;
+}
+
+#forecast {
+	width: 45%;
+	border: 1px solid white;
+}
+
+#forecast section {
+	box-shadow: none;
+}
