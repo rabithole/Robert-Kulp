@@ -5,17 +5,8 @@ import Temperature from './temperature';
 import Forecast from './forecast';
 
 function NoaaApp(props) {
-  const [elevation, setElevation] = useState();
-  const [maxTemp, setMaxTemp] = useState();
-  const [minTemp, setMinTemp] = useState();
-  const [currTemp, setCurrTemp] = useState();
-  const [location, setLocation] = useState();
-  const [forecast, setForecast] = useState();
-  const [snowLevel, setSnowLevel] = useState();
-
-  // const []
   const [data, setData] = useState([]);
-  console.log('Data', data)
+  // console.log('Data', data)
 
 
   useEffect(() => {
@@ -47,7 +38,7 @@ function NoaaApp(props) {
         const windSpeed = (responses[2].data.properties.windSpeed.value / 1.609).toFixed(0);
         const windGust = (responses[2].data.properties.windGust.value / 1.609).toFixed(0);
         const windChill = (responses[2].data.properties.windChill.value * 1.8 + 32).toFixed(0);
-        console.log('Wind chill', windChill)
+        // console.log('Wind chill', windChill)
 
         const locationName = responses[3].data.properties.name;
 
@@ -60,7 +51,7 @@ function NoaaApp(props) {
       .catch(err => {
         console.log(err);
     })
-  }, [])
+  }, [data])
    
 
   

@@ -1,7 +1,9 @@
 # Robert-Kulp 
 ## My online portfolio.
 
-# API's used: 
+# NOAA App
+- The goal of the NOAA app is mainly for my personal use for back country skiing. The data points chozen are needed for accurate forecasting. In particular the freezing level is often difficulut to find for a given area. 
+## API's used: 
 #### OnTheSnow: http://docs.clientservice.onthesnow.com/docs/index.html
 #### NOAA: https://www.ncdc.noaa.gov/cdo-web/webservices/v2
 	- Dug through NOAA's api to choose the relevant data for my goals.
