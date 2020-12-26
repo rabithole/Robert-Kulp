@@ -3,6 +3,7 @@ import axios from 'axios';
 import Location from './location';
 import Temperature from './temperature';
 import Forecast from './forecast';
+import Freezing from './freezingLevel';
 
 function NoaaApp(props) {
   const [data, setData] = useState([]);
@@ -31,6 +32,8 @@ function NoaaApp(props) {
         const maxTemp = responses[0].data.properties.maxTemperature.values[0].value * 1.8 + 32;
         const minTemp = responses[0].data.properties.minTemperature.values[0].value * 1.8 + 32;
         const snowLevel = (responses[0].data.properties.snowLevel.values[0].value / 0.3048).toFixed(0);
+        const snowFallAmount = responses[0].data.properties.snowfallAmount.values[3].value / 25.4;
+        const probability = responses[0].data.properties.probabilityOfPrecipitation.values[3].value
 
         const forecast = responses[1].data.properties.periods[0].detailedForecast
 
@@ -38,13 +41,13 @@ function NoaaApp(props) {
         const windSpeed = (responses[2].data.properties.windSpeed.value / 1.609).toFixed(0);
         const windGust = (responses[2].data.properties.windGust.value / 1.609).toFixed(0);
         const windChill = (responses[2].data.properties.windChill.value * 1.8 + 32).toFixed(0);
-        // console.log('Wind chill', windChill)
+        // console.log('Precipitation', probability)
 
         const locationName = responses[3].data.properties.name;
 
         setData({
           ...data,
-          elevation, maxTemp, minTemp, snowLevel, currTemp, locationName, forecast, windSpeed, windGust, windChill
+          elevation, maxTemp, minTemp, snowLevel, currTemp, locationName, forecast, windSpeed, windGust, windChill, snowFallAmount, probability
         })
 
       }))
@@ -62,6 +65,9 @@ function NoaaApp(props) {
         maxTemp={data.maxTemp}
         minTemp={data.minTemp}
         currTemp={data.currTemp}
+      />
+
+      <Freezing 
         snowLevel={data.snowLevel}
       />
 
@@ -76,6 +82,8 @@ function NoaaApp(props) {
           windSpeed={data.windSpeed}
           windGust={data.windGust}
           windChill={data.windChill}
+          snowFallAmount={data.snowFallAmount}
+          probability={data.probability}
         />
       </div>
 		</div>

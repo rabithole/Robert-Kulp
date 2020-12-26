@@ -3,10 +3,8 @@ header {
   background-image: url("../img/mt_st_helens.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  /*height: auto;*/
   width: 100%;
   text-align: center;
-  /*margin: 0;*/
   padding-top: 5%;
   padding-bottom: 2%;
 }
@@ -18,64 +16,92 @@ header {
   margin: 1%;
 }
 
-/* header noaa h4 */
-.noaaP {
+.sideBySide {
+	display: flex;
+	justify-content: space-between;
+	/*flex-wrap: wrap;*/
+	margin: 3%;
+}
+
+/* Freezing level */
+#freezing {
+	margin: 3% auto;
+	box-shadow: 2px 2px 2px white;
+	border-radius: 5px;
+	padding: 10px 25px;
+	border: 1px solid white;
+	width: 60%;
+}
+
+
+/* Forecast section */
+#forecast {
+	width: 45%;
+	border: 1px solid white;
+	border-radius: 5px;
+	box-shadow: 2px 2px 2px white;
+	padding: 1% 3%;
+	margin: 3%;
+}
+
+
+/* Temperature section boxes */
+#temperature {
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+}
+
+#temperature section {
+	box-shadow: 2px 2px 2px white;
+	border-radius: 5px;
+	padding: 10px 25px;
+	border: 1px solid white;
+}
+
+
+
+
+.sectionContent {
 	background-color: rgba(0,107,179,0.7);
 	font-size: 2.5vw;
 	display: inline-block;
-	padding: 0px 25px;
+	padding: 5px 25px;
 	border-radius: 5px;
 	color: white;
 	box-shadow: 2px 2px 5px white;
 	text-shadow: 1px 1px 1px black;
 }
 
-/* Groups of data from noaa. Sections */
-.dataGroups {
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-items: center;
-	/*margin: 0;*/
-	margin: 1% 1%;
-	padding: 10px 25px;
+.sectionTitle {
 	font-size: 2.5vw;
 	font-weight: bold;
-	display: inline-block;
-	border-radius: 5px;
-	box-shadow: 2px 2px 5px white;
-}
-
-p {
+	text-shadow: 1px 1px 1px white;
 	margin: 10px 5px;
-	text-shadow: 1px 1px 1px white;
 }
 
-#currTemp {
-	color: rgba(153,0,0);
-	text-shadow: 1px 1px 1px white;
-}
 
-.sideBySide {
-	display: flex;
-	justify-content: space-between;
-	margin: 3%;
-}
-
+/* Location sections */
 #location {
-	width: 50%;
-	text-align: left;
+	width: 45%;
 	border: 1px solid white;
+	border-radius: 5px;
+	box-shadow: 2px 2px 2px white;
+	padding: 1% 3%;
+	margin: 3%;
 }
 
 #location b {
 	color: black;
-	/*text-shadow: 1px 1px 1px white;*/
 	text-shadow: none;
 }
 
 #location p {
 	font-weight: 400;
+	color: white;
+	text-shadow: none;
+	text-align: left;
+	/*display: inline;*/
 }
 
 #location h1 {
@@ -83,14 +109,17 @@ p {
 }
 
 #location section {
-	box-shadow: none;
+	box-shadow: 2px 2px 2px white;
+	background-color: rgba(0,107,179,0.7);
+	padding: 3%;
+	border-radius: 5px;
 }
 
-#forecast {
-	width: 45%;
-	border: 1px solid white;
-}
 
-#forecast section {
-	box-shadow: none;
+@media  (max-width: 600) {
+	.sideBySide {
+		display: flex;
+		flex-direction: column;
+		/*flex-wrap: wrap;*/
+	}
 }
