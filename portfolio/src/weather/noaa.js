@@ -28,6 +28,7 @@ function NoaaApp(props) {
     // 3 is the location name
     axios.all([gridPointsRequest, forecastRequest, latestRequest, stationRequest])
       .then(axios.spread((...responses) => {
+        // zero response index
         const elevation = responses[0].data.properties.elevation.value / 0.3048;
         const maxTemp = responses[0].data.properties.maxTemperature.values[0].value * 1.8 + 32;
         const minTemp = responses[0].data.properties.minTemperature.values[0].value * 1.8 + 32;
@@ -35,14 +36,17 @@ function NoaaApp(props) {
         const snowFallAmount = responses[0].data.properties.snowfallAmount.values[3].value / 25.4;
         const probability = responses[0].data.properties.probabilityOfPrecipitation.values[3].value
 
+        // One response index
         const forecast = responses[1].data.properties.periods[0].detailedForecast
 
+        // two response index
         const currTemp = (responses[2].data.properties.temperature.value * 1.8 + 32).toFixed(0);
         const windSpeed = (responses[2].data.properties.windSpeed.value / 1.609).toFixed(0);
         const windGust = (responses[2].data.properties.windGust.value / 1.609).toFixed(0);
         const windChill = (responses[2].data.properties.windChill.value * 1.8 + 32).toFixed(0);
         // console.log('Precipitation', probability)
 
+        // three response index
         const locationName = responses[3].data.properties.name;
 
         setData({
@@ -54,7 +58,19 @@ function NoaaApp(props) {
       .catch(err => {
         console.log(err);
     })
-  }, [data])
+
+    axios
+      .get('https://api.weather.gov/gridpoints/PQR/142,88')
+      .then(response => {
+        // console.log('Response temperature iso parsing', response.data.properties.temperature.values)
+        const tempArray = response.data.properties.temperature.values[0];
+        console.log('Temp array', tempArray)
+        // tempArray.map(time => {
+        //   // console.log(time)
+        // })
+      })
+
+  },[])
    
 
   
