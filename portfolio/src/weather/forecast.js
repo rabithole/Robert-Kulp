@@ -7,8 +7,8 @@ function Forecast(props) {
 	return (
 		<div id='forecast'>
       <h1>FORECAST</h1>
-      <section className='sectionTitle'>
-        <p className='sectionContent'>{props.forecast}</p>
+      <section>
+        <p >{props.forecast}</p>
       </section>
 
 		</div>

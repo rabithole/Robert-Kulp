@@ -7,7 +7,7 @@ function Location(props) {
 	return (
 		<div id='location'>
       <h1>LOCATION</h1>
-      <section >
+      <section>
         <p><b>Location:</b> {props.location}</p>
         <p><b>Elevation:</b> {props.elevation} Ft</p>
         <p><b>Wind Speed:</b> {props.windSpeed} MPH</p>

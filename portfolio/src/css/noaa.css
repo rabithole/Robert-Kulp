@@ -43,6 +43,15 @@ header {
 	margin: 3%;
 }
 
+#forecast section {
+	box-shadow: 2px 2px 2px white;
+	background-color: rgba(0,107,179,0.7);
+	padding: 3%;
+	border-radius: 5px;
+	font-size: 2.5vw;
+	color: white;
+}
+
 
 /* Temperature section boxes */
 #temperature {
@@ -58,7 +67,9 @@ header {
 	border: 1px solid white;
 }
 
-
+.currTemp {
+	color: rgb(153,0,0);
+}
 
 
 .sectionContent {

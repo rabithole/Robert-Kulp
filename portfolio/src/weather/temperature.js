@@ -11,7 +11,7 @@ function Temperature(props) {
       <div id='temperature'>
       
         <section>
-          <p className='sectionTitle'>Curr Temp</p>
+          <p className='sectionTitle currTemp'>Curr Temp</p>
           <p className='sectionContent'>{props.currTemp}{'\u00B0'} F</p>
         </section>
 
