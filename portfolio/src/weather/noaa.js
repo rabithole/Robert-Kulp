@@ -10,11 +10,11 @@ function NoaaApp(props) {
   // console.log('Data', data)
 
 
-  useEffect(() => {
-    let gridPoints = 'https://api.weather.gov/gridpoints/PQR/142,88'; // 0
-    let forecast = 'https://api.weather.gov/gridpoints/PQR/142,88/forecast'; // 1
-    let latest = 'https://api.weather.gov/stations/mhm66/observations/latest'; // 2
-    let station = 'https://api.weather.gov/stations/mhm66'; // 3
+  useEffect(async () => {
+    let gridPoints = 'https://api.weather.gov/gridpoints/PQR/142,88'; // 0 index
+    let forecast = 'https://api.weather.gov/gridpoints/PQR/142,88/forecast'; // 1 index
+    let latest = 'https://api.weather.gov/stations/mhm66/observations/latest'; // 2 index
+    let station = 'https://api.weather.gov/stations/mhm66'; // 3 index
 
     const gridPointsRequest = axios.get(gridPoints); // 0
     const forecastRequest = axios.get(forecast); // 1
@@ -33,8 +33,8 @@ function NoaaApp(props) {
         const maxTemp = responses[0].data.properties.maxTemperature.values[0].value * 1.8 + 32;
         const minTemp = responses[0].data.properties.minTemperature.values[0].value * 1.8 + 32;
         const snowLevel = (responses[0].data.properties.snowLevel.values[0].value / 0.3048).toFixed(0);
-        const snowFallAmount = responses[0].data.properties.snowfallAmount.values[3].value / 25.4;
-        const probability = responses[0].data.properties.probabilityOfPrecipitation.values[3].value
+        const snowFallAmount = (responses[0].data.properties.snowfallAmount.values[3].value / 25.4).toFixed(0);
+        const probability = (responses[0].data.properties.probabilityOfPrecipitation.values[3].value).toFixed(0);
 
         // One response index
         const forecast = responses[1].data.properties.periods[0].detailedForecast
@@ -59,11 +59,14 @@ function NoaaApp(props) {
         console.log(err);
     })
 
-    axios
+    await axios
       .get('https://api.weather.gov/gridpoints/PQR/142,88')
       .then(response => {
         // console.log('Response temperature iso parsing', response.data.properties.temperature.values)
-        const tempArray = response.data.properties.temperature.values[0];
+        const tempArray = response.data.properties.temperature.values;
+        tempArray.map(hour => {
+
+        })
         console.log('Temp array', tempArray)
         // tempArray.map(time => {
         //   // console.log(time)
