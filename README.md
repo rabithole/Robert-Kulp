@@ -1,5 +1,4 @@
-# Robert-Kulp 
-## My online portfolio.
+# Portfolio project.
 
 # NOAA App
 - The goal of the NOAA app is mainly for personal use for back country skiing. The data points chozen are needed for accurate forecasting. In particular the freezing level is often difficulut to find for a given area. 
