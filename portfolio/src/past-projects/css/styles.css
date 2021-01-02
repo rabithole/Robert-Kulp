@@ -1,0 +1,64 @@
+body {
+	background-image: url(../images/background/panarama.jpg);
+	width: 8191px;
+	background-repeat: no-repeat;
+	background-color: #000;	
+}
+
+#content {
+	overflow: scroll;
+	margin-top: 12%;
+}
+
+ul.thumb-list { /* Positioning of thumbs */ 
+	position: relative;
+	top: 170px;
+}
+
+ul.thumb-list li { 
+	display: inline-block; 
+}
+
+ul.thumb-list li {
+	margin-right: 50px; /* Spacing between thumbs */
+}
+
+h1 {
+	position: fixed;
+	left: 28%;
+	top: 10%;
+	font-size: 2.5em;
+	box-shadow: 5px 5px 25px #000;
+	padding: 5px 15px;
+	border-radius: 15px;
+	background-color: rgba(255,255,255,.7);
+	text-shadow: 5px 5px 5px #999999;
+}
+
+em {
+	color: rgba(204,0,51,1);
+}
+
+nav {
+	position: fixed;
+	left: 25%;
+	top: -20px;
+	z-index: 1000;
+}
+
+footer {
+	background-color: rgba(0,0,0,1);
+	position: fixed;
+	bottom: -5px;
+	left: -10px;
+	width: 100%;
+	color: #fff;
+	clear: both;
+	padding: 5px;
+}
+
+footer p {
+	color: rgba(204,204,204,1);
+	font-size: 1.6em;
+	margin: 10px 50px;
+}
