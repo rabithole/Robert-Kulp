@@ -5,34 +5,39 @@ import axios from 'axios';
 import '../css/LoginForm.css';
 
 import { withFormik, Form, Field } from 'formik';
+
 function SignUp({ values, errors, touched }) {
   return (
-    <Form className='formBody'>
-
-      <h1>Sign Up</h1>
+    <div>
       <p>Choose a username and password</p>
-      <Field
-        className='input'
-        type='text'
-        name='username'
-        placeholder='UserName'
-      />
-      {touched.username && errors.username && (
-        <p className='errors'>{errors.username}</p>
-      )}
-      <Field
-        className='input'
-        type='password'
-        name='password'
-        placeholder='Password'
-      />
-      {touched.password && errors.password && (
-        <p className='errors'>{errors.password}</p>
-      )}
-      <button className='button' type='submit' disabled={values.isSubmitting}>
-        {values.isSubmitting ? 'SigningUp' : 'Submit'}
-      </button>
-    </Form>
+      
+      <Form className='formBody'>
+
+        <h1>Sign Up</h1>
+        
+        <Field
+          className='input'
+          type='text'
+          name='username'
+          placeholder='UserName'
+        />
+        {touched.username && errors.username && (
+          <p className='errors'>{errors.username}</p>
+        )}
+        <Field
+          className='input'
+          type='password'
+          name='password'
+          placeholder='Password'
+        />
+        {touched.password && errors.password && (
+          <p className='errors'>{errors.password}</p>
+        )}
+        <button className='button' type='submit' disabled={values.isSubmitting}>
+          {values.isSubmitting ? 'SigningUp' : 'Submit'}
+        </button>
+      </Form>
+    </div>
   );
 }
 
