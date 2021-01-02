@@ -8,7 +8,9 @@ import { withFormik, Form, Field } from 'formik';
 function SignUp({ values, errors, touched }) {
   return (
     <Form className='formBody'>
+
       <h1>Sign Up</h1>
+      <p>Choose a username and password</p>
       <Field
         className='input'
         type='text'
@@ -28,7 +30,7 @@ function SignUp({ values, errors, touched }) {
         <p className='errors'>{errors.password}</p>
       )}
       <button className='button' type='submit' disabled={values.isSubmitting}>
-        {values.isSubmitting ? 'SigningUp' : 'Sign Up'}
+        {values.isSubmitting ? 'SigningUp' : 'Submit'}
       </button>
     </Form>
   );

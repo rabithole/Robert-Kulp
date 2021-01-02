@@ -57,6 +57,13 @@ nav a:hover {
   color: #cccccc;
 }
 
+@media (max-width: 480px) {
+  nav {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
 input {
   display: flex;
   margin: auto;
