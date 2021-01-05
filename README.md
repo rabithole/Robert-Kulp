@@ -1,15 +1,8 @@
-<<<<<<< HEAD
 # Portfolio project.
 
 # NOAA App
 - The goal of the NOAA app is mainly for personal use for back country skiing. The data points chozen are needed for accurate forecasting. In particular the freezing level is often difficulut to find for a given area. 
 
-## API's used: 
-#### NOAA: https://www.ncdc.noaa.gov/cdo-web/webservices/v2
-	- Dug through NOAA's api to choose the relevant data for my goals.
-#### OnTheSnow: (Not yet utilized in current build) http://docs.clientservice.onthesnow.com/docs/index.html
-#### Student built API for the Guidr project.
-=======
 # Robert-Kulp 
 ## My online portfolio.
 ## React version: react: 16.13.1
@@ -19,15 +12,9 @@
 #### NOAA: https://www.ncdc.noaa.gov/cdo-web/webservices/v2
 	- Dug through NOAA's api to choose the relevant data for my goals.
 #### Student built API. (Guidr)
->>>>>>> past-projects
 
 
-<<<<<<< HEAD
-# Guidr
-- Guidr is a Lambda School project. 
-- Full CRUD is used. 
-- The API is student built and has the following limitations. 
-=======
+
 # Projects integrated into this URL...
 ## NOAA App
 - The goal of the NOAA app is for my personal use for back country skiing. The data points chozen are needed for accurate forecasting. In particular the freezing level is often difficulut to find for a given area. 
@@ -41,15 +28,10 @@
 - Guidr is a Lambda School project. 
 - It is a full CRUD project. 
 - The API is built by a fellow student, Nathan Loveless. He recently removed this project from heroku requiring me to redeploy it to my own Heroku account with his permission. 
->>>>>>> past-projects
 	- The API is hosted on Heroku
 	- Data is reset periodically. I am unsure of the duration.
 
-<<<<<<< HEAD
-## Known Guidr Trip Bugs and To Do's...
-=======
-### Guidr Trip Bugs and To Do's...
->>>>>>> past-projects
+### Known Guidr Trip Bugs and To Do's...
 - Database resets periodically. Unsure of the time frame. 
 - Unmounted component error, Can't update state. 
 - Make check boxes work or remove the check boxes.
@@ -81,7 +63,6 @@
 -	Alpaca farm in Washougal Washington
 -	Extensive market research for this project. 
 -	Found the market heavily flooded from government subsidies. 
-
 
 
 ## Slice Pizza
