@@ -74,100 +74,99 @@ function App(props) {
       		<NoaaApp/>
      	</header>
 
-    <div id='guidr'>
-    <section>
-	    <h1>Guided Trips</h1>
-	    <h5>A Lambda School Project</h5>
-    </section>
+      <div id='guidr'>
+      <section>
+  	    <h1>Guided Trips</h1>
+  	    <h5>A Lambda School Project</h5>
+      </section>
 
-      <nav>
-        {!signedIn && 
-          <NavLink 
-            to='/SignUp'>
-              Sign Up
-          </NavLink>}
+        <nav>
+          {!signedIn && 
+            <NavLink 
+              to='/SignUp'>
+                Sign Up
+            </NavLink>}
 
-        {!signedIn &&
-          <NavLink 
-            to='/Login' activeClassName='active'>
-              Login
-          </NavLink>}
+          {!signedIn &&
+            <NavLink 
+              to='/Login' activeClassName='active'>
+                Login
+            </NavLink>}
 
-        {signedIn && 
-          <NavLink 
-            to='/CreateTrip'>
-              Add Trip
-          </NavLink>}
+          {signedIn && 
+            <NavLink 
+              to='/CreateTrip'>
+                Add Trip
+            </NavLink>}
 
-        {signedIn && 
-          <NavLink
-            to='/Trips'>
-              Trip List
-          </NavLink>
-        }
+          {signedIn && 
+            <NavLink
+              to='/Trips'>
+                Trip List
+            </NavLink>
+          }
 
-        {signedIn && 
-          <NavLink
-            to='/Logout'>
-              Logout
-          </NavLink>
-        }
-        {/*signedIn && 
-          <NavLink 
-            to='/CreateProfile'>
-              Create Profile
-          </NavLink>
-        */}
-      </nav>
+          {signedIn && 
+            <NavLink
+              to='/Logout'>
+                Logout
+            </NavLink>
+          }
+          {/*signedIn && 
+            <NavLink 
+              to='/CreateProfile'>
+                Create Profile
+            </NavLink>
+          */}
+        </nav>
 
-{/*//////////////////////////////////////////////////*/}
+  {/*//////////////////////////////////////////////////*/}
 
-      <Route 
-        exact path='/login'
-        component={Login}
-      >
-      </Route>
-      
-      <Route 
-        exact path='/SignUp'
-        component={SignUp}
-      >
-      </Route>
-      
-      <TripsContext.Provider value={{ trips, updateTrip }}>
+        <Route 
+          exact path='/login'
+          component={Login}
+        >
+        </Route>
+        
+        <Route 
+          exact path='/SignUp'
+          component={SignUp}
+        >
+        </Route>
+        
+        <TripsContext.Provider value={{ trips, updateTrip }}>
+          <ProtectedRoute
+            exact path='/Trips'
+            component={Trips}
+          />
+
+          <ProtectedRoute
+            exact path='/Trip/:id'
+            component={Trip}
+          />
+
+          <ProtectedRoute
+            exact path='/SingleTrip/:id'
+            component={SingleTrip}
+          />
+
+          <ProtectedRoute
+            exact path='/UpdateTrip/:id'
+            component={UpdateTrip}
+          />
+
+          <ProtectedRoute
+          	exact path='/CreateTrip'
+          	component={CreateTrip}
+        	/>
+        </TripsContext.Provider>
+
         <ProtectedRoute
-          exact path='/Trips'
-          component={Trips}
+          exact path='/Logout'
+          component={Logout}
         />
 
-        <ProtectedRoute
-          exact path='/Trip/:id'
-          component={Trip}
-        />
-
-        <ProtectedRoute
-          exact path='/SingleTrip/:id'
-          component={SingleTrip}
-        />
-
-        <ProtectedRoute
-          exact path='/UpdateTrip/:id'
-          component={UpdateTrip}
-        />
-
-        <ProtectedRoute
-        	exact path='/CreateTrip'
-        	component={CreateTrip}
-      	/>
-      </TripsContext.Provider>
-
-      <ProtectedRoute
-        exact path='/Logout'
-        component={Logout}
-      />
-
-    </div>
-
+      </div>
     </div>
   );
 }
