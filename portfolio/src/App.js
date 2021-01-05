@@ -11,7 +11,7 @@ import SignUp from './components/SignUp';
 
 import Trips from './components/Trips';
 import Trip from './components/Trip';
-import { Route, Link, withRouter } from 'react-router-dom';
+import { Route, Link, withRouter, NavLink } from 'react-router-dom';
 import ProtectedRoute from './utils/ProtectedRoute';
 import CreateTrip from './components/CreateTrip';
 import Logout from './utils/Logout';
@@ -82,41 +82,41 @@ function App(props) {
 
       <nav>
         {!signedIn && 
-          <Link 
+          <NavLink 
             to='/SignUp'>
               Sign Up
-          </Link>}
+          </NavLink>}
 
         {!signedIn &&
-          <Link 
-            to='/Login'>
+          <NavLink 
+            to='/Login' activeClassName='active'>
               Login
-          </Link>}
+          </NavLink>}
 
         {signedIn && 
-          <Link 
+          <NavLink 
             to='/CreateTrip'>
               Add Trip
-          </Link>}
+          </NavLink>}
 
         {signedIn && 
-          <Link
+          <NavLink
             to='/Trips'>
               Trip List
-          </Link>
+          </NavLink>
         }
 
         {signedIn && 
-          <Link
+          <NavLink
             to='/Logout'>
               Logout
-          </Link>
+          </NavLink>
         }
         {/*signedIn && 
-          <Link 
+          <NavLink 
             to='/CreateProfile'>
               Create Profile
-          </Link>
+          </NavLink>
         */}
       </nav>
 

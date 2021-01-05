@@ -1,0 +1,159 @@
+body {
+	background-color: #999;
+	background-image: url(../group/3mbackground_2.jpg);
+	background-size: 100% ;
+	height: auto;
+}
+.container {
+	width: 900px;
+	height: auto;
+	background-color: ;
+	margin: auto;
+	box-shadow: ;
+	border-radius: 25px;
+	padding:;
+	border: ;
+}
+nav {
+	float: right;
+	margin-top: 25px;
+	margin-right: 20px;
+}
+
+nav td{
+	padding: 5px;
+	text-align: center;
+	width: 100px;
+	background-color: #70944D;
+	border: 1px solid #000;
+	border-radius: 5px;
+	box-shadow: 5px 5px 5px #FFF;
+}
+nav table a{
+	text-decoration: none;
+	font-size: 1.2em;
+	color: #000;
+	border-radius: 5px;
+	background-color: ;
+}
+nav table {
+	margin-bottom: 20px;
+}
+
+
+nav a:hover {
+	color: #FF0;
+}
+#main_image img {
+	width: 700px;
+	box-shadow: 10px 10px 10px #FFF;
+	margin-left: 20px;
+	margin-bottom: 30px;
+}
+h1 {
+	text-align: center;
+	text-shadow: 5px 5px 5px #70944D;
+	font-size: 3.5em;
+	color: #FFF;
+}
+#title_head {
+	width: 100%;
+	height: 220px;
+	background-color: #70944D;
+	border-radius: 25px;
+	border-top-left-radius:;
+	border-top-right-radius:;
+	box-shadow: 10px 10px 10px #FFF;
+	
+}
+#title_head img {
+	height: 190px;
+	float: left;
+	margin: 5px;
+	margin-left: 20px;
+	margin-top: 15px;
+	box-shadow: 6px 6px 6px #000;
+}
+#busname {
+	float: right;
+	margin-right: 100px;
+	margin-top: 30px;
+	font-size:;
+	color: ;
+	background-color: ;
+}
+#busname h1 {
+	font-size: 2.5em;
+	color: #009;
+	text-shadow: 2px 2px 2px #CCC;
+}
+#busname h3{
+	color: #000;
+	border-bottom: 2px solid #000;
+}
+
+	
+
+/* aplaca's for sale */
+#sale_alpacas {
+	margin-left: 20px;
+}
+.alpaca {
+	width: 700px;
+	height: 170px;
+	margin-bottom: 40px;
+	margin-left: 5px;
+	border-radius: 10px;
+	border: 1px solid #000;
+	background-color: #70944D;
+	box-shadow: 10px 10px 10px #FFF;
+}
+.alpaca img{
+	width: 200px;
+	padding: 5px ;
+	padding-bottom: ;
+	box-shadow: 3px 3px 3px #000;
+	border: 1px #000;
+	margin-top: 5px;
+	margin-left: 5px;
+}
+.alpaca p {
+	width: 450px;
+	float: right;
+	padding-right: 10px;
+}
+.bread {
+	font-style:italic;
+	font-weight:bold;
+}
+.title {
+	font-size: 1.2em;
+	font-weight: bold;
+	margin: ;
+}
+address {
+	text-align: center;
+	margin-top: 15px;
+}
+#bottom {
+	height: 70px;
+	background-color: #70944D;
+	border-bottom-left-radius: ;
+	border-bottom-right-radius:;
+	border-radius: 25px;
+	margin-top: 50px;
+	box-shadow: 10px 10px 10px #FFF;
+}
+#bottom a {
+	text-decoration: none;
+	padding: 10px;
+}
+#about_us {
+	margin-bottom: 150px;
+	margin-left: 10px;
+	box-shadow: 5px 5px 5px #000;
+	width: 80%;
+	padding: 10px;
+	background-color: #3C6;
+	border-radius: 20px;
+}

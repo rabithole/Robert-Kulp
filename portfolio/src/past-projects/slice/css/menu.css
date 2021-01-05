@@ -1,0 +1,165 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+	background-color: rgba(65,65,66,1);
+	background-image: url(../images/menu_background_4.jpg); 
+	background-size: 100% 100%;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	font-size: 100%;
+	overflow-x: ;
+	height: ;
+	min-width: ;
+	perspective: ;
+}
+
+header {
+	position: relative;
+	padding-top: 10px;
+	width: 100%;
+	margin: -25px auto -20px auto;
+	color: rgba(220,166,22,1);
+	background-color: rgba(65,65,66,.8);
+}
+
+header h1 {
+	text-align: center;
+	font-size: 2.5em;
+}
+
+header h2 {
+	text-align: center;
+	color: rgba(255,255,255,1);
+	margin-top: -10px;
+	font-weight: 100;
+}
+
+header p {
+	text-align: center;
+}
+
+header a {
+	/*float: left;
+	clear: left;
+	position: relative;
+	top: -50px;*/
+	color: rgba(255,255,255,1);
+	text-decoration: none;
+	/*margin: 0 0 0 5%; */
+	/*border-right: 3px dotted rgba(220,166,22,1);
+	border-left: 3px dotted rgba(220,166,22,1); */
+	padding: 0 30px;
+	font-size: 1.1em;
+}
+
+header a:hover {
+	color: rgba(220,166,22,1);
+}
+
+#wrapper {
+	margin: 0 auto 0 auto;
+	background-color: rgba(65,65,66,.8);
+	width: 500px;
+	padding: 1%;
+}
+
+table {
+	margin-bottom: 30px;
+}
+
+/* Size and Sauces */
+#size {
+	
+	color: rgba(255,255,255,1);
+	border-collapse: collapse;
+}
+
+th {
+	text-align: left;
+	padding-left: 5px;
+	font-size: 1.4em;
+	border-bottom: 2px solid rgba(220,166,22,1);
+	color: rgba(220,166,22,1);
+}
+
+td {
+	padding: 0px 10px;
+	width: auto;
+}
+
+td:nth-child(2) {
+	padding-right: 60px;
+}
+
+/* House Pizzas */
+#house {
+	color: rgba(255,255,255,1);
+	border-collapse: collapse;
+	width: 478px;
+}
+
+.pricing {
+	border-bottom: 1px solid rgba(255,255,255,1);
+}
+
+.top_padding {
+	padding-top: 20px;
+}
+
+/* Build Your Own Pizza */
+#build {
+	color: rgba(255,255,255,1);
+	border-collapse: collapse;
+	width: 478px;
+}
+
+/* Salads */
+#salads {
+	color: rgba(255,255,255,1);
+	border-collapse: collapse;
+	width: 478px;
+}
+
+#em {
+	color: rgba(255,255,255,.7);
+	padding-top: 10px;
+}
+
+footer {
+	position: relative;
+	bottom: 1%;
+	width: 100%;
+	border-top: 5px solid rgba(220,166,22,1);
+	border-bottom: 5px solid rgba(220,166,22,1);
+	left: -1px;
+	background-color: rgba(65,65,66,1);
+	margin-bottom: -10px;
+}
+
+footer h1 {
+	width: 600px;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	font-size: 1.5em;
+}
+
+footer a {
+	color: rgba(255,255,255,1);
+	text-decoration: none;
+	margin-right: 60px;
+}
+
+footer a:hover {
+	color: rgba(220,166,22,1);
+}
+
+#current {
+	color: rgba(220,166,22,1);
+}
+
+
+
+
+
