@@ -58,7 +58,7 @@ export default withFormik({
   }),
   handleSubmit: (values, { setSubmitting, resetForm }) => {
     axios
-      .post('https://guidr-2.herokuapp.com/api/auth/register', values)
+      .post('https://guided-trips-backend.herokuapp.com/api/auth/register', values)
       .then(response => {
         console.log('Data', response);
       })
