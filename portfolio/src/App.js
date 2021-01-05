@@ -11,7 +11,7 @@ import SignUp from './components/SignUp';
 
 import Trips from './components/Trips';
 import Trip from './components/Trip';
-import { Route, Link, withRouter, NavLink } from 'react-router-dom';
+import { Route, withRouter, NavLink } from 'react-router-dom';
 import ProtectedRoute from './utils/ProtectedRoute';
 import CreateTrip from './components/CreateTrip';
 import Logout from './utils/Logout';

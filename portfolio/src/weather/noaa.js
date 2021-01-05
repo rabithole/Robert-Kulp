@@ -35,7 +35,7 @@ function NoaaApp(props) {
         const snowLevel = (responses[0].data.properties.snowLevel.values[0].value / 0.3048).toFixed(0);
         const snowFallAmount = (responses[0].data.properties.snowfallAmount.values[3].value / 25.4).toFixed(0);
         const probability = (responses[0].data.properties.probabilityOfPrecipitation.values[3].value).toFixed(0);
-        console.log('Snow Level', responses[0].data.properties.snowLevel.values)
+        // console.log('Snow Level', responses[0].data.properties.snowLevel.values)
 
         // One response index
         const forecast = responses[1].data.properties.periods[0].detailedForecast
@@ -68,7 +68,7 @@ function NoaaApp(props) {
         tempArray.map(hour => {
 
         })
-        console.log('Temp array', tempArray)
+        // console.log('Temp array', tempArray)
         // tempArray.map(time => {
         //   // console.log(time)
         // })

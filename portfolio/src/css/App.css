@@ -57,7 +57,7 @@ nav a:hover {
   color: #cccccc;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 610px) {
   nav {
     display: flex;
     flex-direction: column;
@@ -80,7 +80,7 @@ input {
   /*flex-direction: column;*/
   /*justify-content: left;*/
   text-align: left;
-  width: 50%;
+  width: 80%;
   border: 2px solid black;
   margin: 2% auto;
   padding: 2%;
@@ -109,7 +109,7 @@ input {
 }
 
 .CreateTrip {
-  width: 50%;
+  width: 80%;
   margin: auto;
 
 }
