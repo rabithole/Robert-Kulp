@@ -8,9 +8,11 @@ export function getToken() {
 
 export default function() {
 	return axios.create({
-		baseURL: 'https://guidr-2.herokuapp.com/api/',
+		baseURL: 'https://guided-trips-backend.herokuapp.com/api',
 		headers: {
 			authorization: getToken(),
 		},
 	})
 }
+
+// Save: https://guidr-2.herokuapp.com/api/
