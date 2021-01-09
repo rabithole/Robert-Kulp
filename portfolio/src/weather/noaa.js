@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import Location from './location';
-import Temperature from './temperature';
-import Forecast from './forecast';
-import Freezing from './freezingLevel';
+import Location from './Location';
+import Temperature from './Temperature';
+import Forecast from './Forecast';
+import Freezing from './FreezingLevel';
 
 function NoaaApp(props) {
   const [data, setData] = useState([]);

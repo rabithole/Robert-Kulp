@@ -23,12 +23,12 @@ function checkBox() {
     localStorage.setItem('checked', checked.checked)
     let ch = localStorage.getItem('checked');
     console.log(ch)
-    location.reload();
+    window.location.reload(); /////////////////// Added window for React
 }
 
 // sets persistence for random or not. 
 if(localStorage.getItem('checked') === 'true') {
-    random.checked = true;
+    window.random.checked = true;
 }
 
 
@@ -39,6 +39,7 @@ let nextGen =[rows];
 // Creates two-dimensional arrays
 function createGenArrays() {
     for (let i = 0; i < rows; i++) {
+        console.log(currGen)
         currGen[i] = new Array(cols);
         nextGen[i] = new Array(cols);
     }
@@ -303,7 +304,7 @@ function startStop(){
  
   
 function resetWorld() {
-    location.reload();
+    window.location.reload();
 }
 
 window.onload=()=>{
