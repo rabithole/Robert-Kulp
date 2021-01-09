@@ -56,7 +56,7 @@
 
 ## Oowee Gooey Brownies
 -	Followed a designers design to the pixel. 
--	Designer: 
+-	Designer: Nelson Porras
 -	Pixel perfect css following a designers design. 
 -	Photography is my own. 
 
