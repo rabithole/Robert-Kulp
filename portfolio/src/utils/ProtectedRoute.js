@@ -23,7 +23,7 @@ function ProtectedRoute(props) {
 				return <Component {...renderProps} />
 			} else {
 				// We are not logged in, so redirect to the signin page
-				return <Redirect to="/login" />
+				return <Redirect to="/guidr/login" />
 			}
 		}} />
 	)
