@@ -48,7 +48,7 @@ function UpdateTrip(props) {
 	      	console.log(response)
 	      	// document.getElementById('reset').reset();
           updateTrip();
-          props.history.push(`/SingleTrip/${tripUpdate.id}`);
+          props.history.push(`/guidr/SingleTrip/${tripUpdate.id}`);
 		})
 	    .catch(err => console.log(err.response, tripUpdate));
 	    // document.getElementById('reset').reset();

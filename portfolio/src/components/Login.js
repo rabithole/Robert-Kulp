@@ -8,7 +8,7 @@ import '../css/LoginForm.css';
 import { withFormik, Form, Field } from 'formik';
 
 const Login = ({ values, errors, touched }) => {
-  // console.log('Submitting', values.isSubmitting);
+  console.log('login-------------------------------------');
   return (
     <Form className='formBody'>
       <h1> Login </h1>
@@ -59,7 +59,7 @@ export default withFormik({
       .then(response => {
         console.log('Data', response);
         localStorage.setItem('token', response.data.token)
-        props.history.push('/Trips')
+        props.history.push('/guidr/Trips')
       })
       .catch(err => console.log(err.response));
 

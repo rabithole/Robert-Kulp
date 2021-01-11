@@ -16,7 +16,7 @@ function Trip(props) {
 		.then(response => {
 			console.log('Deleted')
 			updateTrip();
-			history.push('/Trips')
+			history.push('/guidr/Trips')
 		})
 		.catch(error => {
 			console.log(error)
@@ -31,7 +31,7 @@ function Trip(props) {
 
   			<button onClick={event => deleteTrip(event, props.id)}>Delete Trip</button>
   			{/*<button onClick={event => updateTrip(event, props.id)}>Update Trip</button>*/}
-  			<Link to={`/UpdateTrip/${props.id}`}>
+  			<Link to={`/guidr/UpdateTrip/${props.id}`}>
   				<button>Update Trip</button>
   			</Link>
   		</div>

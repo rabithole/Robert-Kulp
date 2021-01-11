@@ -10,7 +10,7 @@ function Trips() {
 	  	<div className='trips'>
 	  		
   			{trips.map(trip => (
-  				<Link to={`/SingleTrip/${trip.id}`}>
+  				<Link to={`/guidr/SingleTrip/${trip.id}`}>
 	  				<Trip
 	  					title={trip.title}
 	  					key={trip.id}

@@ -7,6 +7,7 @@ import '../css/LoginForm.css';
 import { withFormik, Form, Field } from 'formik';
 
 function SignUp({ values, errors, touched }) {
+  console.log('signup')
   return (
     <div>
       <p>Choose a username and password</p>

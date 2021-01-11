@@ -15,7 +15,7 @@ function Trip(props) {
   			<p><strong>DATE: </strong>{props.date}</p>
   			<p><strong>TYPE: </strong>{props.type}</p>
 
-  			<Link to={`/UpdateTrip/${props.id}`}>
+  			<Link to={`/guidr/UpdateTrip/${props.id}`}>
   				<button>Update Trip</button>
   			</Link>
   		</div>

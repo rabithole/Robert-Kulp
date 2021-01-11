@@ -1,3 +1,7 @@
+body {
+	margin: 0px;
+}
+
 header {
   background-color: blue;
   background-image: url("../img/mt_st_helens.jpg");
