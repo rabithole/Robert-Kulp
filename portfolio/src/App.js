@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Route, NavLink } from 'react-router-dom';
+import React from 'react';
+import { Route } from 'react-router-dom';
 import Guidr from './Guidr';
 import NoaaApp from './weather/Noaa';
 // import Gooey from './past-projects/gooey/Gooey';
