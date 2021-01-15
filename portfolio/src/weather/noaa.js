@@ -80,7 +80,7 @@ function NoaaApp(props) {
   
   
 	return (
-		<div>
+		<div id='noaa'>
       <Temperature 
         maxTemp={data.maxTemp}
         minTemp={data.minTemp}
