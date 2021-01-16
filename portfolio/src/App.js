@@ -7,11 +7,8 @@ import Nav from './nav/Nav';
 function App(props) {
 
   return (
-    <div className='App'>
+    <div>
       <Nav/>
-
-      <header>
-      </header>
 
       <Route 
         path='/noaa'

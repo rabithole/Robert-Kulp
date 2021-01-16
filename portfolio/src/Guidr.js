@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './css/App.css';
-import './css/guidr.css';
+// import './css/guidr.css';
 
 import { getToken } from './utils/axiosWithAuth';
 import axiosWithAuth from './utils/axiosWithAuth';

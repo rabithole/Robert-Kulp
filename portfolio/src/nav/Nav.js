@@ -1,12 +1,12 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
+import '../css/main_nav.css';
 
 function Nav(props) {
 
   return (
-    <div className='Nav'>
+    <div className='nav'>
       <nav>
-        <h1>What a nav</h1>
         <Router forceRefresh={true}>
           <NavLink
             to='/noaa'>
@@ -15,7 +15,17 @@ function Nav(props) {
 
            <NavLink
             to='/guidr/login'>
-            Outdoor Guide
+            Guidr 
+          </NavLink>
+
+          <NavLink
+            to='/pastProjects'>
+            Past Projects 
+          </NavLink>
+
+          <NavLink
+            to='/adventures'>
+            Adventures 
           </NavLink>
         </Router>
       </nav>
