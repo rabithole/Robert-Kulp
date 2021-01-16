@@ -1,9 +1,9 @@
 /* Main navigation */
 
-.nav nav {
-	/*background-color: red;*/
+.nav nav a {
+	background-color: red;
 }
 
 .nav {
-	margin-top: 50px;
+	margin: 50px 5px 20px 20px;
 }

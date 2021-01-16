@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 import '../css/main_nav.css';
 
 function Nav(props) {
+  
 
   return (
     <div className='nav'>
