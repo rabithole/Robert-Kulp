@@ -12,7 +12,7 @@ function Nav(props) {
         <Router forceRefresh={true}>
           <NavLink
             activeStyle={{
-              // backgroundColor: 'rgb(0, 119, 179)',
+              backgroundColor: 'rgb(0, 119, 179)',
               borderRight: '1px white dotted',
               borderBottom: '1px white dotted',
               borderRadius: '0px',
@@ -25,7 +25,7 @@ function Nav(props) {
 
            <NavLink
             activeStyle={{
-              // backgroundColor: 'rgb(179,94,2)',
+              backgroundColor: 'rgb(179,94,2)',
               borderRight: '1px white dotted',
               borderBottom: '1px white dotted',
               borderRadius: '0px',
@@ -38,7 +38,7 @@ function Nav(props) {
 
           <NavLink
             activeStyle={{
-                // backgroundColor: 'rgb(179,94,2)',
+                backgroundColor: 'rgb(179,94,2)',
                 borderRight: '1px white dotted',
                 borderBottom: '1px white dotted',
                 borderRadius: '0px',
@@ -51,7 +51,7 @@ function Nav(props) {
 
           <NavLink
             activeStyle={{
-              // backgroundColor: 'rgb(179,94,2)',
+              backgroundColor: 'rgb(179,94,2)',
               borderRight: '1px white dotted',
               borderBottom: '1px white dotted',
               borderRadius: '0px',
@@ -64,7 +64,7 @@ function Nav(props) {
 
           <NavLink
             activeStyle={{
-              // backgroundColor: 'rgb(179,94,2)',
+              backgroundColor: 'rgb(179,94,2)',
               borderRight: '1px white dotted',
               borderBottom: '1px white dotted',
               borderRadius: '0px',

@@ -10,6 +10,12 @@ function App(props) {
     <div>
       <Nav/>
 
+      <Route
+        exact path='/'
+        component={NoaaApp}
+      >
+      </Route>
+
       <Route 
         exact path='/noaa'
         component={NoaaApp}
