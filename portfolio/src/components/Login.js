@@ -3,34 +3,35 @@ import * as Yup from 'yup';
 // import axios from 'axios';
 import axiosWithAuth from '../utils/axiosWithAuth';
 
-import '../css/LoginForm.css';
+// import '../css/LoginForm.css';
+import styles from '../css/LoginForm.module.css';
 
 import { withFormik, Form, Field } from 'formik';
 
 const Login = ({ values, errors, touched }) => {
   console.log('login-------------------------------------');
   return (
-    <Form className='formBody'>
+    <Form className={styles.formBody}>
       <h1> Login </h1>
       <Field
-        className='input'
+        className={styles.input}
         type='text'
         name='username'
         placeholder='UserName'
       />
       {touched.username && errors.username && (
-        <p className='errors'>{errors.username}</p>
+        <p className={styles.errors}>{errors.username}</p>
       )}
       <Field
-        className='input'
+        className={styles.input}
         type='password'
         name='password'
         placeholder='Password'
       />
       {touched.password && errors.password && (
-        <p className='errors'>{errors.password}</p>
+        <p className={styles.errors}>{errors.password}</p>
       )}
-      <button className='button' type='submit' disabled={values.isSubmitting}>
+      <button className={styles.button} type='submit' disabled={values.isSubmitting}>
         {values.isSubmitting ? 'Submitting' : 'Login'}
       </button>
     </Form>

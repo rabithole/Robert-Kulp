@@ -5,6 +5,8 @@ import Temperature from './Temperature';
 import Forecast from './Forecast';
 import Freezing from './FreezingLevel';
 
+import styles from '../css/noaa.module.css';
+
 function NoaaApp(props) {
   const [data, setData] = useState([]);
   // console.log('Data', data)
@@ -80,7 +82,7 @@ function NoaaApp(props) {
   
   
 	return (
-		<div id='noaa'>
+		<div id={styles.noaa}>
       <Temperature 
         maxTemp={data.maxTemp}
         minTemp={data.minTemp}
@@ -91,7 +93,7 @@ function NoaaApp(props) {
         snowLevel={data.snowLevel}
       />
 
-      <div className='sideBySide'>
+      <div className={styles.sideBySide}>
         <Forecast
           forecast={data.forecast}
         />

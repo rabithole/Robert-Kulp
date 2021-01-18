@@ -16,6 +16,8 @@
 - Context API
 - Axios
 - Routing with protected routes
+-	Organize CSS
+	-	Used React's CSS modules to avoid css collisions.
 ##### To Do's for this project.
 -	Multi day forecasting
 -	Mulit locations available

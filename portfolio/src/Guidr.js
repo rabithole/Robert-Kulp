@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import './css/App.css';
+// import './css/App.css';
 // import './css/guidr.css';
+// import styles from './css/App.module.css';
+import styles from './css/LoginForm.module.css';
+import style from './css/guidr.module.css';
 
 import { getToken } from './utils/axiosWithAuth';
 import axiosWithAuth from './utils/axiosWithAuth';
@@ -69,8 +72,8 @@ function Guidr(props) {
     }, dependArray); 
 
   return (
-    <div className='App'>
-      <div id='guidr'>
+    <div className={style.App}>
+      <div id={style.guidr}>
       <section>
   	    <h1>Guided Trips</h1>
   	    <h5>A Lambda School Project</h5>
@@ -79,13 +82,21 @@ function Guidr(props) {
         <nav>
           {!signedIn && 
             <NavLink 
+              activeStyle={{
+                backgroundColor: 'rgb(113, 193, 116)',
+                padding: '10px 30px'
+              }}
               to='/guidr/SignUp'>
                 Sign Up
             </NavLink>}
 
           {!signedIn &&
             <NavLink 
-              to='/guidr/login' activeClassName='active'>
+              activeStyle={{
+                backgroundColor: 'rgb(113, 193, 116)',
+                padding: '10px 30px'
+              }}
+              to='/guidr/login'>
                 Login
             </NavLink>}
 

@@ -1,11 +1,11 @@
 import React from 'react';
-import '../css/noaa.css';
+import styles from '../css/noaa.module.css';
 
 function Location(props) {
   // console.log(props)
   
 	return (
-		<div id='location'>
+		<div id={styles.location}>
       <h1>LOCATION</h1>
       <section>
         <p><b>Location:</b> {props.location}</p>

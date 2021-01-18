@@ -11,7 +11,7 @@ function App(props) {
       <Nav/>
 
       <Route 
-        path='/noaa'
+        exact path='/noaa'
         component={NoaaApp}
       >
       </Route>

@@ -11,6 +11,9 @@
   text-align: center;
   padding-top: 5%;
   padding-bottom: 2%;
+
+  border-top: 10px solid darkgrey;
+  border-bottom: 10px solid darkgrey;
 }
 
 /* header noaa h1 */

@@ -1,14 +1,14 @@
 import React from 'react';
-import '../css/noaa.css';
+import styles from '../css/noaa.module.css';
 
 function Freezing(props) {
   // console.log(props)
   
 	return (
-		<div id='freezing'>
+		<div id={styles.freezing}>
       		<section >
-        		<p className='sectionTitle'>Freezing Level</p>
-        		<p className='sectionContent'>{props.snowLevel} FT</p>
+        		<p className={styles.sectionTitle}>Freezing Level</p>
+        		<p className={styles.sectionContent}>{props.snowLevel} FT</p>
       		</section>
 		</div>
 	);
