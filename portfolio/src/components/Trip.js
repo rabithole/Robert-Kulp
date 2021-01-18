@@ -3,6 +3,8 @@ import { useHistory, Link } from 'react-router-dom';
 import axiosWithAuth from '../utils/axiosWithAuth';
 import { TripsContext } from '../contexts/TripsContext';
 
+import style from '../css/guidr.module.css';
+
 function Trip(props) {
 	const { updateTrip } = useContext(TripsContext);
 	// console.log(props.id);
@@ -24,7 +26,7 @@ function Trip(props) {
 	}
 
   	return (
-  		<div className='trip'>
+  		<div className={style.trip}>
   			<h1>{props.title}</h1>
   			
   			<h3>Click card for more details</h3>

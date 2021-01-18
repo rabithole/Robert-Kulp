@@ -2,11 +2,13 @@ import React from 'react';
 // import axiosWithAuth from '../utils/axiosWithAuth';
 import { Link } from 'react-router-dom';
 
+import style from '../css/guidr.module.css';
+
 function Trip(props) {
 	// console.log(props);
 
   	return (
-  		<div className='trip'>
+  		<div className={style.trip}>
   			<h1>Trip Details</h1>
   			<p><strong>TITLE: </strong>{props.title}</p>
   			<p><strong>DESCRIPTION: </strong>{props.description}</p>
