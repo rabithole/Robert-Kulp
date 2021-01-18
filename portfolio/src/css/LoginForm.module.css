@@ -8,6 +8,7 @@
   padding: 12px 20px;
   margin: 8px 0;
   box-sizing: border-box;
+  background-color: rgb(190, 190, 190);
 }
 
 .button {
@@ -27,7 +28,7 @@
 
 .formBody h1 {
   padding: 10px 10px 10px 10px;
-  background-color: #e7e7e7;
+  background-color: rgb(150, 150, 150);
   margin: 0 auto;
   font-size: 5vw;
   border-top-left-radius: 10px;

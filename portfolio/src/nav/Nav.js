@@ -11,11 +11,19 @@ function Nav(props) {
       <nav>
         <Router forceRefresh={true}>
           <NavLink
+            activeStyle={{
+              backgroundColor: 'rgb(0, 119, 179)',
+              color: 'white'
+            }}
             to='/noaa'>
             NOAA
           </NavLink>
 
            <NavLink
+            activeStyle={{
+              backgroundColor: 'rgb(179,94,2)',
+              color: 'rgb(243, 229, 216)'
+            }}
             to='/guidr/login'>
             Guidr 
           </NavLink>
