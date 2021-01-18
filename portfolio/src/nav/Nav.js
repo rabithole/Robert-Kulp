@@ -12,7 +12,11 @@ function Nav(props) {
         <Router forceRefresh={true}>
           <NavLink
             activeStyle={{
-              backgroundColor: 'rgb(0, 119, 179)',
+              // backgroundColor: 'rgb(0, 119, 179)',
+              borderRight: '1px white dotted',
+              borderBottom: '1px white dotted',
+              borderRadius: '0px',
+              borderBottomRightRadius: '5px',
               color: 'white'
             }}
             to='/noaa'>
@@ -21,21 +25,54 @@ function Nav(props) {
 
            <NavLink
             activeStyle={{
-              backgroundColor: 'rgb(179,94,2)',
-              color: 'rgb(243, 229, 216)'
+              // backgroundColor: 'rgb(179,94,2)',
+              borderRight: '1px white dotted',
+              borderBottom: '1px white dotted',
+              borderRadius: '0px',
+              borderBottomRightRadius: '5px',
+              color: 'white'
             }}
             to='/guidr/login'>
             Guidr 
           </NavLink>
 
           <NavLink
+            activeStyle={{
+                // backgroundColor: 'rgb(179,94,2)',
+                borderRight: '1px white dotted',
+                borderBottom: '1px white dotted',
+                borderRadius: '0px',
+                borderBottomRightRadius: '5px',
+                color: 'white'
+              }}
             to='/pastProjects'>
             Past Projects 
           </NavLink>
 
           <NavLink
+            activeStyle={{
+              // backgroundColor: 'rgb(179,94,2)',
+              borderRight: '1px white dotted',
+              borderBottom: '1px white dotted',
+              borderRadius: '0px',
+              borderBottomRightRadius: '5px',
+              color: 'white'
+            }}
             to='/adventures'>
             Adventures 
+          </NavLink>
+
+          <NavLink
+            activeStyle={{
+              // backgroundColor: 'rgb(179,94,2)',
+              borderRight: '1px white dotted',
+              borderBottom: '1px white dotted',
+              borderRadius: '0px',
+              borderBottomRightRadius: '5px',
+              color: 'white'
+            }}
+            to='/aboutMe'>
+            About Me 
           </NavLink>
         </Router>
       </nav>
