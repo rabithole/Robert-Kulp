@@ -20,7 +20,7 @@ function Nav(props) {
               color: 'white'
             }}
             to='/noaa'>
-            NOAA
+            Snow
           </NavLink>
 
            <NavLink
@@ -33,7 +33,7 @@ function Nav(props) {
               color: 'white'
             }}
             to='/guidr/login'>
-            Guidr 
+            Lambda School 
           </NavLink>
 
           <NavLink
