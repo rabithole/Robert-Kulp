@@ -2,24 +2,24 @@ import React, { useState, useEffect } from 'react';
 // import './css/App.css';
 // import './css/guidr.css';
 // import styles from './css/App.module.css';
-import styles from './css/LoginForm.module.css';
-import style from './css/guidr.module.css';
+import styles from '../css/LoginForm.module.css';
+import style from '../css/guidr.module.css';
 
-import { getToken } from './utils/axiosWithAuth';
-import axiosWithAuth from './utils/axiosWithAuth';
-import { TripsContext } from './contexts/TripsContext';
+import { getToken } from '../utils/axiosWithAuth';
+import axiosWithAuth from '../utils/axiosWithAuth';
+import { TripsContext } from '../contexts/TripsContext';
 
-import Login from './components/Login';
-import SignUp from './components/SignUp';
+import Login from './Login';
+import SignUp from './SignUp';
 
-import Trips from './components/Trips';
-import Trip from './components/Trip';
+import Trips from './Trips';
+import Trip from './Trip';
 import { Route, withRouter, NavLink } from 'react-router-dom';
-import ProtectedRoute from './utils/ProtectedRoute';
-import CreateTrip from './components/CreateTrip';
-import Logout from './utils/Logout';
-import UpdateTrip from './components/UpdateTrip';
-import SingleTrip from './components/SingleTrip';
+import ProtectedRoute from '../utils/ProtectedRoute';
+import CreateTrip from './CreateTrip';
+import Logout from '../utils/Logout';
+import UpdateTrip from './UpdateTrip';
+import SingleTrip from './SingleTrip';
 // import PastNav from './past-projects/past-nav';
 // import CreateProfile from './components/CreateProfile';
 

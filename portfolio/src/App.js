@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import Guidr from './Guidr';
+import Guidr from './guidr/Guidr';
 import NoaaApp from './weather/Noaa';
 import Nav from './nav/Nav';
 

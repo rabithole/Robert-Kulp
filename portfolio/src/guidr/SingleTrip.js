@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { TripsContext } from '../contexts/TripsContext';
-import SingleTripsCard from '../components/SingleTripsCard';
+import SingleTripsCard from './SingleTripsCard';
 
 function Trip(props) {
 // console.log(props.match.params.id)

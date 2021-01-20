@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { TripsContext } from '../contexts/TripsContext';
-import Trip from '../components/Trip';
+import Trip from './Trip';
 import { Link } from 'react-router-dom';
 
 import style from '../css/guidr.module.css';
