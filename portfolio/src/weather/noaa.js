@@ -66,10 +66,10 @@ function NoaaApp(props) {
       .get('https://api.weather.gov/gridpoints/PQR/142,88')
       .then(response => {
         // console.log('Response temperature iso parsing', response.data.properties.temperature.values)
-        const tempArray = response.data.properties.temperature.values;
-        tempArray.map(hour => {
+        // const tempArray = response.data.properties.temperature.values;
+        // tempArray.map(hour => {
 
-        })
+        // })
         // console.log('Temp array', tempArray)
         // tempArray.map(time => {
         //   // console.log(time)

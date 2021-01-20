@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
+import { BrowserRouter as Router, NavLink } from 'react-router-dom';
 // import '../css/main_nav.css';
 import nav from '../css/main_nav.module.css';
 
@@ -45,7 +45,7 @@ function Nav(props) {
                 borderBottomRightRadius: '5px',
                 color: 'white'
               }}
-            to='/pastProjects'>
+            to='/gooey'>
             Past Projects 
           </NavLink>
 
