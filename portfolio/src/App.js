@@ -3,7 +3,7 @@ import { Route } from 'react-router-dom';
 import Guidr from './guidr/Guidr';
 import NoaaApp from './weather/Noaa';
 import Nav from './nav/Nav';
-import Gooey from './past-projects/gooey/Gooey';
+// import Gooey from './past-projects/gooey/Gooey';
 
 function App(props) {
 
@@ -29,11 +29,7 @@ function App(props) {
       >
       </Route>
 
-      <Route
-        path='/gooey'
-        component={Gooey}
-      >
-      </Route>
+      
     </div>
   );
 }
