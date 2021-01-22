@@ -96,6 +96,7 @@ aside img{
 			
 						
 #wrapper {
+	border-top: 10px solid darkgrey;
 	background-color: #FFF;
 	width: 1000px;
 	height: auto;
@@ -104,11 +105,11 @@ aside img{
 	box-shadow: 35px 35px 125px #000;
 	border-radius: 30px;
 }
+
 h1 {
 	font-size: 3.5em;
 	margin-right: 200px;
 }
-
 
 						/* Pricing Table */
 caption {

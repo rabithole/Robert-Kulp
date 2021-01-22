@@ -6,7 +6,7 @@
 #### OnTheSnow: http://docs.clientservice.onthesnow.com/docs/index.html (Yet to be utilized)
 #### NOAA: https://www.ncdc.noaa.gov/cdo-web/webservices/v2
 	- Dug through NOAA's api to choose the relevant data for my goals.
-#### Guidr, student built API.
+#### Guidr, student built API: https://guided-trips-backend.herokuapp.com/api
 
 
 # Projects integrated into this URL...
@@ -69,6 +69,7 @@
 
 
 ## Oowee Gooey Brownies
+-	Non-responsive
 -	Followed a designers design to the pixel. 
 -	Designer: Nelson Porras
 -	Pixel perfect css following a designers design. 
