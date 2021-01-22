@@ -24,6 +24,7 @@
 -	Ability for the end user to choose a location
 
 
+# Lambda School Projects
 ## Guidr Project
 - Guidr is a Lambda School project. 
 - React project.
@@ -42,6 +43,17 @@
 - Add NOAA API modal. 
 
 
+## Conway's Game of Life
+-	User controled GUI
+-	HTML, CSS, JavaScript
+-	Computer Science build week project.
+-	Attempted this project using several different methodologies. 
+-	After extensive challenges using React and Canvas HTML, I resigned to using a static HTML site and Vanilla JavaScript
+-	First introduction to 2D arrays as well as well as Cellular Automota
+
+
+# Past projects built for various businesses. All are now defunct. 
+##### All were built as static sites. I learned a lot incorporating them into a React App. 
 ## Vista Park
 - Wahkaiakum County Port #2
 - 72 acre camp ground with RV, Yurt and tent camping.
@@ -76,10 +88,4 @@
 -	Design followed what owner wanted specifically at every step. 
 
 
-## Conway's Game of Life
--	User controled GUI
--	HTML, CSS, JavaScript
--	Computer Science build week project.
--	Attempted this project using several different methodologies. 
--	After extensive challenges using React and Canvas HTML, I resigned to using a static HTML site and Vanilla JavaScript
--	First introduction to 2D arrays as well as well as Cellular Automota
+

@@ -9,13 +9,13 @@ function Gooey() {
 				<nav>
 					<table  className={gooey.infoleft}>
 						<tr>
-					    	<td><a href="index.html">Home</a></td>        
+					    	<td><a href="http://www.rabithole.com">Home</a></td>        
 							<td><a href="pricing.html">Pricing</a></td>
 			    		</tr>
 			    	</table>
 
 				    <div className={gooey.logo}>
-						<img src="images/graphic/logo1.png" alt="Oowee Gooey"></img>
+						<img src={require("./images/graphic/logo1.png")} alt="Oowee Gooey"></img>
 					</div>
 			    
 			        <table className={gooey.inforight}>
@@ -54,11 +54,11 @@ function Gooey() {
 						<td><a href="brownie_bites.html">Brownie Bites</a></td>
 					</tr>
 				</table>	
-				<a href="https://squareup.com/market/oowee-gooey-brownies" id={gooey.nav_buy}><img src="images/buttons/buy_button_3.png" alt="Buy Now"></img></a>
+				<a href="https://squareup.com/market/oowee-gooey-brownies" id={gooey.nav_buy}><img src={require("./images/buttons/Buy_button_3.png")} alt="Buy Now"></img></a>
 			</div>
 
 			<div id={gooey.banner}>
-				<img src="images/banner/New_Oowee_Banner.png" alt="banner"></img>
+				<img src={require("./images/banner/New_Oowee_Banner.png")} alt="banner"></img>
 			</div>
 			    
 				<hr />
@@ -67,19 +67,23 @@ function Gooey() {
 			        <figure>
 			        				<figcaption className={gooey.caption_title}>Buy Assorted Brownies</figcaption>
 			            <figure>
-							<a href="https://squareup.com/market/oowee-gooey-brownies/assorted-brownie-gift"><img src="images/footer images/choc_with_shadow.png" alt="Chocolate Brownies"></img></a>
+							<a 
+								href="https://squareup.com/market/oowee-gooey-brownies/assorted-brownie-gift">
+								<img src={require("./images/footer images/choc_with_shadow.png")} 
+									alt="Chocolate Brownies"></img>
+							</a>
 			    			<figcaption className={gooey.quantity}>One Dozen</figcaption>
 			            </figure>
 			            <figure>
-			  				<a href="https://squareup.com/market/oowee-gooey-brownies/brownies"><img src="images/footer images/bites_2.png" alt="Brownie Bites"></img></a>
+			  				<a href="https://squareup.com/market/oowee-gooey-brownies/brownies"><img src={require("./images/footer images/bites_2.png")} alt="Brownie Bites"></img></a>
 			            	<figcaption className={gooey.quantity}>Two Dozen</figcaption>
 			            </figure>
 			            <figure>
-			            	<a href="https://squareup.com/market/oowee-gooey-brownies/brownies-1"><img src="images/footer images/choc_with_shadow.png" alt="Chocolate Brownies"></img></a>
+			            	<a href="https://squareup.com/market/oowee-gooey-brownies/brownies-1"><img src={require("./images/footer images/choc_with_shadow.png")} alt="Chocolate Brownies"></img></a>
 			            	<figcaption className={gooey.quantity}>36 Brownies</figcaption>
 			            </figure>
 			            <figure>
-			  				<a href="https://squareup.com/market/oowee-gooey-brownies/brownies-2"><img src="images/footer images/bites_2.png" alt="Brownie Bites"></img></a>
+			  				<a href="https://squareup.com/market/oowee-gooey-brownies/brownies-2"><img src={require("./images/footer images/bites_2.png")} alt="Brownie Bites"></img></a>
 			            	<figcaption className={gooey.quantity}>48 Brownies</figcaption>
 			            </figure>
 			        </figure>
@@ -89,19 +93,19 @@ function Gooey() {
 		        <figure>
 		        		<figcaption className={gooey.caption_title}>Buy Assorted Bites</figcaption>
 		            <figure>
-						<a href="https://squareup.com/market/oowee-gooey-brownies/brownie-bites"><img src="images/footer images/choc_with_shadow.png" alt="Chocolate Brownies"></img></a>
+						<a href="https://squareup.com/market/oowee-gooey-brownies/brownie-bites"><img src={require("./images/footer images/choc_with_shadow.png")} alt="Chocolate Brownies"></img></a>
 		    			<figcaption className={gooey.quantity}>24 bites</figcaption>
 		            </figure>
 		            <figure>
-		  				<a href="https://squareup.com/market/oowee-gooey-brownies/brownie-bites-1"><img src="images/footer images/bites_2.png" alt="Brownie Bites"></img></a>
+		  				<a href="https://squareup.com/market/oowee-gooey-brownies/brownie-bites-1"><img src={require("./images/footer images/bites_2.png")} alt="Brownie Bites"></img></a>
 		            	<figcaption className={gooey.quantity}>36 Bites</figcaption>
 		            </figure>
 		            <figure>
-		            	<a href="https://squareup.com/market/oowee-gooey-brownies/brownie-bites-2"><img src="images/footer images/choc_with_shadow.png" alt="Chocolate Brownies"></img></a>
+		            	<a href="https://squareup.com/market/oowee-gooey-brownies/brownie-bites-2"><img src={require("./images/footer images/choc_with_shadow.png")} alt="Chocolate Brownies"></img></a>
 		            	<figcaption className={gooey.quantity}>48 Bites</figcaption>
 		            </figure>
 		            <figure>
-		  				<a href="https://squareup.com/market/oowee-gooey-brownies/brownie-bites-4"><img src="images/footer images/bites_2.png" alt="Brownie Bites"></img></a>
+		  				<a href="https://squareup.com/market/oowee-gooey-brownies/brownie-bites-4"><img src={require("./images/footer images/bites_2.png")} alt="Brownie Bites"></img></a>
 		            	<figcaption className={gooey.quantity}>96 Bites</figcaption>
 		            </figure>
 		        </figure> 
@@ -111,7 +115,7 @@ function Gooey() {
 					<a href="https://squareup.com/market/oowee-gooey-brownies/dozen-brownies">
 			        		<figcaption id={gooey.singleflavor}>Single Flavor Dozen</figcaption>
 			        	<figure>
-							<img src="images/footer images/choc_with_shadow.png" alt="Chocolate Brownies"></img>
+							<img src={require("./images/footer images/choc_with_shadow.png")} alt="Chocolate Brownies"></img>
 			            	<figcaption className={gooey.quantity}>One Dozen</figcaption>
 			        	</figure>
 			        </a>
@@ -122,8 +126,8 @@ function Gooey() {
 			<footer>		
 					<p> Copyright &copy; 2013 Oowee Gooey Brownies</p>
 			    <figure>
-					<a href="https://www.facebook.com/OoweeGooeyBrownies"><img src="images/link_icons/facebook_256_transparency.png" alt="Facebook"></img></a>
-					<a><img src="images/link_icons/pinterest-icon.png" id={gooey.pinterest} alt="Pinterest"></img></a>
+					<a href="https://www.facebook.com/OoweeGooeyBrownies"><img src={require("./images/link_icons/facebook_256_transparency.png")} alt="Facebook"></img></a>
+					<a><img src={require("./images/link_icons/pinterest-icon.png")} id={gooey.pinterest} alt="Pinterest"></img></a>
 				</figure>  
 
 		    	<table>
