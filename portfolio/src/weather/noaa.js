@@ -12,70 +12,61 @@ function NoaaApp(props) {
   // console.log('Data', data)
 
 
-  useEffect(async () => {
-    let gridPoints = 'https://api.weather.gov/gridpoints/PQR/142,88'; // 0 index
-    let forecast = 'https://api.weather.gov/gridpoints/PQR/142,88/forecast'; // 1 index
-    let latest = 'https://api.weather.gov/stations/mhm66/observations/latest'; // 2 index
-    let station = 'https://api.weather.gov/stations/mhm66'; // 3 index
+  useEffect(() => {
 
-    const gridPointsRequest = axios.get(gridPoints); // 0
-    const forecastRequest = axios.get(forecast); // 1
-    const latestRequest = axios.get(latest); // 2
-    const stationRequest = axios.get(station); // 3
+    async function data() {
+      let gridPoints = 'https://api.weather.gov/gridpoints/PQR/142,88'; // 0 index
+      let forecast = 'https://api.weather.gov/gridpoints/PQR/142,88/forecast'; // 1 index
+      let latest = 'https://api.weather.gov/stations/mhm66/observations/latest'; // 2 index
+      let station = 'https://api.weather.gov/stations/mhm66'; // 3 index
 
-    // each endpoint is stored in an array and parsed with responses below. 
-    // 0 is the grid points index
-    // 1 is the forecast
-    // 2 is the latest aka current info
-    // 3 is the location name
-    axios.all([gridPointsRequest, forecastRequest, latestRequest, stationRequest])
-      .then(axios.spread((...responses) => {
-        // zero response index
-        const elevation = responses[0].data.properties.elevation.value / 0.3048;
-        const maxTemp = responses[0].data.properties.maxTemperature.values[0].value * 1.8 + 32;
-        const minTemp = responses[0].data.properties.minTemperature.values[0].value * 1.8 + 32;
-        const snowLevel = (responses[0].data.properties.snowLevel.values[0].value / 0.3048).toFixed(0);
-        const snowFallAmount = (responses[0].data.properties.snowfallAmount.values[3].value / 25.4).toFixed(0);
-        const probability = (responses[0].data.properties.probabilityOfPrecipitation.values[3].value).toFixed(0);
-        // console.log('Snow Level', responses[0].data.properties.snowLevel.values)
+      const gridPointsRequest = axios.get(gridPoints); // 0
+      const forecastRequest = axios.get(forecast); // 1
+      const latestRequest = axios.get(latest); // 2
+      const stationRequest = axios.get(station); // 3
 
-        // One response index
-        const forecast = responses[1].data.properties.periods[0].detailedForecast
+      // each endpoint is stored in an array and parsed with responses below. 
+      // 0 is the grid points index
+      // 1 is the forecast
+      // 2 is the latest aka current info
+      // 3 is the location name
+      await axios.all([gridPointsRequest, forecastRequest, latestRequest, stationRequest])
+        .then(axios.spread((...responses) => {
+          // zero response index
+          const elevation = responses[0].data.properties.elevation.value / 0.3048;
+          const maxTemp = responses[0].data.properties.maxTemperature.values[0].value * 1.8 + 32;
+          const minTemp = responses[0].data.properties.minTemperature.values[0].value * 1.8 + 32;
+          const snowLevel = (responses[0].data.properties.snowLevel.values[0].value / 0.3048).toFixed(0);
+          const snowFallAmount = (responses[0].data.properties.snowfallAmount.values[3].value / 25.4).toFixed(0);
+          const probability = (responses[0].data.properties.probabilityOfPrecipitation.values[3].value).toFixed(0);
+          // console.log('Snow Level', responses[0].data.properties.snowLevel.values)
 
-        // two response index
-        const currTemp = (responses[2].data.properties.temperature.value * 1.8 + 32).toFixed(0);
-        const windSpeed = (responses[2].data.properties.windSpeed.value / 1.609).toFixed(0);
-        const windGust = (responses[2].data.properties.windGust.value / 1.609).toFixed(0);
-        const windChill = (responses[2].data.properties.windChill.value * 1.8 + 32).toFixed(0);
-        // console.log('Precipitation', probability)
+          // One response index
+          const forecast = responses[1].data.properties.periods[0].detailedForecast
 
-        // three response index
-        const locationName = responses[3].data.properties.name;
+          // two response index
+          const currTemp = (responses[2].data.properties.temperature.value * 1.8 + 32).toFixed(0);
+          const windSpeed = (responses[2].data.properties.windSpeed.value / 1.609).toFixed(0);
+          const windGust = (responses[2].data.properties.windGust.value / 1.609).toFixed(0);
+          const windChill = (responses[2].data.properties.windChill.value * 1.8 + 32).toFixed(0);
+          // console.log('Precipitation', probability)
 
-        setData({
-          ...data,
-          elevation, maxTemp, minTemp, snowLevel, currTemp, locationName, forecast, windSpeed, windGust, windChill, snowFallAmount, probability
-        })
+          // three response index
+          const locationName = responses[3].data.properties.name;
 
-      }))
-      .catch(err => {
-        console.log(err);
-    })
+          setData({
+            ...data,
+            elevation, maxTemp, minTemp, snowLevel, currTemp, locationName, forecast, windSpeed, windGust, windChill, snowFallAmount, probability
+          })
 
-    await axios
-      .get('https://api.weather.gov/gridpoints/PQR/142,88')
-      .then(response => {
-        // console.log('Response temperature iso parsing', response.data.properties.temperature.values)
-        // const tempArray = response.data.properties.temperature.values;
-        // tempArray.map(hour => {
-
-        // })
-        // console.log('Temp array', tempArray)
-        // tempArray.map(time => {
-        //   // console.log(time)
-        // })
+        }))
+        .catch(err => {
+          console.log(err);
       })
 
+    }
+
+      data();
   },[])
    
 
