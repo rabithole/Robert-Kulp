@@ -156,6 +156,7 @@ form button {
 
 #guidr {
   /*border-top: 10px solid darkgrey;*/
+  margin-top: -27px;
   border-bottom: 10px solid darkgrey;
   display: ;
   padding-bottom: 5%;
