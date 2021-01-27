@@ -239,6 +239,9 @@ hr {
 #buy_dozen .purchasing {
 	width: 100px;
 }
+form {
+	width: 65%;
+}
 #buy_dozen form {
 	margin: -20px 0px 20px 0px;
 	padding: 3px;
@@ -462,7 +465,7 @@ hr {
 
 						/*Beginning of contact css*/
 #wrapper input {
-	width: 500px;
+	width: 60%;
 }
 #contact {
 	margin-left: 250px;
@@ -502,12 +505,11 @@ label {
 	text-shadow: 3px 3px 3px #A2DAF6;
 }
 #send {
-	margin-left: 250px;
-	width: 200px;
+	margin-left: 15%;
+	
 }
 #reset {
-	margin-left: 250px;
-	width: 200px;
+	margin-left: 15%;
 }
 						/*end of contact */
 

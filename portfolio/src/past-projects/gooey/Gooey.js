@@ -1,6 +1,6 @@
 import React from 'react';
 import gooey from './ooweegooey.module.css';
-import { NavLink, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import GooeyContact from './GooeyContact';
 import GooeyMain from './Gooey-main';
 
