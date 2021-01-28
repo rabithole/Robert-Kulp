@@ -68,7 +68,12 @@ function GooeyContact(props) {
           </tr>
             
           <tr>
-            <td><a href="whtchoc.html">White Chocolate</a></td>
+            <td>
+              <NavLink
+                to='/gooey/whiteChoc'>
+                White Chocolate
+              </NavLink>
+            </td>
           </tr>
             
           <tr>
@@ -244,7 +249,11 @@ function GooeyContact(props) {
                 Contact
               </NavLink>
             </td>
-            <td><a href="blog.html">Blog</a></td>
+            <td><NavLink
+					    		to='/gooey/GooeyContact'>
+					    		Blog
+				    		</NavLink>
+</td>
           </tr>
         </table>
     </footer>

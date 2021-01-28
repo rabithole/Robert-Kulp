@@ -219,7 +219,11 @@ function GooeyMain() {
 						    		Contact
 					    		</NavLink>
 			                </td>
-			                <td><a href="blog.html">Blog</a></td>
+			                <td><NavLink
+					    		to='/gooey'>
+					    		Blog
+				    		</NavLink>
+</td>
 			        	</tr>
 			    	</table>
 				</footer>

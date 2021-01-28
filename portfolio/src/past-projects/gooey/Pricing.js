@@ -115,7 +115,12 @@ function Pricing() {
 					</tr>
 						
 					<tr>
-						<td><a href="whtchoc.html">White Chocolate</a></td>
+						<td>
+							<NavLink
+								to='/gooey/whiteChoc'>
+								White Chocolate
+							</NavLink>
+						</td>
 					</tr>
 						
 					<tr>

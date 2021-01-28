@@ -94,7 +94,12 @@ function Chocolate() {
 					</tr>
 						
 					<tr>
-						<td><a href="whtchoc.html">White Chocolate</a></td>
+						<td>
+							<NavLink
+								to='/gooey/whiteChoc'>
+								White Chocolate
+							</NavLink>
+						</td>
 					</tr>
 						
 					<tr>
@@ -209,7 +214,7 @@ function Chocolate() {
 			<hr />
 
 			<footer>		
-					<p> Copyright &copy; 2013 Oowee Gooey Brownies</p>
+				<p> Copyright &copy; 2013 Oowee Gooey Brownies</p>
 			        
 		      	<figure>
 					<a href="https://www.facebook.com/OoweeGooeyBrownies" target="_blank" rel='noopener noreferrer'><img src={require("./images/link_icons/facebook_256_transparency.png")} alt="Facebook"></img></a>
@@ -220,36 +225,34 @@ function Chocolate() {
             		</NavLink>
 				</figure>
 
-			    
-			    	<table>
-			    		<tr>
-			        		<td>
-			        			<NavLink
-                  					to='/gooey'>
-                  					Home
-                				</NavLink>
-                			</td>
-			                <td>
-			                	<NavLink
-			                		to='/gooey/pricing'>
-			                	Pricing
-			                	</NavLink>
-			                </td>
-			                <td>
-			                	<NavLink
-						    		to='/gooey/GooeyContact'>
-						    		Contact
-					    		</NavLink>
-			                </td>
-			                <td><a href="blog.html">Blog</a></td>
-			        	</tr>
-			    	</table>
-			        
-			        
-			  </footer>
-
-
-
+		    	<table>
+		    		<tr>
+		        		<td>
+		        			<NavLink
+              					to='/gooey'>
+              					Home
+            				</NavLink>
+            			</td>
+		                <td>
+		                	<NavLink
+		                		to='/gooey/pricing'>
+		                	Pricing
+		                	</NavLink>
+		                </td>
+		                <td>
+		                	<NavLink
+					    		to='/gooey/GooeyContact'>
+					    		Contact
+				    		</NavLink>
+		                </td>
+		                <td><NavLink
+					    		to='/gooey/chocolate'>
+					    		Blog
+				    		</NavLink>
+</td>
+		        	</tr>
+		    	</table>
+			</footer>
 			</div>
 		 	
 		</div>
