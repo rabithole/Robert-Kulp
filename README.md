@@ -8,6 +8,9 @@
 	- Dug through NOAA's api to choose the relevant data for my goals.
 #### Guidr, student built API: https://guided-trips-backend.herokuapp.com/api
 
+# Backcountry App challenges ( Culture of Stoke... )
+-	.htaccess Routes don't run in build. 
+
 
 # Projects integrated into this URL...
 ## NOAA App
