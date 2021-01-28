@@ -74,7 +74,11 @@ function GooeyMain() {
 						</tr>
 							
 						<tr>
-							<td><a href="peanutbutter.html">Peanut Butter</a></td>
+							<td><NavLink
+					    		to='/gooey/peanutButter'>
+					    		Peanut Butter
+				    		</NavLink>
+</td>
 						</tr>
 							
 						<tr>

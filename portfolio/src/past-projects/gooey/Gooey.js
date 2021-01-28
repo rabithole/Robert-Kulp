@@ -6,6 +6,7 @@ import GooeyMain from './Gooey-main';
 import Pricing from './Pricing';
 import Chocolate from './Chocolate';
 import WhiteChoc from './White_choc';
+import PeanutButter from './PeanutButter';
 
 function Gooey() {
   	return (
@@ -37,6 +38,12 @@ function Gooey() {
 	    <Route
 	    	exact path='/gooey/whiteChoc'
 	    	component={WhiteChoc}
+	    >
+	    </Route>
+
+	    <Route
+	    	exact path='/gooey/peanutButter'
+	    	component={PeanutButter}
 	    >
 	    </Route>
 		 	

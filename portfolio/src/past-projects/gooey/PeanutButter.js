@@ -1,28 +1,11 @@
-<!DOCTYPE html>
+import React from 'react';
+import gooey from './ooweegooey.module.css';
+import { NavLink } from 'react-router-dom';
 
-<html lang="en">
-
-	<head>
-		<title>Specialty</title>
-		<meta charset="utf-8">
-		<link href="ooweegooey.css" rel="stylesheet">
-		<meta name="keywords" content="brownies, chocolate, Oowee Gooey, white chocolate, peanut butter, specialty, brownie pop, brownie pops, 
-		blondies, original, macadamia nut, raspberry swirl, salted caramel, chip, chocolate chip, chips,  walnuts, 
-		PB&J, peanut butter and jelly, bars, s’mores, smores, ">
-		<meta name="description" content="The Oowee Gooey Centers of these brownies tells the story. We have many flavors to choose from. Click here and check them out.">
-		
-		<!-- Embedded style will be removed when page is no longer under construction -->
-		<style>
-			h1 {
-				float: right;
-				margin-right: 150px;
-			}
-		</style>
-		
-	</head>
-<body>
-
-<div id="wrapper">
+function PeanutButter() {
+  	return (
+  		<div id={gooey.bodyWrap}>
+  		<div id="wrapper">
 	
 <div id="topper">
 
@@ -49,40 +32,35 @@
 	</nav>
 	
 </div>
-		
+
 <hr>
-    
-<div class="browniedesc">	
+
+<div class="browniedesc">
 	<div class="desc">
-		<p><span class="title">Cookies n Cream</span> <br><br>
-			 We took our delicious chocolate brownie, stuffed it with double stuffed oreo cookies, smothered the top of the brownies with our homemade cookie filling and topped it with crushed oreo cookies. This brownie will surely become one of your favorites. 
+		<p><span class="title">Peanut Butter White Chocolate Chip Raspberry Swirl</span> <br><br>
+			 Smooth Sweet and salty Peanut butter batter drizzled with our made from scratch raspberry sauce.
+			 Topped with White Chocolate chips. 
 		</p>
-		<img src="images/specialty/oreo.png" alt="Chocolate Peanut Butter Chip"> 
+		<img src="images/peanut/wht_choc_pea_rasp_swirl.png" alt="Peanut Butter White Chocolate Raspberry Swirl">
+	</div>
+
+	<div class="desc">
+		<p><span class="title">Peanut Butter Chocolate Chip</span> <br><br>
+			 Our Peanut butter batter made with a secret ingredient and 
+			 topped with chocolate chips. Baked perfection. 
+		</p>
+		<img src="images/peanut/pea_choc_chip.png" alt="Peanut Butter Chocolate Chip">
 	</div>
 	
 	<div class="desc">
-		<p><span class="title">S'mores</span> <br>
-		  <br>
-			
-Our take on the traditional s’mores. The original chocolate brownie with graham cracker crust made from scratch, topped with toasted marshmallows.  
-
+		<p><span class="title">PB&J</span> <br><br>
+			Don't let the name fool you, adults will love this one too! Made with our signature Peanut butter batter and our signature Raspberry sauce. There isn’t a need for a traditional PB&J once you've had this brownie.
 		</p>
-		<img src="images/specialty/smores.png" alt="Chocolate Walnut">
-	</div>		
-    
-    <div class="desc">
-		<p><span class="title">Butter Pecan</span> <br><br>
-			Butter Pecan Blonde. This brownie is made with one of our secret ingredients. It's a cross between butter pecan ice-cream and pecan pie. Somewhere in the middle we found this little piece of heaven. For all to indulge. 
-
-
-
-		</p>
-		<img src="images/specialty/butter_pecan.png" alt="Chocolate Walnut">
+		<img src="images/peanut/PB&J.png" alt="PB&J"> 
 	</div>
-    
-    
-</div>    
-
+	
+		
+</div>	
 <div class="flavors">
 <table>
 	<tr>
@@ -111,12 +89,12 @@ Our take on the traditional s’mores. The original chocolate brownie with graha
 	<tr>
 		<td><a href="brownie_bites.html">Brownie Bites</a></td>
 	</tr>
-</table>
-<a href="https://squareup.com/market/oowee-gooey-brownies" target="_blank" id="nav_buy"><img src="images/buttons/buy_button_3.png" alt="Buy Now"></a>		
+</table>	
+<a href="https://squareup.com/market/oowee-gooey-brownies" target="_blank" id="nav_buy"><img src="images/buttons/buy_button_3.png" alt="Buy Now"></a>	
 </div>
 
-<hr>
- 
+	<hr>
+
 <div id="brownie_assortments">
 		
         <figure>
@@ -201,8 +179,10 @@ Our take on the traditional s’mores. The original chocolate brownie with graha
   </footer>
 
 
-
 </div>
-</body>
+		 	
+		</div>
+	);
+}
 
-</html>
+export default PeanutButter;
