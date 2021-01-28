@@ -106,7 +106,12 @@ function Pricing() {
 			<div className={gooey.flavors}>
 				<table>
 					<tr>
-						<td><a href="chocolate.html">Chocolate</a></td>
+						<td>
+							<NavLink
+								to='/gooey/chocolate'>
+							Chocolate
+							</NavLink>
+						</td>
 					</tr>
 						
 					<tr>
@@ -140,60 +145,91 @@ function Pricing() {
 				
 
 				<hr />
+
 			<div id={gooey.brownie_assortments}>
-		        <figure>
-    				<figcaption className={gooey.caption_title}>Buy Assorted Brownies</figcaption>
-		            <figure>
-						<a href="https://squareup.com/market/oowee-gooey-brownies/assorted-brownie-gift" target="_blank"><img src={require("./images/footer images/choc_with_shadow.png")} alt="Chocolate Brownies"></img></a>
+			        <figure>
+        				<figcaption className={gooey.caption_title}>Buy Assorted Brownies</figcaption>
+			            <figure>
+			            	<NavLink
+		            			to='/gooey/pricing'>
+		            			<img src={require("./images/footer images/choc_with_shadow.png")} alt="Chocolate Brownies"></img>
+		            		</NavLink>
 			    			<figcaption className={gooey.quantity}>One Dozen</figcaption>
 			            </figure>
+
 			            <figure>
-			  			<a href="https://squareup.com/market/oowee-gooey-brownies/brownies" target="_blank"><img src={require("./images/footer images/bites_2.png")} alt="Brownie Bites"></img></a>
+			            	<NavLink
+		            			to='/gooey/pricing'>
+		            		<img src={require("./images/footer images/bites_2.png")} alt="Brownie Bites"></img>
+		            		</NavLink>
 			            	<figcaption className={gooey.quantity}>Two Dozen</figcaption>
 			            </figure>
+
 			            <figure>
-			            <a href="https://squareup.com/market/oowee-gooey-brownies/brownies-1" target="_blank"><img src={require("./images/footer images/choc_with_shadow.png")} alt="Chocolate Brownies"></img></a>
+			            	<NavLink
+		            			to='/gooey/pricing'>
+		            		<img src={require("./images/footer images/choc_with_shadow.png")} alt="Chocolate Brownies"></img>
+		            		</NavLink>
 			            	<figcaption className={gooey.quantity}>36 Brownies</figcaption>
 			            </figure>
-			            <figure>
-			  			<a href="https://squareup.com/market/oowee-gooey-brownies/brownies-2" target="_blank"><img src={require("./images/footer images/bites_2.png")} alt="Brownie Bites"></img></a>
 
-		            	<figcaption className={gooey.quantity}>48 Brownies</figcaption>
-		            </figure>
-		        </figure>
-			</div>
+			            <figure>
+			            	<NavLink
+		            			to='/gooey/pricing'>
+		            		<img src={require("./images/footer images/bites_2.png")} alt="Brownie Bites"></img>
+		            		</NavLink>
+			            	<figcaption className={gooey.quantity}>48 Brownies</figcaption>
+			            </figure>
+			        </figure>
+				</div>
 
 			<div id={gooey.bite_assortments}>
-		        <figure>
-		        				<figcaption className={gooey.caption_title}>Buy Assorted Bites</figcaption>
-		            <figure>
-					<a href="https://squareup.com/market/oowee-gooey-brownies/brownie-bites" target="_blank"><img src={require("./images/footer images/choc_with_shadow.png")} alt="Chocolate Brownies"></img></a>
-		    			<figcaption className={gooey.quantity}>24 bites</figcaption>
-		            </figure>
-		            <figure>
-		  			<a href="https://squareup.com/market/oowee-gooey-brownies/brownie-bites-1" target="_blank"><img src={require("./images/footer images/bites_2.png")} alt="Brownie Bites"></img></a>
-		            	<figcaption className={gooey.quantity}>36 Bites</figcaption>
-		            </figure>
-		            <figure>
-		            <a href="https://squareup.com/market/oowee-gooey-brownies/brownie-bites-2" target="_blank"><img src={require("./images/footer images/choc_with_shadow.png")} alt="Chocolate Brownies"></img></a>
-		            	<figcaption className={gooey.quantity}>48 Bites</figcaption>
-		            </figure>
-		            <figure>
-		  			<a href="https://squareup.com/market/oowee-gooey-brownies/brownie-bites-4" target="_blank"><img src={require("./images/footer images/bites_2.png")} alt="Brownie Bites"></img></a>
-		            	<figcaption className={gooey.quantity}>96 Bites</figcaption>
-		            </figure>
-		        </figure> 
-			</div>
+			        <figure>
+			        		<figcaption className={gooey.caption_title}>Buy Assorted Bites</figcaption>
+			            <figure>
+			            	<NavLink
+			            		to='/gooey/pricing'>
+			            	<img src={require("./images/footer images/choc_with_shadow.png")} alt="Chocolate Brownies"></img>
+			            	</NavLink>
+			    			<figcaption className={gooey.quantity}>24 bites</figcaption>
+			            </figure>
+
+			            <figure>
+			            	<NavLink
+			            		to='/gooey/pricing'>
+			            	<img src={require("./images/footer images/bites_2.png")} alt="Brownie Bites"></img>
+			            	</NavLink>
+			            	<figcaption className={gooey.quantity}>36 Bites</figcaption>
+			            </figure>
+
+			            <figure>
+			            	<NavLink
+			            		to='/gooey/pricing'>
+			            	<img src={require("./images/footer images/choc_with_shadow.png")} alt="Chocolate Brownies"></img>
+			            	</NavLink>
+			            	<figcaption className={gooey.quantity}>48 Bites</figcaption>
+			            </figure>
+
+			            <figure>
+			            	<NavLink
+			            		to='/gooey/pricing'>
+			            	<img src={require("./images/footer images/bites_2.png")} alt="Brownie Bites"></img>
+			            	</NavLink>
+			            	<figcaption className={gooey.quantity}>96 Bites</figcaption>
+			            </figure>
+			        </figure> 
+				</div>
 
 			<div id={gooey.single_flavor}>
-				<a href="https://squareup.com/market/oowee-gooey-brownies/dozen-brownies" target="_blank">
-		        		<figcaption id={gooey.singleflavor}>Single Flavor Dozen</figcaption>
-		        <figure>
-					<img src={require("./images/footer images/choc_with_shadow.png")} alt="Chocolate Brownies"></img>
-		            	<figcaption className={gooey.quantity}>One Dozen</figcaption>
-		        </figure>
-		        </a>
-			</div>
+						<NavLink
+			            	to='/gooey/pricing'>
+			            <figcaption id={gooey.singleflavor}>Single Flavor Dozen</figcaption>
+				        	<figure>
+								<img src={require("./images/footer images/choc_with_shadow.png")} alt="Chocolate Brownies"></img>
+				            	<figcaption className={gooey.quantity}>One Dozen</figcaption>
+				        	</figure>
+			            </NavLink>
+				</div>
 
 			<hr />
 
@@ -201,9 +237,12 @@ function Pricing() {
 					<p> Copyright &copy; 2013 Oowee Gooey Brownies</p>
 			        
 			      <figure>
-					<a href="https://www.facebook.com/OoweeGooeyBrownies" target="_blank" target="_blank"><img src={require("./images/link_icons/facebook_256_transparency.png" )} alt="Facebook"></img></a>
+					<a href="https://www.facebook.com/OoweeGooeyBrownies" rel='noopener noreferrer' target="_blank"><img src={require("./images/link_icons/facebook_256_transparency.png" )} alt="Facebook"></img></a>
 
-					<a><img src={require("./images/link_icons/pinterest-icon.png")} id={gooey.pinterest} alt="Pinterest"></img></a>
+					<NavLink
+						to='/gooey/pricing'>
+					<img src={require("./images/link_icons/pinterest-icon.png")} id={gooey.pinterest} alt="Pinterest"></img>
+					</NavLink>
 				</figure>
 
 			    

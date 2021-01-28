@@ -59,7 +59,12 @@ function GooeyContact(props) {
       <div className={gooey.flavors}>
         <table>
           <tr>
-            <td><a href="chocolate.html">Chocolate</a></td>
+            <td>
+              <NavLink
+                to='/gooey/chocolate'>
+              Chocolate
+              </NavLink>
+            </td>
           </tr>
             
           <tr>

@@ -1,13 +1,12 @@
 import React from 'react';
 import gooey from './ooweegooey.module.css';
 import { NavLink } from 'react-router-dom';
-// import GooeyContact from './GooeyContact';
 
-function GooeyMain() {
+
+function Chocolate() {
   	return (
   		<div id={gooey.bodyWrap}>
-		 	<div id={gooey.wrapper}>
-
+  			<div id={gooey.wrapper}>
 				<div id={gooey.topper}>
 					<nav>
 						<table  className={gooey.infoleft}>
@@ -51,63 +50,83 @@ function GooeyMain() {
 					</nav>
 				</div>
 
-				<hr />
+			<hr />
 
-				<div className={gooey.flavors}>
-					<table>
-						<tr>
-							<td>
-								<NavLink
-									to='/gooey/chocolate'>
+			<div className={gooey.browniedesc}>
+				<div className={gooey.desc}>
+					<p><span className={gooey.title}>The Original Chocolate Brownie</span> <br /><br />
+						 <b><i>The brownie that started it all!!</i></b> <br />
+						 Silky smooth chocolate brownie with our signature Oowee Gooey center.
+					</p>
+					<img src={require("./images/chocolates/choc_2.png")} alt="Salted Caramel"></img>
+				</div>
+
+				<div className={gooey.desc}>
+					<p><span className={gooey.title}>Salted Caramel</span> <br /><br />
+						 Made from scratch. Gooey salted Caramel is layered in our chocolate batter, then drizzled on top to finish off a perfectly balanced sweet and salty brownie.
+					</p>
+					<img src={require("./images/chocolates/salted_caramel.png")} alt="Salted Caramel"></img>
+				</div>
+				
+				<div className={gooey.desc}>
+					<p><span className={gooey.title}>Chocolate Mint</span> <br /><br />
+						The perfect blend of mint and chocolate. Just enough mint to make your taste buds dance. 
+					</p>
+					<img src={require("./images/chocolates/mint_choc.png")} alt="Chocolate Peanut Butter Chip"></img> 
+				</div>
+				
+				<div className={gooey.desc}>
+					<p><span className={gooey.title}>Chocolate and Walnuts</span> <br /><br />
+						Silky smooth chocolate brownie topped with premium grade walnuts to add that perfect crunch to our Oowee Gooey center.
+					</p>
+					<img src={require("./images/chocolates/choc_walnut.png")} alt="Chocolate Walnut"></img></div>		
+			</div>	
+
+			<div className={gooey.flavors}>
+				<table>
+					<tr>
+						<td>
+							<NavLink
+								to='/gooey/chocolate'>
 								Chocolate
-								</NavLink>
-							</td>
-						</tr>
-							
-						<tr>
-							<td>
-								<NavLink
-									to='/gooey/whiteChoc'>
-								White Chocolate
-								</NavLink>
-							</td>
-						</tr>
-							
-						<tr>
-							<td><a href="peanutbutter.html">Peanut Butter</a></td>
-						</tr>
-							
-						<tr>
-							<td><a href="specialty.html">Specialty</a></td>
-						</tr>
+							</NavLink>
+						</td>
+					</tr>
 						
-						<tr>
-							<td><a href="browniepop.html">Brownie Pops</a></td>
-						</tr>
-						<tr>
-							<td><a href="brownie_bites.html">Brownie Bites</a></td>
-						</tr>
-					</table>	
+					<tr>
+						<td><a href="whtchoc.html">White Chocolate</a></td>
+					</tr>
+						
+					<tr>
+						<td><a href="peanutbutter.html">Peanut Butter</a></td>
+					</tr>
+						
+					<tr>
+						<td><a href="specialty.html">Specialty</a></td>
+					</tr>
+					
+					<tr>
+						<td><a href="browniepop.html">Brownie Pops</a></td>
+					</tr>
+					<tr>
+						<td><a href="brownie_bites.html">Brownie Bites</a></td>
+					</tr>
+				</table>
 
-					<NavLink
+<NavLink
 						id={gooey.nav_buy}
-						to='/gooey'>
+						to='/gooey/chocolate'>
 						<img src={require("./images/buttons/Buy_button_3.png")} alt="Buy Now"></img>
-					</NavLink>
-				</div>
+					</NavLink>			</div>
 
-				<div id={gooey.banner}>
-					<img src={require("./images/banner/New_Oowee_Banner.png")} alt="banner"></img>
-				</div>
-				    
-					<hr />
-				    
-				<div id={gooey.brownie_assortments}>
+			<hr />
+			 
+			<div id={gooey.brownie_assortments}>
 			        <figure>
         				<figcaption className={gooey.caption_title}>Buy Assorted Brownies</figcaption>
 			            <figure>
 			            	<NavLink
-		            			to='/gooey'>
+		            			to='/gooey/chocolate'>
 		            			<img src={require("./images/footer images/choc_with_shadow.png")} alt="Chocolate Brownies"></img>
 		            		</NavLink>
 			    			<figcaption className={gooey.quantity}>One Dozen</figcaption>
@@ -115,7 +134,7 @@ function GooeyMain() {
 
 			            <figure>
 			            	<NavLink
-		            			to='/gooey'>
+		            			to='/gooey/chocolate'>
 		            		<img src={require("./images/footer images/bites_2.png")} alt="Brownie Bites"></img>
 		            		</NavLink>
 			            	<figcaption className={gooey.quantity}>Two Dozen</figcaption>
@@ -123,7 +142,7 @@ function GooeyMain() {
 
 			            <figure>
 			            	<NavLink
-		            			to='/gooey'>
+		            			to='/gooey/chocolate'>
 		            		<img src={require("./images/footer images/choc_with_shadow.png")} alt="Chocolate Brownies"></img>
 		            		</NavLink>
 			            	<figcaption className={gooey.quantity}>36 Brownies</figcaption>
@@ -131,7 +150,7 @@ function GooeyMain() {
 
 			            <figure>
 			            	<NavLink
-		            			to='/gooey'>
+		            			to='/gooey/chocolate'>
 		            		<img src={require("./images/footer images/bites_2.png")} alt="Brownie Bites"></img>
 		            		</NavLink>
 			            	<figcaption className={gooey.quantity}>48 Brownies</figcaption>
@@ -139,12 +158,12 @@ function GooeyMain() {
 			        </figure>
 				</div>
 
-				<div id={gooey.bite_assortments}>
+			<div id={gooey.bite_assortments}>
 			        <figure>
 			        		<figcaption className={gooey.caption_title}>Buy Assorted Bites</figcaption>
 			            <figure>
 			            	<NavLink
-			            		to='/gooey'>
+			            		to='/gooey/chocolate'>
 			            	<img src={require("./images/footer images/choc_with_shadow.png")} alt="Chocolate Brownies"></img>
 			            	</NavLink>
 			    			<figcaption className={gooey.quantity}>24 bites</figcaption>
@@ -152,7 +171,7 @@ function GooeyMain() {
 
 			            <figure>
 			            	<NavLink
-			            		to='/gooey'>
+			            		to='/gooey/chocolate'>
 			            	<img src={require("./images/footer images/bites_2.png")} alt="Brownie Bites"></img>
 			            	</NavLink>
 			            	<figcaption className={gooey.quantity}>36 Bites</figcaption>
@@ -160,7 +179,7 @@ function GooeyMain() {
 
 			            <figure>
 			            	<NavLink
-			            		to='/gooey'>
+			            		to='/gooey/chocolate'>
 			            	<img src={require("./images/footer images/choc_with_shadow.png")} alt="Chocolate Brownies"></img>
 			            	</NavLink>
 			            	<figcaption className={gooey.quantity}>48 Bites</figcaption>
@@ -168,7 +187,7 @@ function GooeyMain() {
 
 			            <figure>
 			            	<NavLink
-			            		to='/gooey'>
+			            		to='/gooey/chocolate'>
 			            	<img src={require("./images/footer images/bites_2.png")} alt="Brownie Bites"></img>
 			            	</NavLink>
 			            	<figcaption className={gooey.quantity}>96 Bites</figcaption>
@@ -176,29 +195,32 @@ function GooeyMain() {
 			        </figure> 
 				</div>
 
-				<div id={gooey.single_flavor}>
-						<NavLink
-			            	to='/gooey'>
-			            <figcaption id={gooey.singleflavor}>Single Flavor Dozen</figcaption>
-				        	<figure>
-								<img src={require("./images/footer images/choc_with_shadow.png")} alt="Chocolate Brownies"></img>
-				            	<figcaption className={gooey.quantity}>One Dozen</figcaption>
-				        	</figure>
-			            </NavLink>
-				</div>
+			<div id={gooey.single_flavor}>
+				<NavLink
+	            	to='/gooey/chocolate'>
+	            <figcaption id={gooey.singleflavor}>Single Flavor Dozen</figcaption>
+		        	<figure>
+						<img src={require("./images/footer images/choc_with_shadow.png")} alt="Chocolate Brownies"></img>
+		            	<figcaption className={gooey.quantity}>One Dozen</figcaption>
+		        	</figure>
+	            </NavLink>
+			</div>
 
-				<hr />
+			<hr />
 
-				<footer>		
-						<p> Copyright &copy; 2013 Oowee Gooey Brownies</p>
-				    <figure>
-						<a href="https://www.facebook.com/OoweeGooeyBrownies" target='_blank' rel='noopener noreferrer'><img src={require("./images/link_icons/facebook_256_transparency.png")} alt="Facebook"></img></a>
-						<NavLink
-	            			to='/gooey'>
+			<footer>		
+					<p> Copyright &copy; 2013 Oowee Gooey Brownies</p>
+			        
+		      	<figure>
+					<a href="https://www.facebook.com/OoweeGooeyBrownies" target="_blank" rel='noopener noreferrer'><img src={require("./images/link_icons/facebook_256_transparency.png")} alt="Facebook"></img></a>
+
+					<NavLink
+            			to='/gooey/chocolate'>
 	            		<img src={require("./images/link_icons/pinterest-icon.png")} id={gooey.pinterest} alt="Pinterest"></img>
-	            		</NavLink>
-					</figure>  
+            		</NavLink>
+				</figure>
 
+			    
 			    	<table>
 			    		<tr>
 			        		<td>
@@ -222,10 +244,16 @@ function GooeyMain() {
 			                <td><a href="blog.html">Blog</a></td>
 			        	</tr>
 			    	</table>
-				</footer>
+			        
+			        
+			  </footer>
+
+
+
 			</div>
+		 	
 		</div>
 	);
 }
 
-export default GooeyMain;
+export default Chocolate;
