@@ -3,10 +3,11 @@ import gooey from './ooweegooey.module.css';
 import { Route } from 'react-router-dom';
 import GooeyContact from './GooeyContact';
 import GooeyMain from './Gooey-main';
+import Pricing from './Pricing';
 
 function Gooey() {
   	return (
-  		<div id={gooey.bodyWrap}>
+  		<div >
   		<Route
         	exact path='/gooey/GooeyContact'
         	component={GooeyContact}
@@ -19,6 +20,11 @@ function Gooey() {
 	    >
 	    </Route>
 
+	    <Route
+	    	exact path='/gooey/pricing'
+	    	component={Pricing}
+	    >
+	    </Route>
 		 	
 		</div>
 	);

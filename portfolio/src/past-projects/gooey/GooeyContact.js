@@ -5,6 +5,7 @@ import gooey from './ooweegooey.module.css';
 function GooeyContact(props) {
 
   return (
+    <div id={gooey.bodyWrap}>
     <div id={gooey.wrapper}>
   
       <div id={gooey.topper}>
@@ -18,7 +19,12 @@ function GooeyContact(props) {
                   Home
                 </NavLink>
               </td>
-              <td><a href="pricing.html">Pricing</a></td>
+              <td>
+                <NavLink
+                  to='/gooey/pricing'>
+                Pricing
+                </NavLink>
+              </td>
             </tr>
           </table>
               
@@ -221,7 +227,12 @@ function GooeyContact(props) {
                 Home
               </NavLink>
             </td>
-            <td><a href="pricing.html">Pricing</a></td>
+            <td>
+              <NavLink
+                to='/gooey/pricing'>
+                Pricing
+              </NavLink>
+            </td>
             <td>
               <NavLink
                 to='/gooey/GooeyContact'>
@@ -233,6 +244,7 @@ function GooeyContact(props) {
         </table>
     </footer>
       
+    </div>
     </div>
   );
 }

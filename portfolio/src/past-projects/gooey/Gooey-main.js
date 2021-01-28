@@ -18,7 +18,12 @@ function GooeyMain() {
 						    		Home
 						    		</NavLink>
 						    	</td>        
-								<td><a href="pricing.html">Pricing</a></td>
+								<td>
+									<NavLink
+										to='/gooey/pricing'>
+									Pricing
+								</NavLink>
+								</td>
 				    		</tr>
 				    	</table>
 
@@ -193,7 +198,12 @@ function GooeyMain() {
                   					Home
                 				</NavLink>
                 			</td>
-			                <td><a href="pricing.html">Pricing</a></td>
+			                <td>
+			                	<NavLink
+			                		to='gooey/pricing'>
+			                	Pricing
+			                	</NavLink>
+			                </td>
 			                <td>
 			                	<NavLink
 						    		to='/gooey/GooeyContact'>
