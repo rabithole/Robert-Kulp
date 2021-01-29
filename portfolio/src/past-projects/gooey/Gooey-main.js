@@ -82,14 +82,27 @@ function GooeyMain() {
 						</tr>
 							
 						<tr>
-							<td><a href="specialty.html">Specialty</a></td>
+							<td>
+								<NavLink
+									to='/gooey/specialty'>
+								Specialty
+								</NavLink>
+							</td>
 						</tr>
 						
 						<tr>
-							<td><a href="browniepop.html">Brownie Pops</a></td>
+							<td><NavLink
+									to='/gooey/browniePops'>
+								Brownie Pops
+								</NavLink></td>
 						</tr>
 						<tr>
-							<td><a href="brownie_bites.html">Brownie Bites</a></td>
+							<td>
+								<NavLink
+									to='/gooey/brownieBites'>
+								Brownie Bites
+								</NavLink>
+							</td>
 						</tr>
 					</table>	
 

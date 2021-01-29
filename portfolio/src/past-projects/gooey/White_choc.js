@@ -8,47 +8,47 @@ function WhiteChoc() {
   			<div id={gooey.wrapper}>
 	
 			<div id={gooey.topper}>
-					<nav>
-						<table  className={gooey.infoleft}>
-							<tr>
-						    	<td>
-						    		<NavLink
-						    			to='/gooey'>
-						    		Home
-						    		</NavLink>
-						    	</td>        
-								<td>
-									<NavLink
-										to='/gooey/pricing'>
-									Pricing
-								</NavLink>
-								</td>
-				    		</tr>
-				    	</table>
+				<nav>
+					<table  className={gooey.infoleft}>
+						<tr>
+					    	<td>
+					    		<NavLink
+					    			to='/gooey'>
+					    		Home
+					    		</NavLink>
+					    	</td>        
+							<td>
+								<NavLink
+									to='/gooey/pricing'>
+								Pricing
+							</NavLink>
+							</td>
+			    		</tr>
+			    	</table>
 
-					    <div className={gooey.logo}>
-							<img src={require("./images/graphic/logo1.png")} alt="Oowee Gooey"></img>
-						</div>
-				    
-				        <table className={gooey.inforight}>
-							<tr>	
-								<td>
-									<NavLink
-						    			to='/gooey/GooeyContact'>
-						    			Contact
-						    		</NavLink>
-								</td>
-								<td>
-									<NavLink
-										to='/gooey/WhiteChoc'
-									>
-									Buy Now
-									</NavLink>
-								</td>
-							</tr>
-						</table>
-					</nav>
-				</div>
+				    <div className={gooey.logo}>
+						<img src={require("./images/graphic/logo1.png")} alt="Oowee Gooey"></img>
+					</div>
+			    
+			        <table className={gooey.inforight}>
+						<tr>	
+							<td>
+								<NavLink
+					    			to='/gooey/GooeyContact'>
+					    			Contact
+					    		</NavLink>
+							</td>
+							<td>
+								<NavLink
+									to='/gooey/WhiteChoc'
+								>
+								Buy Now
+								</NavLink>
+							</td>
+						</tr>
+					</table>
+				</nav>
+			</div>
 
 			<hr />
 
@@ -70,8 +70,6 @@ function WhiteChoc() {
 					</p>
 					<img src={require("./images/whitechoc/white_raspberry.png")} alt="Chocolate Walnut"></img>
 				</div>		
-			    
-			    
 			</div>	
 
 			<div className={gooey.flavors}>
@@ -99,18 +97,27 @@ function WhiteChoc() {
 					    		to='/gooey/peanutButter'>
 					    		Peanut Butter
 				    		</NavLink>
-</td>
+							</td>
 						</tr>
 							
 						<tr>
-							<td><a href="specialty.html">Specialty</a></td>
+							<td><NavLink
+									to='/gooey/specialty'>
+								Specialty
+								</NavLink></td>
 						</tr>
 						
 						<tr>
-							<td><a href="browniepop.html">Brownie Pops</a></td>
+							<td><NavLink
+									to='/gooey/browniePops'>
+								Brownie Pops
+								</NavLink></td>
 						</tr>
 						<tr>
-							<td><a href="brownie_bites.html">Brownie Bites</a></td>
+							<td><NavLink
+									to='/gooey/brownieBites'>
+								Brownie Bites
+								</NavLink></td>
 						</tr>
 					</table>	
 
@@ -215,7 +222,7 @@ function WhiteChoc() {
 
 
 			<footer>		
-					<p> Copyright &copy; 2013 Oowee Gooey Brownies</p>
+				<p> Copyright &copy; 2013 Oowee Gooey Brownies</p>
 			        
 		      	<figure>
 					<a href="https://www.facebook.com/OoweeGooeyBrownies" target="_blank" rel='noopener noreferrer'><img src={require("./images/link_icons/facebook_256_transparency.png")} alt="Facebook"></img></a>
@@ -225,38 +232,35 @@ function WhiteChoc() {
 	            		<img src={require("./images/link_icons/pinterest-icon.png")} id={gooey.pinterest} alt="Pinterest"></img>
             		</NavLink>
 				</figure>
-
 			    
-			    	<table>
-			    		<tr>
-			        		<td>
-			        			<NavLink
-                  					to='/gooey'>
-                  					Home
-                				</NavLink>
-                			</td>
-			                <td>
-			                	<NavLink
-			                		to='/gooey/pricing'>
-			                	Pricing
-			                	</NavLink>
-			                </td>
-			                <td>
-			                	<NavLink
-						    		to='/gooey/GooeyContact'>
-						    		Contact
-					    		</NavLink>
-			                </td>
-			                <td><NavLink
-					    		to='/gooey/whiteChoc'>
-					    		Blog
+		    	<table>
+		    		<tr>
+		        		<td>
+		        			<NavLink
+              					to='/gooey'>
+              					Home
+            				</NavLink>
+            			</td>
+		                <td>
+		                	<NavLink
+		                		to='/gooey/pricing'>
+		                	Pricing
+		                	</NavLink>
+		                </td>
+		                <td>
+		                	<NavLink
+					    		to='/gooey/GooeyContact'>
+					    		Contact
 				    		</NavLink>
-</td>
-			        	</tr>
-			    	</table>
-			        
-			        
-			  </footer>
+		                </td>
+		                <td><NavLink
+				    		to='/gooey/whiteChoc'>
+				    		Blog
+			    		</NavLink>
+						</td>
+		        	</tr>
+		    	</table>
+		  	</footer>
 			</div>    
 		 	
 		</div>
