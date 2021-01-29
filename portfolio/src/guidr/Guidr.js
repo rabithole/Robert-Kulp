@@ -1,8 +1,4 @@
 import React, { useState, useEffect } from 'react';
-// import './css/App.css';
-// import './css/guidr.css';
-// import styles from './css/App.module.css';
-// import styles from '../css/LoginForm.module.css';
 import style from '../css/guidr.module.css';
 
 import { getToken } from '../utils/axiosWithAuth';
@@ -20,8 +16,6 @@ import CreateTrip from './CreateTrip';
 import Logout from '../utils/Logout';
 import UpdateTrip from './UpdateTrip';
 import SingleTrip from './SingleTrip';
-// import PastNav from './past-projects/past-nav';
-// import CreateProfile from './components/CreateProfile';
 
 const jwtDecode = require('jwt-decode');
 
@@ -37,7 +31,6 @@ function Guidr(props) {
   }
 
   function updateTrip() {
-    // console.log('updateTrip')
     axiosWithAuth()
     .get('trips')
     .then(response => {
@@ -53,23 +46,20 @@ function Guidr(props) {
   const dependArray = [trips.user_id, !signedIn, props.history, signedIn];
 
   useEffect(() => {
-      // const decoded = jwtDecode(localStorage.getItem('token'));
-      // // // console.log(decoded);
-      // trips.user_id = decoded.userid;
-      !signedIn ? console.log('Not Signed In, ya idiot!!!!!!!!!!!!!!!!!!!!!!!!!!!') : isSignedIn()
+    !signedIn ? console.log('Not Signed In, ya idiot!!!!!!!!!!!!!!!!!!!!!!!!!!!') : isSignedIn()
 
-      axiosWithAuth()
-      .get('trips')
-      .then(response => {
-        setTrips(response.data)
-        // console.log(response);
-      })
-      .catch(error => {
-        localStorage.removeItem('token');
-        props.history.push('/guidr/login');
-        console.log(error)
-      })
-    }, dependArray); 
+    axiosWithAuth()
+    .get('trips')
+    .then(response => {
+      setTrips(response.data)
+      // console.log(response);
+    })
+    .catch(error => {
+      localStorage.removeItem('token');
+      props.history.push('/guidr/login');
+      console.log(error)
+    })
+  }, dependArray); 
 
   return (
     <div className={style.App}>

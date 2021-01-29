@@ -11,7 +11,7 @@ function SignUp({ values, errors, touched }) {
   console.log('signup')
   return (
     <div>
-      <p>Choose a username and password</p>
+      <p id={styles.signup}>Choose a username and password</p>
       
       <Form className={styles.formBody}>
 
