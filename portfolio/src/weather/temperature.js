@@ -8,9 +8,7 @@ function Temperature(props) {
 	return (
 		<div>
       {/* Daily temp details */}
-      <h1 className={styles.noaah1}>TEMPERATURE</h1>
       <div id={styles.temperature}>
-      
         <section>
         <p className={`${styles.sectionTitle} ${styles.currTemp}`}>Curr Temp</p>
           <p className={styles.sectionContent}>{props.currTemp}{'\u00B0'} F</p>

@@ -91,13 +91,21 @@ function Guidr(props) {
             </NavLink>}
 
           {signedIn && 
-            <NavLink 
+            <NavLink
+              activeStyle={{
+                backgroundColor: 'rgb(113, 193, 116)',
+                padding: '10px 30px'
+              }} 
               to='/guidr/CreateTrip'>
                 Add Trip
             </NavLink>}
 
           {signedIn && 
             <NavLink
+              activeStyle={{
+                backgroundColor: 'rgb(113, 193, 116)',
+                padding: '10px 30px'
+              }}
               to='/guidr/Trips'>
                 Trip List
             </NavLink>

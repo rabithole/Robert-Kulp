@@ -23,11 +23,13 @@ section h1 {
   font-size: 2em;
   margin-bottom: 0;
   color: rgb(190,190,190);
+  text-shadow: 1px 2px 5px black;
 }
 
 section h5 {
   margin-top: 0;
   color: rgb(200,200,200);
+  text-shadow: 2px 2px 5px black;
 }
 
 .App {
@@ -83,7 +85,7 @@ input {
   border: 2px solid black;
   margin: 2% auto;
   padding: 2%;
-  background-color: lightblue;
+  background-color: rgb(179,94,2);
   border-radius: 10px;
   color: black;
   box-shadow: 3px 3px 8px black;

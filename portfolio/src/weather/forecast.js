@@ -6,11 +6,11 @@ function Forecast(props) {
   
 	return (
 		<div id={styles.forecast}>
-      <h1>FORECAST</h1>
-      <section>
-        <p >{props.forecast}</p>
-      </section>
+      		<h1>FORECAST</h1>
 
+			<section>
+				<p >{props.forecast}</p>
+			</section>
 		</div>
 	);
 }

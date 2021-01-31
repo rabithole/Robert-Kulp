@@ -72,6 +72,7 @@
 	border-radius: 5px;
 	padding: 10px 25px;
 	border: 1px solid white;
+	margin: 20px;
 }
 
 .currTemp {
@@ -91,7 +92,7 @@
 }
 
 .sectionTitle {
-	font-size: 2.5vw;
+	font-size: 3.5vw;
 	font-weight: bold;
 	text-shadow: 1px 1px 1px white;
 	margin: 10px 5px;
@@ -146,9 +147,17 @@
 		margin: 2% auto;
 	}
 
+	#forecast section p {
+		font-size: 5vw;
+	}
+
 	#location {
 		width: 80%;
 		margin: 2% auto;
+	}
+
+	#location section p {
+		font-size: 4vw;
 	}
 
 	header {
@@ -156,10 +165,14 @@
 	}
 
 	.sectionContent {
-		font-size: 4vw;
+		font-size: 6vw;
 	}
 
 	.sectionTitle {
-		font-size: 4vw;
+		font-size: 6vw;
+	}
+
+	#temperature section {
+		padding: 10px 45px;
 	}
 }
