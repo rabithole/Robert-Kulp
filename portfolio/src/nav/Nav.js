@@ -1,10 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, NavLink } from 'react-router-dom';
-// import '../css/main_nav.css';
 import nav from '../css/main_nav.module.css';
+import { getToken } from '../utils/axiosWithAuth';
 
 function Nav(props) {
-  
+  const signedIn = getToken();
 
   return (
     <div className={nav.nav}>

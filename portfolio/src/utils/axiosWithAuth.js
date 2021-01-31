@@ -12,5 +12,3 @@ export default function() {
 		},
 	})
 }
-
-// Save: https://guidr-2.herokuapp.com/api/
