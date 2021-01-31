@@ -32,7 +32,7 @@ function Nav(props) {
               borderBottomRightRadius: '5px',
               color: 'white'
             }}
-            to='/guidr/login'>
+            to={signedIn ? '/guidr/Trips' : '/guidr/login'}>
             Lambda School 
           </NavLink>
 
