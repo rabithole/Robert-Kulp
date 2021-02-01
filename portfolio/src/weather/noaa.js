@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import moment from 'moment';
+
 import Location from './Location';
 import Temperature from './Temperature';
 import Forecast from './Forecast';
@@ -10,7 +12,6 @@ import styles from '../css/noaa.module.css';
 function NoaaApp(props) {
   const [data, setData] = useState([]);
   // console.log('Data', data)
-
 
   useEffect(() => {
 
@@ -37,7 +38,18 @@ function NoaaApp(props) {
           const maxTemp = (responses[0].data.properties.maxTemperature.values[0].value * 1.8 + 32).toFixed();
           const minTemp = (responses[0].data.properties.minTemperature.values[0].value * 1.8 + 32).toFixed();
           const snowLevel = (responses[0].data.properties.snowLevel.values[0].value / 0.3048).toFixed(0);
-          console.log('Snow Level ---------------------', responses)
+
+
+          responses[0].data.properties.snowLevel.values.map(value => {
+            // console.log('Value', value)
+            let time = value.validTime
+            time = [...time].splice(0,25).join('')
+            // console.log('Time', time)
+            console.log('Moment Time: ------------', moment(time).format('LT, MMMM, D'), '   ', 'Temp: ', value.value)
+          })
+
+          console.log(responses[0].data.properties.snowLevel.values)
+
           const snowFallAmount = (responses[0].data.properties.snowfallAmount.values[3].value / 25.4).toFixed(0);
           const probability = (responses[0].data.properties.probabilityOfPrecipitation.values[3].value).toFixed(0);
           // console.log('Snow Level', responses[0].data.properties.snowLevel.values)
