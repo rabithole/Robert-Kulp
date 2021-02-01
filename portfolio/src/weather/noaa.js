@@ -41,11 +41,13 @@ function NoaaApp(props) {
 
 
           responses[0].data.properties.snowLevel.values.map(value => {
-            // console.log('Value', value)
+            console.log('Value', value)
             let time = value.validTime
+            time = [...time]
+            // console.log('Raw Time', time)
             time = [...time].splice(0,25).join('')
-            // console.log('Time', time)
-            console.log('Moment Time: ------------', moment(time).format('LT, MMMM, D'), '   ', 'Temp: ', value.value)
+            // console.log(time)
+            console.log('Moment Time: ------------', moment(time).format("dddd, ll, LTS"), '   ', 'Temp: ', value.value, '     ', 'Time: ', time, 'TimeZone: ')
           })
 
           console.log(responses[0].data.properties.snowLevel.values)
