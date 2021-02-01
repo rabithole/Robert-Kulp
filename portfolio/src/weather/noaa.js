@@ -33,10 +33,11 @@ function NoaaApp(props) {
       await axios.all([gridPointsRequest, forecastRequest, latestRequest, stationRequest])
         .then(axios.spread((...responses) => {
           // zero response index
-          const elevation = responses[0].data.properties.elevation.value / 0.3048;
-          const maxTemp = responses[0].data.properties.maxTemperature.values[0].value * 1.8 + 32;
-          const minTemp = responses[0].data.properties.minTemperature.values[0].value * 1.8 + 32;
+          const elevation = (responses[0].data.properties.elevation.value / 0.3048).toFixed();
+          const maxTemp = (responses[0].data.properties.maxTemperature.values[0].value * 1.8 + 32).toFixed();
+          const minTemp = (responses[0].data.properties.minTemperature.values[0].value * 1.8 + 32).toFixed();
           const snowLevel = (responses[0].data.properties.snowLevel.values[0].value / 0.3048).toFixed(0);
+          console.log('Snow Level ---------------------', responses)
           const snowFallAmount = (responses[0].data.properties.snowfallAmount.values[3].value / 25.4).toFixed(0);
           const probability = (responses[0].data.properties.probabilityOfPrecipitation.values[3].value).toFixed(0);
           // console.log('Snow Level', responses[0].data.properties.snowLevel.values)
