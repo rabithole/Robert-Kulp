@@ -4,7 +4,7 @@
 
 ## API's used: 
 #### OnTheSnow: http://docs.clientservice.onthesnow.com/docs/index.html (Yet to be utilized)
-#### NOAA: https://www.ncdc.noaa.gov/cdo-web/webservices/v2
+#### NOAA: https://api.weather.gov/
 	- Dug through NOAA's api to choose the relevant data for my goals.
 #### Guidr, student built API: https://guided-trips-backend.herokuapp.com/api
 
@@ -77,6 +77,9 @@
 -	Designer: Nelson Porras
 -	Pixel perfect css following a designers design. 
 -	Photography is my own. 
+##### Integration into React
+-	Adapt css using React's module.css
+-	img files, directory's and routes needed to adjusted to display with a React app. 
 
 
 ## Triple 'M' Alpaca's

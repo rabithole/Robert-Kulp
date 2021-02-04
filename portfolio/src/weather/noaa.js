@@ -12,6 +12,7 @@ import styles from '../css/noaa.module.css';
 function NoaaApp(props) {
   const [data, setData] = useState([]);
   // console.log('Data', data)
+  let moment = require('moment-timezone');
 
   useEffect(() => {
 
@@ -39,15 +40,17 @@ function NoaaApp(props) {
           const minTemp = (responses[0].data.properties.minTemperature.values[0].value * 1.8 + 32).toFixed();
           const snowLevel = (responses[0].data.properties.snowLevel.values[0].value / 0.3048).toFixed(0);
 
+          console.log(moment().format('dddd MMMM, h:mm:ss a'));
 
           responses[0].data.properties.snowLevel.values.map(value => {
-            console.log('Value', value)
+            // console.log('Value', value)
             let time = value.validTime
             time = [...time]
             // console.log('Raw Time', time)
             time = [...time].splice(0,25).join('')
+            // console.log(moment(time).tz("America/Los_Angeles").format())
             // console.log(time)
-            console.log('Moment Time: ------------', moment(time).format("dddd, ll, LTS"), '   ', 'Temp: ', value.value, '     ', 'Time: ', time, 'TimeZone: ')
+            // console.log('Moment Time: ------------', moment(time).tz("America/Los_Angeles").format("dddd, ll, LTS"), '   ', 'Temp: ', value.value, '     ', 'Time: ', time, 'TimeZone: ')
           })
 
           console.log(responses[0].data.properties.snowLevel.values)
