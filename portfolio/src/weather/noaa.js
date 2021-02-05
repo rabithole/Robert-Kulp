@@ -42,7 +42,7 @@ function NoaaApp(props) {
           const minTemp = (responses[0].data.properties.minTemperature.values[0].value * 1.8 + 32).toFixed();
           const snowLevel = (responses[0].data.properties.snowLevel.values[0].value / 0.3048).toFixed(0);
 
-          console.log(moment().format('dddd MMMM, h:mm:ss a'));
+          // console.log(moment().format('dddd MMMM, h:mm:ss a'));
 
           let days = [];
           let hours = [];

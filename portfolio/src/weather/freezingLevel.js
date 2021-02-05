@@ -7,6 +7,8 @@ function Freezing(props) {
 	return (
 		<div id={styles.freezing}>
       		<section >
+      			<svg>
+      			</svg>
         		<p className={styles.sectionTitle}>Freezing Level</p>
         		<p className={styles.sectionContent}>{props.snowLevel} FT</p>
       		</section>

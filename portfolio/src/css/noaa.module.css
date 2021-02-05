@@ -2,6 +2,12 @@
 	margin: 0px;
 }*/
 
+svg {
+	background-color: red;
+	width: 800px;
+	height: 400px;
+}
+
 #noaa {
   background-color: blue;
   background-image: url("../img/mt_st_helens.jpg");
