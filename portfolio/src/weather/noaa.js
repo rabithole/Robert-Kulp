@@ -11,7 +11,9 @@ import styles from '../css/noaa.module.css';
 
 function NoaaApp(props) {
   const [data, setData] = useState([]);
+  const [freezeData, setFreeze] = useState([])
   // console.log('Data', data)
+  // console.log('Freeze Data', freezeData);
   let moment = require('moment-timezone');
 
   useEffect(() => {
@@ -42,22 +44,39 @@ function NoaaApp(props) {
 
           console.log(moment().format('dddd MMMM, h:mm:ss a'));
 
+          let days = [];
+          let hours = [];
+          let dates = [];
+          let freezeValues = [];
           responses[0].data.properties.snowLevel.values.map(value => {
             // console.log('Value', value)
-            let time = value.validTime
-            time = [...time]
-            // console.log('Raw Time', time)
-            time = [...time].splice(0,25).join('')
-            // console.log(moment(time).tz("America/Los_Angeles").format())
-            // console.log(time)
-            // console.log('Moment Time: ------------', moment(time).tz("America/Los_Angeles").format("dddd, ll, LTS"), '   ', 'Temp: ', value.value, '     ', 'Time: ', time, 'TimeZone: ')
-          })
+            
+            // validTime format from NOAA
+            let time = value.validTime;
+            time = [...time];
+            time = [...time].splice(0,25).join('');
 
-          console.log(responses[0].data.properties.snowLevel.values)
+            // Idividual Day
+            let day = moment(time).tz("America/Los_Angeles").format("ddd");
+            days.push(day);
+            
+            let hour = moment(time).tz('America/Los_Angeles').format('LT');
+            hours.push(hour);
+
+            let date = moment(time).tz('America/Los_Angeles').format('MMM Do')
+            dates.push(date);
+
+            let freeze = value.value;
+            freezeValues.push(freeze);
+
+            setFreeze({
+              ...freezeData,
+              days, hours, dates, freezeValues
+            })
+          })
 
           const snowFallAmount = (responses[0].data.properties.snowfallAmount.values[3].value / 25.4).toFixed(0);
           const probability = (responses[0].data.properties.probabilityOfPrecipitation.values[3].value).toFixed(0);
-          // console.log('Snow Level', responses[0].data.properties.snowLevel.values)
 
           // One response index
           const forecast = responses[1].data.properties.periods[0].detailedForecast
@@ -67,7 +86,6 @@ function NoaaApp(props) {
           const windSpeed = (responses[2].data.properties.windSpeed.value / 1.609).toFixed(0);
           const windGust = (responses[2].data.properties.windGust.value / 1.609).toFixed(0);
           const windChill = (responses[2].data.properties.windChill.value * 1.8 + 32).toFixed(0);
-          // console.log('Precipitation', probability)
 
           // three response index
           const locationName = responses[3].data.properties.name;
@@ -76,7 +94,6 @@ function NoaaApp(props) {
             ...data,
             elevation, maxTemp, minTemp, snowLevel, currTemp, locationName, forecast, windSpeed, windGust, windChill, snowFallAmount, probability
           })
-
         }))
         .catch(err => {
           console.log(err);
@@ -86,9 +103,6 @@ function NoaaApp(props) {
 
       data();
   },[])
-   
-
-  
   
 	return (
 		<div id={styles.noaa}>
@@ -100,6 +114,10 @@ function NoaaApp(props) {
 
       <Freezing 
         snowLevel={data.snowLevel}
+        days={freezeData.days}
+        hours={freezeData.hours}
+        dates={freezeData.dates}
+        freezeValues={freezeData.freezeValues}
       />
 
       <div className={styles.sideBySide}>
