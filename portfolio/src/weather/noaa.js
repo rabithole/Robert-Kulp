@@ -12,8 +12,11 @@ import styles from '../css/noaa.module.css';
 function NoaaApp(props) {
   const [data, setData] = useState([]);
   const [freezeData, setFreeze] = useState([])
+  const [days, setDays] = useState([])
   // console.log('Data', data)
   // console.log('Freeze Data', freezeData);
+  // console.log(typeof(freezeData.days))
+
   let moment = require('moment-timezone');
 
   useEffect(() => {
@@ -73,6 +76,7 @@ function NoaaApp(props) {
               ...freezeData,
               days, hours, dates, freezeValues
             })
+            setDays(days)
           })
 
           const snowFallAmount = (responses[0].data.properties.snowfallAmount.values[3].value / 25.4).toFixed(0);
@@ -114,7 +118,7 @@ function NoaaApp(props) {
 
       <Freezing 
         snowLevel={data.snowLevel}
-        days={freezeData.days}
+        days={days}
         hours={freezeData.hours}
         dates={freezeData.dates}
         freezeValues={freezeData.freezeValues}
