@@ -2,12 +2,6 @@
 	margin: 0px;
 }*/
 
-svg {
-	background-color: red;
-	width: 800px;
-	height: 300px;
-}
-
 #noaa {
   background-color: blue;
   background-image: url("../img/mt_st_helens.jpg");
@@ -43,6 +37,25 @@ svg {
 	padding: 10px 25px;
 	border: 1px solid white;
 	width: 60%;
+}
+
+#dayOfWeek {
+	display: flex;
+	justify-content: center;
+}
+
+#weekDay {
+	display: inline;
+	margin-top: -10px;
+	padding: 40px;
+	color: white;
+}
+
+svg {
+	background-color: red;
+	width: 800px;
+	height: 300px;
+	margin-bottom: -20px;
 }
 
 
@@ -114,13 +127,6 @@ svg {
 	padding: 1% 3%;
 	margin: 3%;
 }
-
-/*#location b {
-	color: black;
-	font-size: 1.5vw;
-	font-weight: 900px;
-	text-shadow: 1px 1px 1px white;
-}*/
 
 #location p {
 	font-weight: 400;

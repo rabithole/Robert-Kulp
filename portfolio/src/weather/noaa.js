@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import moment from 'moment';
+// import moment from 'moment';
 
 import Location from './Location';
 import Temperature from './Temperature';
@@ -13,7 +13,8 @@ function NoaaApp(props) {
   const [data, setData] = useState([]);
   const [freezeData, setFreeze] = useState([])
   const [days, setDays] = useState([])
-  // console.log('Data', data)
+  
+  // console.log('Data', data, num + 1)
   // console.log('Freeze Data', freezeData);
   // console.log(typeof(freezeData.days))
 
