@@ -19,7 +19,7 @@ function Freezing(props) {
 		<div id={styles.freezing}>
       		<section>
             <svg>
-              <polyline points="15 , 20 140, 125 250, 105 350, 250 460, 90 570, 290 670, 250 770, 260" fill={'none'} stroke={'black'} strokeWidth={5} />
+              <polyline points="15 , 210 140, 125 250, 105 350, 250 460, 90 570, 290 670, 250 770, 260" fill={'none'} stroke={'black'} strokeWidth={5} />
             </svg>
 
             <div id={styles.dayOfWeek}>
