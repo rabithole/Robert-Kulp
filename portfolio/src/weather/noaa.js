@@ -10,13 +10,18 @@ import Freezing from './FreezingLevel';
 import styles from '../css/noaa.module.css';
 
 function NoaaApp(props) {
+  // Current data
   const [data, setData] = useState([]);
-  const [freezeData, setFreeze] = useState([])
-  const [days, setDays] = useState([])
+  const [freezeData, setFreeze] = useState([]);
+  const [days, setDays] = useState([]);
+  const [hour, setHours] = useState([]);
+  const [date, setDates] = useState([]);
+  const [dayFreezeData, setDayFreezeData] = useState([])
+  // console.log('Day freeze:', dayFreezeData)
   
-  // console.log('Data', data, num + 1)
-  // console.log('Freeze Data', freezeData);
-  // console.log(typeof(freezeData.days))
+  // console.log('Data', data)
+  // console.log('Date:', date, 'Day:', days, 'Time:', hour, 'Freeze Data:', freezeData);
+  // console.log('Time:', hour);
 
   let moment = require('moment-timezone');
 
@@ -64,20 +69,28 @@ function NoaaApp(props) {
             let day = moment(time).tz("America/Los_Angeles").format("ddd");
             days.push(day);
             
+            // Time of day
             let hour = moment(time).tz('America/Los_Angeles').format('LT');
             hours.push(hour);
 
+            // Date
             let date = moment(time).tz('America/Los_Angeles').format('MMM Do')
             dates.push(date);
 
+            // Level that freezing oocurs. 
             let freeze = value.value;
             freezeValues.push(freeze);
 
-            setFreeze({
-              ...freezeData,
-              days, hours, dates, freezeValues
+            setDayFreezeData({
+              ...dayFreezeData,
+              day, freeze
             })
-            setDays(days)
+
+            // Sets the data to state. 
+            setFreeze(freezeValues);
+            setDays(days);
+            setHours(hours);
+            setDates(dates);
           })
 
           const snowFallAmount = (responses[0].data.properties.snowfallAmount.values[3].value / 25.4).toFixed(0);
@@ -118,11 +131,11 @@ function NoaaApp(props) {
       />
 
       <Freezing 
-        snowLevel={data.snowLevel}
         days={days}
-        hours={freezeData.hours}
-        dates={freezeData.dates}
-        freezeValues={freezeData.freezeValues}
+        hours={hour}
+        dates={date}
+        freezeData={freezeData}
+        dayFreezeData={dayFreezeData}
       />
 
       <div className={styles.sideBySide}>
