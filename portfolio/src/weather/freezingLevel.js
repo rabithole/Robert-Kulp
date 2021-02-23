@@ -21,7 +21,7 @@ function Freezing(props) {
         x = props.dayFreezeData.freeze;
         // console.log(props.dayFreezeData.day, props.dayFreezeData.freeze)
        console.log(x)
-       return x;
+       data = {...}
     }
   }
 
