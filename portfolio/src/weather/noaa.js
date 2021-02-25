@@ -51,8 +51,12 @@ function NoaaApp(props) {
           let hours = [];
           let dates = [];
           let freezeValues = [];
+
+          let weekDay = ''; // sat
+          let altitude = 0;
           responses[0].data.properties.snowLevel.values.map(value => {
             // console.log('Value', value)
+            // console.log('Week Day', weekDay)
             
             // validTime format from NOAA
             let time = value.validTime;
@@ -72,10 +76,16 @@ function NoaaApp(props) {
             dates.push(date);
 
             // Level that freezing oocurs. 
+            // Filter highest value for a given day
+            // console.log(freezeValues)
             let freeze = value.value;
-            freezeValues.push({day: day, alt: freeze, date: date, hour: hour});
+            // freezeValues.push({day: day, alt: freeze})
+            if(day !== weekDay && freeze > altitude){
+              freezeValues.push({day: day, alt: freeze});  
+              weekDay = day; 
+            } 
+            
             let freezeV = new Set(freezeValues)
-            console.log(freezeValues)
 
             setDayFreezeData({
               ...dayFreezeData,

@@ -2,40 +2,26 @@ import React, { useState, useEffect } from 'react';
 import styles from '../css/noaa.module.css';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid } from 'recharts';
 
-// const style = {
-//   fill: 'none',
-//   sroke: 'black',
-//   strokeWidth: 3
-// }
-
 function Freezing(props) {
-  
-  // console.log(props.dayFreezeData.freezeValues)
-
-  
-  
-  const data = [
-  {day: 'Mon', alt: 400},
-  {day: 'Tues', alt: 100},
-  {day: 'Wed', alt: 2000},
-  {day: 'Thurs', alt: 100},
-  {day: 'Fri', alt: 500},
-  {day: 'Sat', alt: 600},
-  {day: 'Sun', alt: 5000}
-  ]
-  // console.log(data)
   
 	return (
 		<div id={styles.freezing}>
       		<section>
         		<p className={styles.sectionTitle}>Freezing Level</p>
-            
-            <LineChart width={800} height={400} data={props.dayFreezeData.freezeValues}>
+            <div id={styles.rechart}>
+            <LineChart 
+              width={800} 
+              height={400} 
+              data={props.dayFreezeData.freezeValues}
+              margin={{ left: 0}}
+              wrapperStyle={'relative'}
+            >
               <Line type='monotone' dataKey='alt' stroke='black' />
               <CartesianGrid stroke="#ccc" />
               <XAxis dataKey="day" stroke='black'/>
               <YAxis stroke='black'/>
             </LineChart>
+            </div>
             
         		<p className={styles.sectionContent}>Current {props.snowLevel} FT</p>
       		</section>
