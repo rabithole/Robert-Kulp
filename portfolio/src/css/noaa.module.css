@@ -52,11 +52,14 @@
 }
 
 svg {
-	background-color: rgba(255,0,0, .4);
-	/*width: 800px;
-	height: 300px;*/
-	/*margin-bottom: -20px;*/
 
+	width: 140%;
+	background-color: rgba(255,0,0, .3);
+	border-radius: 10px;
+	box-shadow: 3px 3px 15px black;
+	margin: 0 auto 0 auto;
+	padding-top: 3%;
+	padding-bottom: 2%;
 }
 
 

@@ -12,21 +12,15 @@ import styles from '../css/noaa.module.css';
 function NoaaApp(props) {
   // Current data
   const [data, setData] = useState([]);
-  const [freezeData, setFreeze] = useState([]);
   const [days, setDays] = useState([]);
   const [hour, setHours] = useState([]);
   const [date, setDates] = useState([]);
   const [dayFreezeData, setDayFreezeData] = useState([])
   // console.log('Day freeze:', dayFreezeData)
-  
-  // console.log('Data', data)
-  // console.log('Date:', date, 'Day:', days, 'Time:', hour, 'Freeze Data:', freezeData);
-  // console.log('Time:', hour);
 
   let moment = require('moment-timezone');
 
   useEffect(() => {
-
     async function data() {
       let gridPoints = 'https://api.weather.gov/gridpoints/PQR/142,88'; // 0 index
       let forecast = 'https://api.weather.gov/gridpoints/PQR/142,88/forecast'; // 1 index
@@ -79,15 +73,14 @@ function NoaaApp(props) {
 
             // Level that freezing oocurs. 
             let freeze = value.value;
-            freezeValues.push(freeze);
+            freezeValues.push({day: day, alt: freeze});
 
             setDayFreezeData({
               ...dayFreezeData,
-              day, freeze
+              freezeValues
             })
 
             // Sets the data to state. 
-            setFreeze(freezeValues);
             setDays(days);
             setHours(hours);
             setDates(dates);
@@ -129,15 +122,15 @@ function NoaaApp(props) {
         minTemp={data.minTemp}
         currTemp={data.currTemp}
       />
-
+      {dayFreezeData && 
       <Freezing 
+        key={Math.random()}
         days={days}
         hours={hour}
         dates={date}
-        freezeData={freezeData}
         dayFreezeData={dayFreezeData}
       />
-
+      }
       <div className={styles.sideBySide}>
         <Forecast
           forecast={data.forecast}

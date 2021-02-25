@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from '../css/noaa.module.css';
-import { LineChart, Line, XAxis, YAxis } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid } from 'recharts';
 
 // const style = {
 //   fill: 'none',
@@ -9,33 +9,32 @@ import { LineChart, Line, XAxis, YAxis } from 'recharts';
 // }
 
 function Freezing(props) {
-  // console.log('Days', props.days, 'Hours', props.hours, 'Dates', props.dates, 'Freeze Values', props.freezeValues)
+  // console.log('Days', props.days, 'Hours', props.hours, 'Dates', props.dates, 'Freeze Values', props.freezeData)
   // console.log('Day Freeze Data: ', props.dayFreezeData.day, ' Freeze Level:', typeofprops.dayFreezeData.freeze)
+  console.log(props.dayFreezeData.freezeValues)
 
-  const data = [];
   
-  function freezeData() {
-    let x = 0;  
-    for(const property in props.dayFreezeData) {
-      // console.log(`Freezing data::::: ${property}: ${props.dayFreezeData[property]}`)
-        x = props.dayFreezeData.freeze;
-        // console.log(props.dayFreezeData.day, props.dayFreezeData.freeze)
-       console.log(x)
-       data = {...}
-    }
-  }
-
-  freezeData();
-
+  
+  const data = [
+  {day: 'Mon', alt: 400},
+  {day: 'Tues', alt: 100},
+  {day: 'Wed', alt: 2000},
+  {day: 'Thurs', alt: 100},
+  {day: 'Fri', alt: 500},
+  {day: 'Sat', alt: 600},
+  {day: 'Sun', alt: 5000}
+  ]
+  // console.log(data)
   
 	return (
 		<div id={styles.freezing}>
       		<section>
         		<p className={styles.sectionTitle}>Freezing Level</p>
             
-            <LineChart width={800} height={300} data={data}>
+            <LineChart width={900} height={400} data={props.dayFreezeData.freezeValues}>
               <Line type='monotone' dataKey='alt' stroke='black' />
-              <XAxis dataKey='alt' />
+              <CartesianGrid stroke="#ccc" />
+              <XAxis dataKey="day" />
               <YAxis />
             </LineChart>
             
