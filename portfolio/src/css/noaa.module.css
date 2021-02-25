@@ -62,6 +62,7 @@
 
 svg {
 	width: 90%;
+	height: 90%;
 	/*position: relative;*/
 	background-color: rgba(255,0,0, .3);
 	border-radius: 10px;
@@ -252,7 +253,24 @@ svg {
 		margin-bottom: 15px;
 	}
 
+
+	/* Freezing level module */
 	#freezing {
 		width: 90%;
+		/*height: 400px;*/
+	}
+
+	svg {
+		height: 200px;
+	}
+
+	#rechart {
+		height: 200px;
+	}
+}
+
+@media (max-width: 1000px) {
+	svg {
+		/*height: 60%;*/
 	}
 }

@@ -15,7 +15,8 @@ function NoaaApp(props) {
   const [days, setDays] = useState([]);
   const [hour, setHours] = useState([]);
   const [date, setDates] = useState([]);
-  const [dayFreezeData, setDayFreezeData] = useState([])
+  const [dayFreezeData, setDayFreezeData] = useState([]);
+  const [snowLevel, setSnowlevel] = useState([]);
   // console.log('Day freeze:', dayFreezeData)
 
   let moment = require('moment-timezone');
@@ -96,6 +97,7 @@ function NoaaApp(props) {
             setDays(days);
             setHours(hours);
             setDates(dates);
+            setSnowlevel(snowLevel)
           })
 
           const snowFallAmount = (responses[0].data.properties.snowfallAmount.values[3].value / 25.4).toFixed(0);
@@ -141,6 +143,7 @@ function NoaaApp(props) {
         hours={hour}
         dates={date}
         dayFreezeData={dayFreezeData}
+        snowLevel={snowLevel}
       />
       
       <div className={styles.sideBySide}>
