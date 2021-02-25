@@ -73,7 +73,9 @@ function NoaaApp(props) {
 
             // Level that freezing oocurs. 
             let freeze = value.value;
-            freezeValues.push({day: day, alt: freeze});
+            freezeValues.push({day: day, alt: freeze, date: date, hour: hour});
+            let freezeV = new Set(freezeValues)
+            console.log(freezeValues)
 
             setDayFreezeData({
               ...dayFreezeData,
@@ -122,7 +124,7 @@ function NoaaApp(props) {
         minTemp={data.minTemp}
         currTemp={data.currTemp}
       />
-      {dayFreezeData && 
+      
       <Freezing 
         key={Math.random()}
         days={days}
@@ -130,7 +132,7 @@ function NoaaApp(props) {
         dates={date}
         dayFreezeData={dayFreezeData}
       />
-      }
+      
       <div className={styles.sideBySide}>
         <Forecast
           forecast={data.forecast}

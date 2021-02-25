@@ -9,9 +9,8 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid } from 'recharts';
 // }
 
 function Freezing(props) {
-  // console.log('Days', props.days, 'Hours', props.hours, 'Dates', props.dates, 'Freeze Values', props.freezeData)
-  // console.log('Day Freeze Data: ', props.dayFreezeData.day, ' Freeze Level:', typeofprops.dayFreezeData.freeze)
-  console.log(props.dayFreezeData.freezeValues)
+  
+  // console.log(props.dayFreezeData.freezeValues)
 
   
   
@@ -31,11 +30,11 @@ function Freezing(props) {
       		<section>
         		<p className={styles.sectionTitle}>Freezing Level</p>
             
-            <LineChart width={900} height={400} data={props.dayFreezeData.freezeValues}>
+            <LineChart width={800} height={400} data={props.dayFreezeData.freezeValues}>
               <Line type='monotone' dataKey='alt' stroke='black' />
               <CartesianGrid stroke="#ccc" />
-              <XAxis dataKey="day" />
-              <YAxis />
+              <XAxis dataKey="day" stroke='black'/>
+              <YAxis stroke='black'/>
             </LineChart>
             
         		<p className={styles.sectionContent}>Current {props.snowLevel} FT</p>
