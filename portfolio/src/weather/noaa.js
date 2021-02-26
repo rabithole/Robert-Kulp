@@ -47,6 +47,7 @@ function NoaaApp(props) {
           const snowLevel = (responses[0].data.properties.snowLevel.values[0].value / 0.3048).toFixed(0);
 
           // console.log(moment().format('dddd MMMM, h:mm:ss a'));
+          // console.log(snowLevel)
 
           let days = [];
           let hours = [];
@@ -79,15 +80,13 @@ function NoaaApp(props) {
             // Level that freezing oocurs. 
             // Filter highest value for a given day
             // console.log(freezeValues)
-            let freeze = value.value;
+            let freeze = (value.value / 0.3048).toFixed(0);
             // freezeValues.push({day: day, alt: freeze})
             if(day !== weekDay && freeze > altitude){
               freezeValues.push({day: day, alt: freeze});  
               weekDay = day; 
             } 
             
-            let freezeV = new Set(freezeValues)
-
             setDayFreezeData({
               ...dayFreezeData,
               freezeValues
