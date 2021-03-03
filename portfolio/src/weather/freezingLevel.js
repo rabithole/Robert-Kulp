@@ -16,10 +16,24 @@ function Freezing(props) {
               margin={{ left: 0}}
               wrapperStyle={'relative'}
             >
-              <Line type='monotone' dataKey='alt' stroke='black' />
-              <CartesianGrid stroke="#ccc" />
-              <XAxis dataKey="day" stroke='black'/>
-              <YAxis stroke='black'/>
+              <Line 
+                type='monotone' 
+                dataKey='alt' 
+                stroke='black'
+                strokeWidth='5' 
+              />
+              <CartesianGrid 
+                stroke="#ccc"
+              />
+              <XAxis 
+                dataKey="day" 
+                stroke='black'
+                fontSize='1.5rem'
+              />
+              <YAxis 
+                stroke='black'
+                fontSize='1.4rem'
+              />
             </LineChart>
             </div>
             

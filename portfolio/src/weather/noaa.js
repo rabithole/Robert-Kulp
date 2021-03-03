@@ -80,12 +80,16 @@ function NoaaApp(props) {
             // Level that freezing oocurs. 
             // Filter highest value for a given day
             // console.log(freezeValues)
+
             let freeze = (value.value / 0.3048).toFixed(0);
-            // freezeValues.push({day: day, alt: freeze})
             if(day !== weekDay && freeze > altitude){
               freezeValues.push({day: day, alt: freeze});  
               weekDay = day; 
             } 
+
+            // All freeze values, including multiple values for each day of the week. For reference. 
+            freezeValues.push({day: day, alt: freeze})
+            console.log(freezeValues)
             
             setDayFreezeData({
               ...dayFreezeData,
