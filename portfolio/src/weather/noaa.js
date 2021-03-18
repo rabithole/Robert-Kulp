@@ -56,6 +56,12 @@ function NoaaApp(props) {
 
           let weekDay = ''; // sat
           let altitude = 0;
+
+          let wkDay = '';
+          let hiLo = [];
+          let hi = 0;
+          let low = 0;
+
           responses[0].data.properties.snowLevel.values.map(value => {
             // console.log('Value', value)
             // console.log('Week Day', weekDay)
@@ -79,18 +85,63 @@ function NoaaApp(props) {
 
             // Level that freezing oocurs. 
             // Filter highest value for a given day
-            // console.log(freezeValues)
 
-            let freeze = (value.value / 0.3048).toFixed(0);
+            let freeze = parseInt((value.value / 0.3048).toFixed(0));
+            // console.log(freeze)
+
+            function freezeLevels() {
+              // hiLow();
             if(day !== weekDay && freeze > altitude){
-              freezeValues.push({day: day, alt: freeze});  
-              weekDay = day; 
-            } 
+                freezeValues.push({
+                  day: day, 
+                  alt: freeze,
+                  hi: hi,
+                  low: low,
+                  hour: hour
+                });  
+                weekDay = day; 
+              } else {
+                freezeValues.push({
+                  day: '',
+                  alt: freeze,
+                  hi: hi,
+                  low: low,
+                  hour: hour
+                })
+              }
+            }
+            // freezeLevels();
+
+            // console.log('freezeValues', freezeValues)
 
             // All freeze values, including multiple values for each day of the week. For reference. 
-            freezeValues.push({day: day, alt: freeze})
-            console.log(freezeValues)
-            
+            // Hi and low levels on a given day.
+
+
+            function hiLow(){
+
+              if(wkDay !== day){
+                hiLo.push(freeze)
+                hi = Math.max(...hiLo);
+                low = Math.min(...hiLo)
+                // console.log('Day', wkDay, '--------------High', hi, 'Low', low)
+
+                freezeValues.push({
+                  day: day,
+                  hi: hi,
+                  low: low
+                })
+
+                hiLo = [];
+                // hiLo.push(freeze)
+                wkDay = day;
+              } else {
+                hiLo.push(freeze)
+              }
+              console.log('Day', day, 'hiLow array', hiLo )
+            }
+            hiLow();
+
             setDayFreezeData({
               ...dayFreezeData,
               freezeValues

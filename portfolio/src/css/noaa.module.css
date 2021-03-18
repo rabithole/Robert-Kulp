@@ -74,8 +74,8 @@ svg {
 	padding-left: 4%;
 }
 
-.recharts-cartesian-axis-ticks {
-	
+.recharts-cartesian-grid {
+	width: 1000px;
 }
 
 
