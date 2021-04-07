@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import styles from '../css/noaa.module.css';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, LabelList, Legend } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, LabelList } from 'recharts';
 
 function Freezing(props) {
-  console.log('Freeze Values', props.dayFreezeData.freezeValues)
+  // console.log('Freeze Values', props.dayFreezeData.freezeValues)
   
 	return (
 		<div id={styles.freezing}>
@@ -34,30 +34,14 @@ function Freezing(props) {
                   strokeDasharray='1 5'
                 />
                
-
-                 
-
-                    <Legend verticalAlign='top' height={75}/>
-                   
                     <Line 
                       name='High'
                       type='monotone' 
-                      dataKey='hi' 
+                      dataKey='alt' 
                       stroke='turquoise'
                       strokeWidth='4'
                     >
                     </Line>
-
-                    <Line 
-                      name='Low'
-                      type='monotone' 
-                      dataKey='low' 
-                      stroke='red'
-                      strokeWidth='4'
-                    >
-                    </Line>
-
-                    
 
               </LineChart>
             </div>

@@ -6,6 +6,7 @@ import Location from './Location';
 import Temperature from './Temperature';
 import Forecast from './Forecast';
 import Freezing from './FreezingLevel';
+import DataShape from './DataShape';
 
 import styles from '../css/noaa.module.css';
 
@@ -15,9 +16,11 @@ function NoaaApp(props) {
   const [days, setDays] = useState([]);
   const [hour, setHours] = useState([]);
   const [date, setDates] = useState([]);
+
   const [dayFreezeData, setDayFreezeData] = useState([]);
+  // console.log('Day Freeze Data', dayFreezeData)
+
   const [snowLevel, setSnowlevel] = useState([]);
-  // console.log('Day freeze:', dayFreezeData)
 
   let moment = require('moment-timezone');
 
@@ -44,15 +47,15 @@ function NoaaApp(props) {
           const elevation = (responses[0].data.properties.elevation.value / 0.3048).toFixed();
           const maxTemp = (responses[0].data.properties.maxTemperature.values[0].value * 1.8 + 32).toFixed();
           const minTemp = (responses[0].data.properties.minTemperature.values[0].value * 1.8 + 32).toFixed();
+          // Single value. Should be closest to the current time. Not the case at the moment. 
           const snowLevel = (responses[0].data.properties.snowLevel.values[0].value / 0.3048).toFixed(0);
-
           // console.log(moment().format('dddd MMMM, h:mm:ss a'));
-          // console.log(snowLevel)
 
           let days = [];
           let hours = [];
           let dates = [];
           let freezeValues = [];
+          let freezingLevels = [];
 
           let weekDay = ''; // sat
           let altitude = 0;
@@ -61,11 +64,12 @@ function NoaaApp(props) {
           let hiLo = [];
           let hi = 0;
           let low = 0;
+          let data = {};
+
+          let dayy = '';
 
           responses[0].data.properties.snowLevel.values.map(value => {
-            // console.log('Value', value)
-            // console.log('Week Day', weekDay)
-            
+
             // validTime format from NOAA
             let time = value.validTime;
             time = [...time];
@@ -84,19 +88,27 @@ function NoaaApp(props) {
             dates.push(date);
 
             // Level that freezing oocurs. 
-            // Filter highest value for a given day
-
             let freeze = parseInt((value.value / 0.3048).toFixed(0));
-            // console.log(freeze)
+            // console.log('Day-----', day, '---Hour------', hour, '---Freeze Level-----', freeze)
+
+            // function test() {
+            // if(day !== weekDay && freeze > altitude){
+            //     altitude = freeze;
+            //     data = {day: day, alt: freeze}
+            //     console.log(data)                
+            //     weekDay = day; 
+            //   } else {
+            //     data = {day: day, alt: freeze}
+            //     console.log(data)
+            //   }
+            // }
+            // test();
 
             function freezeLevels() {
-              // hiLow();
-            if(day !== weekDay && freeze > altitude){
+            if(day !== weekDay){
                 freezeValues.push({
                   day: day, 
                   alt: freeze,
-                  hi: hi,
-                  low: low,
                   hour: hour
                 });  
                 weekDay = day; 
@@ -104,43 +116,38 @@ function NoaaApp(props) {
                 freezeValues.push({
                   day: '',
                   alt: freeze,
-                  hi: hi,
-                  low: low,
                   hour: hour
                 })
               }
             }
-            // freezeLevels();
-
-            // console.log('freezeValues', freezeValues)
+            freezeLevels();
 
             // All freeze values, including multiple values for each day of the week. For reference. 
             // Hi and low levels on a given day.
-
-
             function hiLow(){
+              // if(wkDay === ''){
+              //   hiLo.push(freeze)
+              //   hi = Math.max(...hiLo);
+              //   low = Math.min(...hiLo)
+              //   console.log({day: day, high: hi, Hi_Index: hiLo.indexOf(hi), low: low, Low_Index: hiLo.indexOf(low), hour: hour})
 
-              if(wkDay !== day){
-                hiLo.push(freeze)
-                hi = Math.max(...hiLo);
-                low = Math.min(...hiLo)
-                // console.log('Day', wkDay, '--------------High', hi, 'Low', low)
-
-                freezeValues.push({
-                  day: day,
-                  hi: hi,
-                  low: low
+                // freezingLevels.push({day: wkDay, high: hi, Hi_Index: hiLo.indexOf(hi), low: low, Low_Index: hiLo.indexOf(low), hour: hour})
+                freezeValues.map(value => {
+                  if(value.day !== '') {
+                    dayy = value.day;
+                  }
+                  if(value.alt > hi) {
+                    hi = value.alt;
+                  }
                 })
+                console.log(dayy, hi)
 
-                hiLo = [];
-                // hiLo.push(freeze)
-                wkDay = day;
-              } else {
-                hiLo.push(freeze)
-              }
-              console.log('Day', day, 'hiLow array', hiLo )
+               
             }
             hiLow();
+
+            console.log(freezeValues)
+            // console.log(freezingLevels)
 
             setDayFreezeData({
               ...dayFreezeData,
@@ -154,6 +161,7 @@ function NoaaApp(props) {
             setSnowlevel(snowLevel)
           })
 
+          // Specific location data.
           const snowFallAmount = (responses[0].data.properties.snowfallAmount.values[3].value / 25.4).toFixed(0);
           const probability = (responses[0].data.properties.probabilityOfPrecipitation.values[3].value).toFixed(0);
 
@@ -215,6 +223,8 @@ function NoaaApp(props) {
           probability={data.probability}
         />
       </div>
+
+      <DataShape/>
 		</div>
 	);
 }
