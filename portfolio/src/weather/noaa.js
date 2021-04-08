@@ -17,179 +17,180 @@ function NoaaApp(props) {
   const [hour, setHours] = useState([]);
   const [date, setDates] = useState([]);
 
+  // Data that is passed to the Freezing Level component
   const [dayFreezeData, setDayFreezeData] = useState([]);
-  // console.log('Day Freeze Data', dayFreezeData)
+  console.log(dayFreezeData.freezeValues)
 
   const [snowLevel, setSnowlevel] = useState([]);
 
-  let moment = require('moment-timezone');
+  // let moment = require('moment-timezone');
 
-  useEffect(() => {
-    async function data() {
-      let gridPoints = 'https://api.weather.gov/gridpoints/PQR/142,88'; // 0 index
-      let forecast = 'https://api.weather.gov/gridpoints/PQR/142,88/forecast'; // 1 index
-      let latest = 'https://api.weather.gov/stations/mhm66/observations/latest'; // 2 index
-      let station = 'https://api.weather.gov/stations/mhm66'; // 3 index
+  // useEffect(() => {
+  //   async function data() {
+  //     let gridPoints = 'https://api.weather.gov/gridpoints/PQR/142,88'; // 0 index
+  //     let forecast = 'https://api.weather.gov/gridpoints/PQR/142,88/forecast'; // 1 index
+  //     let latest = 'https://api.weather.gov/stations/mhm66/observations/latest'; // 2 index
+  //     let station = 'https://api.weather.gov/stations/mhm66'; // 3 index
 
-      const gridPointsRequest = axios.get(gridPoints); // 0
-      const forecastRequest = axios.get(forecast); // 1
-      const latestRequest = axios.get(latest); // 2
-      const stationRequest = axios.get(station); // 3
+  //     const gridPointsRequest = axios.get(gridPoints); // 0
+  //     const forecastRequest = axios.get(forecast); // 1
+  //     const latestRequest = axios.get(latest); // 2
+  //     const stationRequest = axios.get(station); // 3
 
-      // each endpoint is stored in an array and parsed with responses below. 
-      // 0 is the grid points index
-      // 1 is the forecast
-      // 2 is the latest aka current info
-      // 3 is the location name
-      await axios.all([gridPointsRequest, forecastRequest, latestRequest, stationRequest])
-        .then(axios.spread((...responses) => {
-          // zero response index
-          const elevation = (responses[0].data.properties.elevation.value / 0.3048).toFixed();
-          const maxTemp = (responses[0].data.properties.maxTemperature.values[0].value * 1.8 + 32).toFixed();
-          const minTemp = (responses[0].data.properties.minTemperature.values[0].value * 1.8 + 32).toFixed();
-          // Single value. Should be closest to the current time. Not the case at the moment. 
-          const snowLevel = (responses[0].data.properties.snowLevel.values[0].value / 0.3048).toFixed(0);
-          // console.log(moment().format('dddd MMMM, h:mm:ss a'));
+  //     // each endpoint is stored in an array and parsed with responses below. 
+  //     // 0 is the grid points index
+  //     // 1 is the forecast
+  //     // 2 is the latest aka current info
+  //     // 3 is the location name
+  //     await axios.all([gridPointsRequest, forecastRequest, latestRequest, stationRequest])
+  //       .then(axios.spread((...responses) => {
+  //         // zero response index
+  //         const elevation = (responses[0].data.properties.elevation.value / 0.3048).toFixed();
+  //         const maxTemp = (responses[0].data.properties.maxTemperature.values[0].value * 1.8 + 32).toFixed();
+  //         const minTemp = (responses[0].data.properties.minTemperature.values[0].value * 1.8 + 32).toFixed();
+  //         // Single value. Should be closest to the current time. Not the case at the moment. 
+  //         const snowLevel = (responses[0].data.properties.snowLevel.values[0].value / 0.3048).toFixed(0);
+  //         // console.log(moment().format('dddd MMMM, h:mm:ss a'));
 
-          let days = [];
-          let hours = [];
-          let dates = [];
-          let freezeValues = [];
-          let freezingLevels = [];
+  //         let days = [];
+  //         let hours = [];
+  //         let dates = [];
+  //         let freezeValues = [];
 
-          let weekDay = ''; // sat
-          let altitude = 0;
+  //         let weekDay = ''; // sat
 
-          let wkDay = '';
-          let hiLo = [];
-          let hi = 0;
-          let low = 0;
-          let data = {};
+  //         responses[0].data.properties.snowLevel.values.map(value => {
 
-          let dayy = '';
+  //           // validTime format from NOAA
+  //           let time = value.validTime;
+  //           time = [...time];
+  //           time = [...time].splice(0,25).join('');
 
-          responses[0].data.properties.snowLevel.values.map(value => {
-
-            // validTime format from NOAA
-            let time = value.validTime;
-            time = [...time];
-            time = [...time].splice(0,25).join('');
-
-            // Idividual Day
-            let day = moment(time).tz("America/Los_Angeles").format("ddd");
-            days.push(day);
+  //           // Idividual Day
+  //           let day = moment(time).tz("America/Los_Angeles").format("ddd");
+  //           days.push(day);
             
-            // Time of day
-            let hour = moment(time).tz('America/Los_Angeles').format('LT');
-            hours.push(hour);
+  //           // Time of day
+  //           let hour = moment(time).tz('America/Los_Angeles').format('LT');
+  //           hours.push(hour);
 
-            // Date
-            let date = moment(time).tz('America/Los_Angeles').format('MMM Do')
-            dates.push(date);
+  //           // Date
+  //           let date = moment(time).tz('America/Los_Angeles').format('MMM Do')
+  //           dates.push(date);
 
-            // Level that freezing oocurs. 
-            let freeze = parseInt((value.value / 0.3048).toFixed(0));
-            // console.log('Day-----', day, '---Hour------', hour, '---Freeze Level-----', freeze)
+  //           // Level that freezing oocurs. 
+  //           let freeze = parseInt((value.value / 0.3048).toFixed(0));
+  //           // console.log('Day-----', day, '---Hour------', hour, '---Freeze Level-----', freeze)
 
-            // function test() {
-            // if(day !== weekDay && freeze > altitude){
-            //     altitude = freeze;
-            //     data = {day: day, alt: freeze}
-            //     console.log(data)                
-            //     weekDay = day; 
-            //   } else {
-            //     data = {day: day, alt: freeze}
-            //     console.log(data)
-            //   }
-            // }
-            // test();
+  //           (function freezeLevels() {
+  //           if(day !== weekDay){
+  //               freezeValues.push({
+  //                 day: day, 
+  //                 alt: freeze,
+  //                 hour: hour
+  //               });  
+  //               weekDay = day; 
+  //             } else {
+  //               freezeValues.push({
+  //                 day: '',
+  //                 alt: freeze,
+  //                 hour: hour
+  //               })
+  //             }
+  //           }());
+  //           // freezeLevels();
 
-            function freezeLevels() {
-            if(day !== weekDay){
-                freezeValues.push({
-                  day: day, 
-                  alt: freeze,
-                  hour: hour
-                });  
-                weekDay = day; 
-              } else {
-                freezeValues.push({
-                  day: '',
-                  alt: freeze,
-                  hour: hour
-                })
-              }
-            }
-            freezeLevels();
+  //           // console.log(freezeValues);
 
-            // All freeze values, including multiple values for each day of the week. For reference. 
-            // Hi and low levels on a given day.
-            function hiLow(){
-              // if(wkDay === ''){
-              //   hiLo.push(freeze)
-              //   hi = Math.max(...hiLo);
-              //   low = Math.min(...hiLo)
-              //   console.log({day: day, high: hi, Hi_Index: hiLo.indexOf(hi), low: low, Low_Index: hiLo.indexOf(low), hour: hour})
+  //           function freezeLevelGraphData() {
+  //             console.log('Freeze Level Data Shaped')
+  //           };
 
-                // freezingLevels.push({day: wkDay, high: hi, Hi_Index: hiLo.indexOf(hi), low: low, Low_Index: hiLo.indexOf(low), hour: hour})
-                freezeValues.map(value => {
-                  if(value.day !== '') {
-                    dayy = value.day;
-                  }
-                  if(value.alt > hi) {
-                    hi = value.alt;
-                  }
-                })
-                console.log(dayy, hi)
+  //           // freezeLevelGraphData();
 
-               
-            }
-            hiLow();
+  //           setDayFreezeData({
+  //             ...dayFreezeData,
+  //             freezeValues
+  //           })
 
-            console.log(freezeValues)
-            // console.log(freezingLevels)
+  //           // Sets the data to state. 
+  //           setDays(days);
+  //           setHours(hours);
+  //           setDates(dates);
+  //           setSnowlevel(snowLevel)
+  //         })
 
-            setDayFreezeData({
-              ...dayFreezeData,
-              freezeValues
-            })
+  //         // Specific location data.
+  //         const snowFallAmount = (responses[0].data.properties.snowfallAmount.values[3].value / 25.4).toFixed(0);
+  //         const probability = (responses[0].data.properties.probabilityOfPrecipitation.values[3].value).toFixed(0);
 
-            // Sets the data to state. 
-            setDays(days);
-            setHours(hours);
-            setDates(dates);
-            setSnowlevel(snowLevel)
-          })
+  //         // One response index
+  //         const forecast = responses[1].data.properties.periods[0].detailedForecast
 
-          // Specific location data.
-          const snowFallAmount = (responses[0].data.properties.snowfallAmount.values[3].value / 25.4).toFixed(0);
-          const probability = (responses[0].data.properties.probabilityOfPrecipitation.values[3].value).toFixed(0);
+  //         // two response index
+  //         const currTemp = (responses[2].data.properties.temperature.value * 1.8 + 32).toFixed(0);
+  //         const windSpeed = (responses[2].data.properties.windSpeed.value / 1.609).toFixed(0);
+  //         const windGust = (responses[2].data.properties.windGust.value / 1.609).toFixed(0);
+  //         const windChill = (responses[2].data.properties.windChill.value * 1.8 + 32).toFixed(0);
 
-          // One response index
-          const forecast = responses[1].data.properties.periods[0].detailedForecast
+  //         // three response index
+  //         const locationName = responses[3].data.properties.name;
 
-          // two response index
-          const currTemp = (responses[2].data.properties.temperature.value * 1.8 + 32).toFixed(0);
-          const windSpeed = (responses[2].data.properties.windSpeed.value / 1.609).toFixed(0);
-          const windGust = (responses[2].data.properties.windGust.value / 1.609).toFixed(0);
-          const windChill = (responses[2].data.properties.windChill.value * 1.8 + 32).toFixed(0);
+  //         setData({
+  //           ...data,
+  //           elevation, maxTemp, minTemp, snowLevel, currTemp, locationName, forecast, windSpeed, windGust, windChill, snowFallAmount, probability
+  //         })
+  //       }))
+  //       .catch(err => {
+  //         console.log(err);
+  //     })
 
-          // three response index
-          const locationName = responses[3].data.properties.name;
+  //   }
 
-          setData({
-            ...data,
-            elevation, maxTemp, minTemp, snowLevel, currTemp, locationName, forecast, windSpeed, windGust, windChill, snowFallAmount, probability
-          })
-        }))
-        .catch(err => {
-          console.log(err);
-      })
+  //     data();
+  // },[])
 
+
+    let hiLow = [];
+    let hi = 0;
+    let low = 0;
+
+    function ParseHiLow() {
+      if(dayFreezeData.freezeValues === undefined) {
+        return
+      } else {
+        dayFreezeData.freezeValues.map(value => {
+          hiLow.push(value.alt);
+        })
+      
+        console.log("High Low", hiLow)
+
+        return [hi = Math.max(...hiLow), low = Math.min(...hiLow)]; 
+      } 
     }
+    ParseHiLow();
 
-      data();
-  },[])
+    console.log("hi low", hi, low);
+
+    let chartObjects = [];
+
+    (function CreateObject() {
+      if(dayFreezeData.freezeValues === undefined){
+        return 
+      } else {
+        dayFreezeData.freezeValues.map(value => {
+            if(value.alt === hi){
+              
+              chartObjects.push({hi: hi, index: dayFreezeData.freezeValues.indexOf(value)})
+              
+            }
+            if(value.alt === low){
+              chartObjects.push({low: low, index: dayFreezeData.freezeValues.indexOf(value)})
+            }
+          })
+          console.log(chartObjects)
+        }
+    }())
   
 	return (
 		<div id={styles.noaa}>
@@ -224,7 +225,15 @@ function NoaaApp(props) {
         />
       </div>
 
-      <DataShape/>
+    {/* Data from freezing level graph module. This shapes the objects for the graph to display. */}
+      <DataShape
+        setData={setData}
+        setDays={setDays}
+        setHours={setHours}
+        setDates={setDates}
+        setDayFreezeData={setDayFreezeData}
+        setSnowlevel={setSnowlevel}
+      />
 		</div>
 	);
 }
