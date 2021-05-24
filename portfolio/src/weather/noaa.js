@@ -31,8 +31,8 @@ function NoaaApp(props) {
     let hiLow = [];
     let hi = 0;
     let low = 0;
+    // let day = dayFreezeData.freezeValues[0].day;
     let day = '';
-
     let count = 0;
 
     function ParseHiLow() {
@@ -40,18 +40,21 @@ function NoaaApp(props) {
         return
       } else {
         dayFreezeData.freezeValues.map(value => {
-          if (day === '' || day !== day) {
+          if (day === '') {
             day = value.day;
             console.log(day)
           }
 
           if(value.day === day) {
             hiLow.push(value.alt);  
-            // console.log(hiLow)
+
+            console.log('DAY', value.day, 'HiLow Array', hiLow)
           } else if (value.day !== day) {
-            console.log("High Low", hiLow)
+            console.log('DAY', value.day, "------------HiLow Array", hiLow)
             console.log('HIGH', Math.max(...hiLow), 'LOW', Math.min(...hiLow), 'DAY', value.day)
             hiLow = [];
+            hiLow.push(value.alt)
+            
             hi = 0;
             low = 0;
             day = value.day;
