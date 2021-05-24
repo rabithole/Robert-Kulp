@@ -16,6 +16,8 @@ function NoaaApp(props) {
   const [days, setDays] = useState([]);
   const [hour, setHours] = useState([]);
   const [date, setDates] = useState([]);
+  const [test, setTest] = useState([]);
+  console.log(test);
 
   // Data that is passed to the Freezing Level component
   const [dayFreezeData, setDayFreezeData] = useState([]);
@@ -23,7 +25,116 @@ function NoaaApp(props) {
 
   const [snowLevel, setSnowlevel] = useState([]);
 
-  // let moment = require('moment-timezone');
+ 
+
+    let shapedData = [];
+    let hiLow = [];
+    let hi = 0;
+    let low = 0;
+    let day = '';
+
+    let count = 0;
+
+    function ParseHiLow() {
+      if(dayFreezeData.freezeValues === undefined) {
+        return
+      } else {
+        dayFreezeData.freezeValues.map(value => {
+          if (day === '' || day !== day) {
+            day = value.day;
+            console.log(day)
+          }
+
+          if(value.day === day) {
+            hiLow.push(value.alt);  
+            // console.log(hiLow)
+          } else if (value.day !== day) {
+            console.log("High Low", hiLow)
+            console.log('HIGH', Math.max(...hiLow), 'LOW', Math.min(...hiLow), 'DAY', value.day)
+            hiLow = [];
+            hi = 0;
+            low = 0;
+            day = value.day;
+          }
+        })
+        
+        // return [hi = Math.max(...hiLow), low = Math.min(...hiLow)]; 
+      } 
+    }
+    ParseHiLow();
+
+    // console.log("hi low", hi, low);
+
+    // let chartObjects = [];
+
+    // (function CreateObject() {
+    //   if(dayFreezeData.freezeValues === undefined){
+    //     return 
+    //   } else {
+    //     dayFreezeData.freezeValues.map(value => {
+    //         if(value.alt === hi){
+              
+    //           chartObjects.push({hi: hi, index: dayFreezeData.freezeValues.indexOf(value)})
+              
+    //         }
+    //         if(value.alt === low){
+    //           chartObjects.push({low: low, index: dayFreezeData.freezeValues.indexOf(value)})
+    //         }
+    //       })
+    //       console.log(chartObjects)
+    //     }
+    // }())
+  
+	return (
+		<div id={styles.noaa}>
+      <Temperature 
+        maxTemp={data.maxTemp}
+        minTemp={data.minTemp}
+        currTemp={data.currTemp}
+      />
+      
+      <Freezing 
+        key={Math.random()}
+        // days={days}
+        // hours={hour}
+        // dates={date}
+        dayFreezeData={dayFreezeData}
+        snowLevel={snowLevel}
+      />
+      
+      <div className={styles.sideBySide}>
+        <Forecast
+          forecast={data.forecast}
+        />
+
+        <Location
+          location={data.locationName}
+          elevation={data.elevation}
+          windSpeed={data.windSpeed}
+          windGust={data.windGust}
+          windChill={data.windChill}
+          snowFallAmount={data.snowFallAmount}
+          probability={data.probability}
+        />
+      </div>
+
+    {/* Data from freezing level graph module. This shapes the objects for the graph to display. */}
+      <DataShape
+        setData={setData}
+        setDays={setDays}
+        setHours={setHours}
+        setDates={setDates}
+        setDayFreezeData={setDayFreezeData}
+        setSnowlevel={setSnowlevel}
+      />
+		</div>
+	);
+}
+
+export default NoaaApp;
+
+
+ // let moment = require('moment-timezone');
 
   // useEffect(() => {
   //   async function data() {
@@ -140,7 +251,7 @@ function NoaaApp(props) {
   //           ...data,
   //           elevation, maxTemp, minTemp, snowLevel, currTemp, locationName, forecast, windSpeed, windGust, windChill, snowFallAmount, probability
   //         })
-  //       }))
+  //      test, setTest  = useState([]);}))
   //       .catch(err => {
   //         console.log(err);
   //     })
@@ -149,93 +260,3 @@ function NoaaApp(props) {
 
   //     data();
   // },[])
-
-
-    let hiLow = [];
-    let hi = 0;
-    let low = 0;
-
-    function ParseHiLow() {
-      if(dayFreezeData.freezeValues === undefined) {
-        return
-      } else {
-        dayFreezeData.freezeValues.map(value => {
-          hiLow.push(value.alt);
-        })
-      
-        console.log("High Low", hiLow)
-
-        return [hi = Math.max(...hiLow), low = Math.min(...hiLow)]; 
-      } 
-    }
-    ParseHiLow();
-
-    console.log("hi low", hi, low);
-
-    let chartObjects = [];
-
-    (function CreateObject() {
-      if(dayFreezeData.freezeValues === undefined){
-        return 
-      } else {
-        dayFreezeData.freezeValues.map(value => {
-            if(value.alt === hi){
-              
-              chartObjects.push({hi: hi, index: dayFreezeData.freezeValues.indexOf(value)})
-              
-            }
-            if(value.alt === low){
-              chartObjects.push({low: low, index: dayFreezeData.freezeValues.indexOf(value)})
-            }
-          })
-          console.log(chartObjects)
-        }
-    }())
-  
-	return (
-		<div id={styles.noaa}>
-      <Temperature 
-        maxTemp={data.maxTemp}
-        minTemp={data.minTemp}
-        currTemp={data.currTemp}
-      />
-      
-      <Freezing 
-        key={Math.random()}
-        days={days}
-        hours={hour}
-        dates={date}
-        dayFreezeData={dayFreezeData}
-        snowLevel={snowLevel}
-      />
-      
-      <div className={styles.sideBySide}>
-        <Forecast
-          forecast={data.forecast}
-        />
-
-        <Location
-          location={data.locationName}
-          elevation={data.elevation}
-          windSpeed={data.windSpeed}
-          windGust={data.windGust}
-          windChill={data.windChill}
-          snowFallAmount={data.snowFallAmount}
-          probability={data.probability}
-        />
-      </div>
-
-    {/* Data from freezing level graph module. This shapes the objects for the graph to display. */}
-      <DataShape
-        setData={setData}
-        setDays={setDays}
-        setHours={setHours}
-        setDates={setDates}
-        setDayFreezeData={setDayFreezeData}
-        setSnowlevel={setSnowlevel}
-      />
-		</div>
-	);
-}
-
-export default NoaaApp;

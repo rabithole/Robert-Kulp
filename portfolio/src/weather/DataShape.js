@@ -75,20 +75,25 @@ function DataShape(props) {
             // console.log('Day-----', day, '---Hour------', hour, '---Freeze Level-----', freeze)
 
             function freezeLevels() {
-            if(day !== weekDay){
-                freezeValues.push({
-                  day: day, 
-                  alt: freeze,
-                  hour: hour
-                });  
-                weekDay = day; 
-              } else {
-                freezeValues.push({
-                  day: '',
-                  alt: freeze,
-                  hour: hour
-                })
-              }
+              freezeValues.push({
+                day: day,
+                alt: freeze,
+                hour: hour
+              })
+            // if(day !== weekDay){
+            //     freezeValues.push({
+            //       day: day, 
+            //       alt: freeze,
+            //       hour: hour
+            //     });  
+            //     weekDay = day; 
+            //   } else {
+            //     freezeValues.push({
+            //       day: '',
+            //       alt: freeze,
+            //       hour: hour
+            //     })
+            //   }
             }
             freezeLevels();
 
