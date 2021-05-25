@@ -48,8 +48,18 @@ function NoaaApp(props) {
             hiLow.push(value.alt);  
 
             console.log('DAY', value.day, 'HiLow Array', hiLow)
+            hi = Math.max(...hiLow);
+            low = Math.min(...hiLow);
+            console.log('High', hi, 'Index', hiLow.indexOf(hi), 'Low', low, 'Index', hiLow.indexOf(low))
+            shapedData.push({
+              day: value.day,
+              high: hi,
+              // index: Math.max(...hiLow).indexOf(value),
+              low: low
+            })
+            console.log('Shaped Data', shapedData)
           } else if (value.day !== day) {
-            console.log("------------HiLow Array", hiLow)
+            // console.log("------------HiLow Array", hiLow)
             console.log('HIGH', Math.max(...hiLow), 'LOW', Math.min(...hiLow))
             hiLow = [];
             hiLow.push(value.alt)
